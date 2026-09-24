@@ -1,71 +1,199 @@
-/* ============================================================
-   RASHKA BARRE VIDEO STORE — PRODUCTS
-   ============================================================
+// ============================================================
+// RASHKA BARRE VIDEO STORE — MAIN SCRIPT
+// ============================================================
 
-   HOW TO ADD A NEW VIDEO
-   -----------------------
-   1. Put the thumbnail image inside the  images/  folder.
-   2. (Optional) Put a short preview clip inside the  videos/  folder.
-   3. Copy one of the product objects below and paste it at the top
-      of the PRODUCTS list.
-   4. Change the id, title, description, price, thumbnail, preview
-      and paymentUrl.
-   5. Save this file and upload it to GitHub.
+document.addEventListener("DOMContentLoaded", () => {
+  const products = window.PRODUCTS || [];
+  const videoGrid = document.getElementById("videoGrid");
+  const emptyState = document.getElementById("emptyState");
 
-   IMPORTANT SECURITY WARNING
-   --------------------------
-   GitHub Pages is PUBLIC hosting. Anything you upload here can be
-   downloaded by anyone who knows the link.
-   NEVER upload your full paid videos here. Only upload:
-     - thumbnails (images)
-     - short promotional previews (a few seconds / low quality)
-   The full paid video must be delivered later through a secure
-   video hosting / delivery service, NOT through this repository.
+  // ----------------------------------------------------------
+  // Render video cards
+  // ----------------------------------------------------------
 
-   PAYMENT
-   -------
-   For now, every product uses paymentUrl: "#".
-   Later, replace "#" with your real checkout link, for example a
-   WaafiPay, EVC Plus, E-Dahab, Salaam Mastercard or other payment
-   provider checkout URL. The website reads this field automatically,
-   so you do NOT need to change any other file.
-   ============================================================ */
+  if (!videoGrid) return;
 
-const PRODUCTS = [
-
-  {
-    id: "video-001",
-    title: "Mogadishu After Dark",
-    description: "A cinematic night-time journey through the streets, sounds and stories of Mogadishu.",
-    price: "$5",
-    thumbnail: "images/thumb-001.jpg",
-    preview: "videos/preview-001.mp4",
-    paymentUrl: "#"
-  },
-
-  {
-    id: "video-002",
-    title: "The Long Road Home",
-    description: "An intimate documentary about returning to a place you thought you had left behind.",
-    price: "$7",
-    thumbnail: "images/thumb-002.jpg",
-    preview: "videos/preview-002.mp4",
-    paymentUrl: "#"
-  },
-
-  {
-    id: "video-003",
-    title: "Coastlines",
-    description: "A quiet, visual experience along the Somali coastline — light, water and time.",
-    price: "$5",
-    thumbnail: "images/thumb-003.jpg",
-    preview: "",
-    paymentUrl: "#"
+  if (products.length === 0) {
+    if (emptyState) emptyState.hidden = false;
+    return;
   }
 
-];
+  videoGrid.innerHTML = products.map((product) => {
+    const previewButton = product.preview
+      ? `
+        <button class="btn btn-outline btn-sm preview-btn"
+                data-preview="${escapeHtml(product.preview)}"
+                data-title="${escapeHtml(product.title)}"
+                data-desc="${escapeHtml(product.description)}">
+          Preview
+        </button>
+      `
+      : "";
 
-/* ============================================================
-   DO NOT EDIT BELOW THIS LINE
-   ============================================================ */
-window.PRODUCTS = PRODUCTS;
+    return `
+      <article class="video-card">
+        <div class="card-thumb">
+          <img
+            src="${escapeHtml(product.thumbnail)}"
+            alt="${escapeHtml(product.title)}"
+            loading="lazy"
+            onerror="this.style.display='none';"
+          >
+
+          <div class="card-price">
+            ${escapeHtml(product.price)}
+          </div>
+
+          ${
+            product.preview
+              ? `
+                <div class="card-play">
+                  <button class="card-play-btn preview-btn"
+                          data-preview="${escapeHtml(product.preview)}"
+                          data-title="${escapeHtml(product.title)}"
+                          data-desc="${escapeHtml(product.description)}"
+                          aria-label="Preview ${escapeHtml(product.title)}">
+                    <svg width="22" height="22" viewBox="0 0 24 24"
+                         fill="white" stroke="white" stroke-width="2"
+                         stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="8 5 19 12 8 19 8 5"></polygon>
+                    </svg>
+                  </button>
+                </div>
+              `
+              : ""
+          }
+        </div>
+
+        <div class="card-body">
+          <h3 class="card-title">${escapeHtml(product.title)}</h3>
+
+          <p class="card-desc">
+            ${escapeHtml(product.description)}
+          </p>
+
+          <div class="card-actions">
+            ${previewButton}
+
+            <a
+              class="btn btn-primary btn-sm buy-btn"
+              href="${escapeHtml(product.paymentUrl || "#")}"
+              data-product="${escapeHtml(product.title)}">
+              Buy for ${escapeHtml(product.price)}
+            </a>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+
+  // ----------------------------------------------------------
+  // Preview modal
+  // ----------------------------------------------------------
+
+  const modal = document.getElementById("previewModal");
+  const previewVideo = document.getElementById("previewVideo");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDesc = document.getElementById("modalDesc");
+
+  document.querySelectorAll(".preview-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      if (!modal || !previewVideo) return;
+
+      const preview = button.dataset.preview;
+      const title = button.dataset.title || "Preview";
+      const desc = button.dataset.desc || "";
+
+      previewVideo.src = preview;
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+
+      previewVideo.play().catch(() => {});
+    });
+  });
+
+  document.querySelectorAll("[data-close-modal]").forEach((button) => {
+    button.addEventListener("click", closeModal);
+  });
+
+  function closeModal() {
+    if (!modal || !previewVideo) return;
+
+    previewVideo.pause();
+    previewVideo.removeAttribute("src");
+    previewVideo.load();
+
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  });
+
+  // ----------------------------------------------------------
+  // Buy buttons
+  // ----------------------------------------------------------
+
+  document.querySelectorAll(".buy-btn").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const href = button.getAttribute("href");
+
+      if (!href || href === "#") {
+        event.preventDefault();
+        alert(
+          "Payment is not connected yet. The purchase system will be added soon."
+        );
+      }
+    });
+  });
+
+  // ----------------------------------------------------------
+  // Mobile navigation
+  // ----------------------------------------------------------
+
+  const navToggle = document.getElementById("navToggle");
+  const primaryNav = document.getElementById("primaryNav");
+
+  if (navToggle && primaryNav) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = primaryNav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    primaryNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        primaryNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  // ----------------------------------------------------------
+  // Current year
+  // ----------------------------------------------------------
+
+  const year = document.getElementById("year");
+
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
+});
+
+// ------------------------------------------------------------
+// Small HTML escaping helper
+// ------------------------------------------------------------
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
