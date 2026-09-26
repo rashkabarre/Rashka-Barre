@@ -8,10 +8,7 @@
     content="width=device-width, initial-scale=1.0, viewport-fit=cover"
   >
 
-  <meta
-    name="theme-color"
-    content="#080808"
-  >
+  <meta name="theme-color" content="#080808">
 
   <title>Rashka Barre — Videos</title>
 
@@ -68,7 +65,6 @@
       font: inherit;
     }
 
-
     /* =====================================================
        MAIN
        ===================================================== */
@@ -79,7 +75,6 @@
       margin: 0 auto;
       padding: 24px 20px 65px;
     }
-
 
     /* =====================================================
        BRAND BANNER
@@ -120,61 +115,40 @@
       width: 100px;
       height: 100px;
       flex: 0 0 100px;
-
       object-fit: contain;
-
       padding: 7px;
 
-      border:
-        1px solid
-        rgba(255,255,255,0.08);
-
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 16px;
 
-      background:
-        rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
     }
 
     .banner-kicker {
       margin: 0 0 7px;
-
       color: #c9c9c9;
-
       font-size: 10px;
       font-weight: 800;
-
       letter-spacing: 2px;
-
       text-transform: uppercase;
     }
 
     .banner-title {
       margin: 0;
-
       color: #ffffff;
-
-      font-size:
-        clamp(36px, 5vw, 56px);
-
+      font-size: clamp(36px, 5vw, 56px);
       line-height: 1;
-
       font-weight: 900;
-
       letter-spacing: -1.8px;
     }
 
     .banner-text {
       max-width: 650px;
-
       margin: 10px 0 0;
-
       color: #b4b4b4;
-
       font-size: 14px;
-
       line-height: 1.55;
     }
-
 
     /* =====================================================
        SEARCH
@@ -191,17 +165,11 @@
 
     .search-icon {
       position: absolute;
-
       top: 50%;
       left: 16px;
-
-      transform:
-        translateY(-50%);
-
+      transform: translateY(-50%);
       color: #777;
-
       font-size: 18px;
-
       pointer-events: none;
     }
 
@@ -209,18 +177,14 @@
       width: 100%;
       height: 50px;
 
-      padding:
-        0 17px 0 47px;
+      padding: 0 17px 0 47px;
 
-      border:
-        1px solid var(--border);
-
+      border: 1px solid var(--border);
       border-radius: 9px;
 
       outline: none;
 
       background: var(--surface);
-
       color: #ffffff;
 
       font-size: 14px;
@@ -235,41 +199,30 @@
       background: #151515;
     }
 
-
     /* =====================================================
        GALLERY INFO
        ===================================================== */
 
     .gallery-info {
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       gap: 15px;
-
       margin-bottom: 16px;
     }
 
     .gallery-count {
       margin: 0;
-
       color: #ffffff;
-
       font-size: 12px;
-
       font-weight: 700;
     }
 
     .gallery-order {
       color: var(--muted);
-
       font-size: 11px;
-
       white-space: nowrap;
     }
-
 
     /* =====================================================
        VIDEO GRID
@@ -277,17 +230,10 @@
 
     #videoGrid {
       display: grid;
-
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-      column-gap:
-        var(--column-gap);
-
-      row-gap:
-        var(--row-gap);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--column-gap);
+      row-gap: var(--row-gap);
     }
-
 
     /* =====================================================
        VIDEO ITEM
@@ -297,9 +243,8 @@
       min-width: 0;
     }
 
-
     /* =====================================================
-       VIDEO TITLE
+       TITLE
        ===================================================== */
 
     .video-title {
@@ -308,7 +253,6 @@
       color: #ffffff;
 
       font-size: 24px;
-
       line-height: 1.1;
 
       font-weight: 900;
@@ -318,42 +262,30 @@
       text-transform: uppercase;
 
       display: -webkit-box;
-
       -webkit-box-orient: vertical;
-
       -webkit-line-clamp: 2;
 
       overflow: hidden;
     }
-
 
     /* =====================================================
        SUBTITLE
        ===================================================== */
 
     .video-subtitle {
-      margin:
-        5px 0 11px;
+      margin: 5px 0 11px;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        13px;
+      font-size: 13px;
+      line-height: 1.4;
 
-      line-height:
-        1.4;
+      font-weight: 400;
 
-      font-weight:
-        400;
+      text-transform: none;
 
-      text-transform:
-        none;
-
-      min-height:
-        18px;
+      min-height: 18px;
     }
-
 
     /* =====================================================
        THUMBNAIL
@@ -363,24 +295,19 @@
       position: relative;
 
       width: 100%;
-
       aspect-ratio: 16 / 9;
 
       overflow: hidden;
 
       background: #101010;
 
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        var(--radius);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
     }
 
     .thumbnail img {
       width: 100%;
       height: 100%;
-
       object-fit: cover;
 
       transition:
@@ -392,18 +319,74 @@
       display: block;
     }
 
-    .thumbnail-link:hover
-    .thumbnail img {
-      transform:
-        scale(1.025);
-
-      filter:
-        brightness(0.88);
+    .thumbnail-link:hover .thumbnail img {
+      transform: scale(1.025);
+      filter: brightness(0.88);
     }
 
+    /* =====================================================
+       OVERLAY ON COMING-SOON THUMBNAILS
+       ===================================================== */
+
+    .coming-soon-overlay {
+      position: absolute;
+      inset: 0;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 9px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.20),
+          rgba(0, 0, 0, 0.72)
+        );
+    }
+
+    .coming-soon-episode {
+      color: #ffffff;
+
+      font-size: clamp(28px, 4vw, 44px);
+
+      line-height: 1;
+
+      font-weight: 900;
+
+      letter-spacing: -1px;
+
+      text-transform: uppercase;
+
+      text-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    .coming-soon-label {
+      padding: 6px 9px;
+
+      border-radius: 5px;
+
+      background: rgba(0, 0, 0, 0.62);
+
+      color: #ffffff;
+
+      font-size: 10px;
+
+      font-weight: 900;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+    }
 
     /* =====================================================
-       TRAILER LABEL
+       TRAILER BADGE
        ===================================================== */
 
     .trailer-badge {
@@ -414,13 +397,11 @@
 
       z-index: 5;
 
-      padding:
-        6px 9px;
+      padding: 6px 9px;
 
       border-radius: 5px;
 
-      background:
-        var(--accent);
+      background: var(--accent);
 
       color: #ffffff;
 
@@ -433,74 +414,6 @@
       text-transform: uppercase;
     }
 
-
-    /* =====================================================
-       LARGE COMING SOON TEXT
-       ===================================================== */
-
-    .coming-soon-box {
-      position: absolute;
-
-      inset: 0;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      text-align: center;
-
-      background:
-        linear-gradient(
-          135deg,
-          #1c1c1c,
-          #0c0c0c
-        );
-    }
-
-    .coming-soon-content {
-      display: flex;
-
-      flex-direction: column;
-
-      align-items: center;
-
-      justify-content: center;
-
-      gap: 8px;
-    }
-
-    .coming-soon-main {
-      color: #ffffff;
-
-      font-size:
-        clamp(25px, 4vw, 45px);
-
-      line-height: 1;
-
-      font-weight: 900;
-
-      letter-spacing:
-        -1px;
-
-      text-transform:
-        uppercase;
-    }
-
-    .coming-soon-label {
-      color: #929292;
-
-      font-size: 10px;
-
-      font-weight: 800;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-    }
-
-
     /* =====================================================
        NEW BADGE
        ===================================================== */
@@ -508,22 +421,20 @@
     .new-badge {
       position: absolute;
 
-      top: 9px;
-      left: 9px;
+      top: 10px;
+      right: 10px;
 
       z-index: 5;
 
-      padding:
-        5px 7px;
+      padding: 6px 8px;
 
       border-radius: 5px;
 
-      background:
-        var(--accent);
+      background: var(--accent);
 
       color: #ffffff;
 
-      font-size: 8px;
+      font-size: 9px;
 
       font-weight: 900;
 
@@ -532,9 +443,8 @@
       text-transform: uppercase;
     }
 
-
     /* =====================================================
-       PRICE + BUY
+       PRICE + BUTTON
        ===================================================== */
 
     .video-footer {
@@ -563,177 +473,126 @@
       display: inline-flex;
 
       align-items: center;
-
       justify-content: center;
 
       min-height: 36px;
 
-      padding:
-        8px 14px;
+      padding: 8px 14px;
 
       border-radius: 7px;
 
-      background:
-        var(--accent);
+      background: var(--accent);
 
-      color:
-        #ffffff;
+      color: #ffffff;
 
-      font-size:
-        11px;
+      font-size: 11px;
 
-      font-weight:
-        800;
+      font-weight: 800;
 
-      white-space:
-        nowrap;
+      white-space: nowrap;
     }
 
     .buy-button:hover {
-      background:
-        var(--accent-hover);
+      background: var(--accent-hover);
     }
-
-
-    /* =====================================================
-       DESCRIPTION
-       ===================================================== */
-
-    .video-description {
-      margin:
-        10px 0 0;
-
-      color:
-        var(--muted);
-
-      font-size:
-        13px;
-
-      line-height:
-        1.6;
-
-      display:
-        -webkit-box;
-
-      -webkit-box-orient:
-        vertical;
-
-      -webkit-line-clamp:
-        4;
-
-      overflow:
-        hidden;
-    }
-
 
     /* =====================================================
        COMING SOON STATUS
        ===================================================== */
 
     .status-badge {
-      margin-top:
-        10px;
+      margin-top: 10px;
 
-      display:
-        inline-flex;
+      display: inline-flex;
+      align-items: center;
 
-      align-items:
-        center;
+      min-height: 28px;
 
-      min-height:
-        28px;
+      padding: 6px 9px;
 
-      padding:
-        6px 9px;
+      border: 1px solid var(--border);
 
-      border:
-        1px solid var(--border);
+      border-radius: 6px;
 
-      border-radius:
-        6px;
+      color: var(--muted);
 
-      color:
-        var(--muted);
+      font-size: 9px;
 
-      font-size:
-        9px;
+      font-weight: 800;
 
-      font-weight:
-        800;
+      letter-spacing: 0.8px;
 
-      letter-spacing:
-        0.8px;
-
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
+    /* =====================================================
+       DESCRIPTION
+       ===================================================== */
+
+    .video-description {
+      margin: 10px 0 0;
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      line-height: 1.6;
+
+      display: -webkit-box;
+
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+
+      overflow: hidden;
+    }
 
     /* =====================================================
        NO RESULTS
        ===================================================== */
 
     .no-results {
-      grid-column:
-        1 / -1;
+      grid-column: 1 / -1;
 
-      padding:
-        50px 20px;
+      padding: 50px 20px;
 
-      border:
-        1px dashed var(--border);
+      border: 1px dashed var(--border);
 
-      border-radius:
-        10px;
+      border-radius: 10px;
 
-      text-align:
-        center;
+      text-align: center;
 
-      color:
-        var(--muted);
+      color: var(--muted);
     }
 
     .no-results h3 {
-      margin:
-        0 0 7px;
+      margin: 0 0 7px;
 
-      color:
-        #ffffff;
+      color: #ffffff;
 
-      font-size:
-        18px;
+      font-size: 18px;
     }
 
     .no-results p {
-      margin:
-        0;
+      margin: 0;
 
-      font-size:
-        13px;
+      font-size: 13px;
     }
-
 
     /* =====================================================
        FOOTER
        ===================================================== */
 
     .footer {
-      border-top:
-        1px solid var(--border);
+      border-top: 1px solid var(--border);
 
-      padding:
-        22px 20px;
+      padding: 22px 20px;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        11px;
+      font-size: 11px;
 
-      text-align:
-        center;
+      text-align: center;
     }
-
 
     /* =====================================================
        MOBILE / WEBVIEW
@@ -742,310 +601,177 @@
     @media (max-width: 700px) {
 
       .container {
-        padding:
-          14px 12px
-          45px;
+        padding: 14px 12px 45px;
       }
-
 
       .banner {
-        min-height:
-          165px;
-
-        margin-bottom:
-          15px;
-
-        border-radius:
-          11px;
+        min-height: 165px;
+        border-radius: 11px;
       }
-
 
       .banner-inner {
-        min-height:
-          165px;
-
-        padding:
-          18px;
-
-        gap:
-          14px;
+        min-height: 165px;
+        padding: 18px;
+        gap: 14px;
       }
-
 
       .banner-logo {
-        width:
-          70px;
-
-        height:
-          70px;
-
-        flex-basis:
-          70px;
-
-        padding:
-          5px;
-
-        border-radius:
-          11px;
+        width: 70px;
+        height: 70px;
+        flex-basis: 70px;
+        padding: 5px;
+        border-radius: 11px;
       }
-
 
       .banner-kicker {
-        font-size:
-          8px;
-
-        letter-spacing:
-          1.4px;
+        font-size: 8px;
+        letter-spacing: 1.4px;
       }
-
 
       .banner-title {
-        font-size:
-          29px;
-
-        letter-spacing:
-          -1px;
+        font-size: 29px;
+        letter-spacing: -1px;
       }
-
 
       .banner-text {
-        margin-top:
-          7px;
-
-        font-size:
-          10px;
-
-        line-height:
-          1.4;
+        margin-top: 7px;
+        font-size: 10px;
+        line-height: 1.4;
       }
-
 
       #searchInput {
-        height:
-          46px;
-
-        padding-left:
-          43px;
-
-        font-size:
-          12px;
+        height: 46px;
+        padding-left: 43px;
+        font-size: 12px;
       }
-
 
       .search-wrap {
-        margin-bottom:
-          20px;
+        margin-bottom: 20px;
       }
-
 
       .gallery-count {
-        font-size:
-          11px;
+        font-size: 11px;
       }
-
 
       .gallery-order {
-        font-size:
-          9px;
+        font-size: 9px;
       }
-
 
       #videoGrid {
-
-        grid-template-columns:
-          repeat(2, minmax(0, 1fr));
-
-        column-gap:
-          9px;
-
-        row-gap:
-          22px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 9px;
+        row-gap: 24px;
       }
-
 
       .video-title {
-        font-size:
-          15px;
-
-        line-height:
-          1.12;
+        font-size: 15px;
+        line-height: 1.12;
       }
-
 
       .video-subtitle {
-        margin:
-          4px 0 8px;
-
-        font-size:
-          10px;
+        margin: 4px 0 8px;
+        font-size: 10px;
       }
-
 
       .thumbnail {
-        border-radius:
-          8px;
+        border-radius: 8px;
       }
 
-
-      .coming-soon-main {
-        font-size:
-          21px;
+      .coming-soon-episode {
+        font-size: 21px;
       }
-
 
       .coming-soon-label {
-        font-size:
-          8px;
-
-        letter-spacing:
-          1.4px;
+        padding: 5px 7px;
+        font-size: 8px;
+        letter-spacing: 1.2px;
       }
-
 
       .new-badge,
       .trailer-badge {
-        top:
-          6px;
-
-        left:
-          6px;
-
-        padding:
-          4px 6px;
-
-        font-size:
-          7px;
+        top: 6px;
+        padding: 4px 6px;
+        font-size: 7px;
       }
 
+      .new-badge {
+        right: 6px;
+      }
+
+      .trailer-badge {
+        left: 6px;
+      }
 
       .video-footer {
-        margin-top:
-          8px;
-
-        gap:
-          6px;
+        margin-top: 8px;
+        gap: 6px;
       }
-
 
       .price {
-        font-size:
-          11px;
+        font-size: 11px;
       }
-
 
       .buy-button {
-        min-height:
-          30px;
-
-        padding:
-          6px 8px;
-
-        font-size:
-          8px;
-
-        border-radius:
-          5px;
+        min-height: 30px;
+        padding: 6px 8px;
+        font-size: 8px;
+        border-radius: 5px;
       }
-
 
       .status-badge {
-        margin-top:
-          8px;
-
-        min-height:
-          26px;
-
-        padding:
-          5px 7px;
-
-        font-size:
-          8px;
+        margin-top: 8px;
+        min-height: 26px;
+        padding: 5px 7px;
+        font-size: 8px;
       }
-
 
       .video-description {
-        margin-top:
-          8px;
-
-        font-size:
-          10px;
-
-        line-height:
-          1.45;
+        margin-top: 8px;
+        font-size: 10px;
+        line-height: 1.45;
       }
-
     }
-
-
-    /* =====================================================
-       VERY SMALL PHONES
-       ===================================================== */
 
     @media (max-width: 380px) {
 
       .container {
-        padding-left:
-          8px;
-
-        padding-right:
-          8px;
+        padding-left: 8px;
+        padding-right: 8px;
       }
-
 
       #videoGrid {
-
-        column-gap:
-          7px;
-
-        row-gap:
-          18px;
+        column-gap: 7px;
+        row-gap: 20px;
       }
-
 
       .video-title {
-        font-size:
-          14px;
+        font-size: 14px;
       }
-
 
       .video-subtitle {
-        font-size:
-          9px;
+        font-size: 9px;
       }
 
-
-      .coming-soon-main {
-        font-size:
-          17px;
+      .coming-soon-episode {
+        font-size: 17px;
       }
-
 
       .coming-soon-label {
-        font-size:
-          7px;
+        font-size: 7px;
       }
-
 
       .video-description {
-        font-size:
-          9px;
+        font-size: 9px;
       }
-
 
       .price {
-        font-size:
-          10px;
+        font-size: 10px;
       }
-
 
       .buy-button {
-        padding:
-          6px 7px;
-
-        font-size:
-          8px;
+        padding: 6px 7px;
+        font-size: 8px;
       }
-
     }
 
   </style>
@@ -1053,7 +779,6 @@
 
 
 <body>
-
 
   <main class="container">
 
@@ -1094,7 +819,6 @@
     </section>
 
 
-
     <!-- =====================================================
          SEARCH
          ===================================================== -->
@@ -1124,7 +848,6 @@
     </section>
 
 
-
     <!-- =====================================================
          GALLERY INFO
          ===================================================== -->
@@ -1145,7 +868,6 @@
     </div>
 
 
-
     <!-- =====================================================
          VIDEO GALLERY
          ===================================================== -->
@@ -1154,7 +876,6 @@
       id="videoGrid"
       aria-label="Rashka Barre video gallery"
     ></section>
-
 
 
     <!-- =====================================================
@@ -1177,9 +898,7 @@
 
     </div>
 
-
   </main>
-
 
 
   <!-- =====================================================
@@ -1187,11 +906,8 @@
        ===================================================== -->
 
   <footer class="footer">
-
     © <span id="year"></span> Rashka Barre
-
   </footer>
-
 
 
   <!-- =====================================================
@@ -1201,9 +917,8 @@
   <script src="products.js?v=20260926"></script>
 
 
-
   <!-- =====================================================
-       GALLERY LOGIC
+       GALLERY SCRIPT
        ===================================================== -->
 
   <script>
@@ -1217,24 +932,20 @@
             "videoGrid"
           );
 
-
         const emptyState =
           document.getElementById(
             "emptyState"
           );
-
 
         const searchInput =
           document.getElementById(
             "searchInput"
           );
 
-
         const galleryCount =
           document.getElementById(
             "galleryCount"
           );
-
 
         const year =
           document.getElementById(
@@ -1243,16 +954,10 @@
 
 
         if (year) {
-
           year.textContent =
             new Date().getFullYear();
-
         }
 
-
-        /*
-         * Load products
-         */
 
         const products =
           Array.isArray(
@@ -1263,13 +968,11 @@
 
 
         /*
-         * Published videos:
-         * NEWEST → OLDEST
+         * AVAILABLE VIDEOS:
+         * newest → oldest
          *
-         * Coming-soon episodes:
-         * Episode 1 → Episode 2 → Episode 3 → Episode 4
-         *
-         * Published videos always appear first.
+         * COMING SOON:
+         * Episode 1 → 2 → 3 → 4
          */
 
         products.sort(
@@ -1287,17 +990,15 @@
               !bSoon
             ) {
 
-              const dateA =
-                new Date(
-                  a.publishedAt || 0
-                ).getTime();
-
-              const dateB =
+              return (
                 new Date(
                   b.publishedAt || 0
-                ).getTime();
+                ).getTime() -
+                new Date(
+                  a.publishedAt || 0
+                ).getTime()
+              );
 
-              return dateB - dateA;
             }
 
 
@@ -1314,6 +1015,7 @@
                   b.subtitle
                 )
               );
+
             }
 
 
@@ -1324,7 +1026,25 @@
 
 
         /*
-         * Search + render
+         * Find newest available video.
+         */
+
+        const newestAvailable =
+          products.find(
+            function (product) {
+
+              return (
+                product.status !==
+                  "coming-soon" &&
+                product.publishedAt
+              );
+
+            }
+          );
+
+
+        /*
+         * RENDER
          */
 
         function renderVideos(
@@ -1348,12 +1068,10 @@
                     product.title || ""
                   ).toLowerCase();
 
-
                 const subtitle =
                   String(
                     product.subtitle || ""
                   ).toLowerCase();
-
 
                 const description =
                   String(
@@ -1363,18 +1081,9 @@
 
                 return (
                   !query ||
-
-                  title.includes(
-                    query
-                  ) ||
-
-                  subtitle.includes(
-                    query
-                  ) ||
-
-                  description.includes(
-                    query
-                  )
+                  title.includes(query) ||
+                  subtitle.includes(query) ||
+                  description.includes(query)
                 );
 
               }
@@ -1465,39 +1174,29 @@
                     "aarkii-kiyow";
 
 
-                  const newestPublished =
-                    products.find(
-                      function (item) {
-
-                        return (
-                          item.status !==
-                            "coming-soon" &&
-                          item.publishedAt
-                        );
-
-                      }
-                    );
-
-
                   const isNew =
                     !isComingSoon &&
-                    newestPublished ===
-                      product;
+                    newestAvailable ===
+                    product;
 
 
                   /*
-                   * Coming-soon card
+                   * EPISODE NUMBER
+                   */
+
+                  const episodeNumber =
+                    extractEpisodeNumber(
+                      product.subtitle
+                    );
+
+
+                  /*
+                   * COMING SOON CARD
                    */
 
                   if (
                     isComingSoon
                   ) {
-
-                    const episodeNumber =
-                      extractEpisodeNumber(
-                        product.subtitle
-                      );
-
 
                     return `
 
@@ -1523,38 +1222,33 @@
                           class="thumbnail"
                         >
 
+                          <img
+                            src="${thumbnail}"
+                            alt="${title}"
+                            loading="lazy"
+                          >
+
+
                           <div
-                            class="coming-soon-box"
+                            class="coming-soon-overlay"
                           >
 
                             <div
-                              class="coming-soon-content"
+                              class="coming-soon-episode"
                             >
+                              EPISODE
+                              ${episodeNumber}
+                            </div>
 
-                              <div
-                                class="coming-soon-main"
-                              >
-                                EPISODE
-                                ${episodeNumber}
-                              </div>
 
-                              <div
-                                class="coming-soon-label"
-                              >
-                                Coming Soon
-                              </div>
-
+                            <div
+                              class="coming-soon-label"
+                            >
+                              COMING SOON
                             </div>
 
                           </div>
 
-                        </div>
-
-
-                        <div
-                          class="status-badge"
-                        >
-                          Coming Soon
                         </div>
 
 
@@ -1566,7 +1260,7 @@
 
 
                   /*
-                   * Trailer / available video
+                   * AVAILABLE VIDEO
                    */
 
                   return `
@@ -1598,6 +1292,7 @@
                         <div
                           class="thumbnail"
                         >
+
 
                           ${
                             isNew
@@ -1676,7 +1371,7 @@
 
 
         /*
-         * Search
+         * SEARCH
          */
 
         searchInput.addEventListener(
@@ -1692,7 +1387,7 @@
 
 
         /*
-         * Initial render
+         * INITIAL LOAD
          */
 
         renderVideos("");
@@ -1702,7 +1397,8 @@
 
 
     /*
-     * Get episode number from:
+     * Read:
+     *
      * Qeybta 1 | Episode 1
      */
 
@@ -1726,7 +1422,7 @@
 
 
     /*
-     * Escape HTML
+     * Security
      */
 
     function escapeHtml(
