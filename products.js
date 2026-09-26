@@ -20,7 +20,8 @@ const PRODUCTS = [
     subtitle: "Qeybta 1 | Episode 1",
     thumbnail: "episode-1.jpg",
     price: "",
-    description: "Kani waa Qeybta 1-aad ee Taxanaha Kiyow oo dhammaystiran.",
+    description:
+      "Kani waa Qeybta 1-aad ee Taxanaha Kiyow oo dhammaystiran.",
     preview: "",
     paymentUrl: "",
     publishedAt: "",
@@ -33,7 +34,8 @@ const PRODUCTS = [
     subtitle: "Qeybta 2 | Episode 2",
     thumbnail: "episode-2.jpg",
     price: "",
-    description: "",
+    description:
+      "Kani waa Qeybta 2-aad ee Taxanaha Kiyow oo dhammaystiran.",",
     preview: "",
     paymentUrl: "",
     publishedAt: "",
@@ -46,7 +48,8 @@ const PRODUCTS = [
     subtitle: "Qeybta 3 | Episode 3",
     thumbnail: "episode-3.jpg",
     price: "",
-    description: "",
+    description:
+      "Kani waa Qeybta 3-aad ee Taxanaha Kiyow oo dhammaystiran.",",
     preview: "",
     paymentUrl: "",
     publishedAt: "",
@@ -59,7 +62,8 @@ const PRODUCTS = [
     subtitle: "Qeybta 4 | Episode 4",
     thumbnail: "episode-4.jpg",
     price: "",
-    description: "",
+    description:
+      "Kani waa Qeybta 4-aad ee Taxanaha Kiyow oo dhammaystiran.",",
     preview: "",
     paymentUrl: "",
     publishedAt: "",
