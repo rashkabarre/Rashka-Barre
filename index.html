@@ -1,13 +1,15 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0, viewport-fit=cover"
   >
 
-  <meta name="theme-color" content="#080808">
+  <meta name="theme-color" content="#090909">
 
   <title>Rashka Barre — Videos</title>
 
@@ -16,34 +18,35 @@
     content="Rashka Barre — documentaries, animal stories, experiences and original videos."
   >
 
+  <meta
+    property="og:title"
+    content="Rashka Barre — Videos"
+  >
+
+  <meta
+    property="og:description"
+    content="Documentaries, animal stories, experiences and original videos by Rashka Barre."
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
   <style>
-
-    /* =========================================================
-       DESIGN
-       ========================================================= */
-
     :root {
-      --bg: #080808;
-      --panel: #111111;
-      --panel-hover: #171717;
-      --border: #242424;
-
+      --bg: #090909;
+      --surface: #111111;
+      --surface-hover: #171717;
+      --border: #252525;
       --text: #ffffff;
-      --muted: #999999;
-
+      --muted: #a0a0a0;
       --accent: #e50914;
-      --accent-hover: #ff1d28;
-
-      --max: 1180px;
+      --accent-hover: #ff1c28;
+      --max-width: 1180px;
       --gap: 18px;
-
       --radius: 12px;
     }
-
-
-    /* =========================================================
-       RESET
-       ========================================================= */
 
     * {
       box-sizing: border-box;
@@ -56,17 +59,19 @@
 
     body {
       margin: 0;
-
       background: var(--bg);
       color: var(--text);
-
       font-family:
         Arial,
         Helvetica,
         sans-serif;
-
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
     }
 
     a {
@@ -74,33 +79,26 @@
       text-decoration: none;
     }
 
-    img {
-      display: block;
-      width: 100%;
-    }
-
     button,
     input {
       font: inherit;
     }
 
+    /* =====================================================
+       HEADER
+       ===================================================== */
 
-    /* =========================================================
-       TOP HEADER
-       ========================================================= */
-
-    .topbar {
+    .header {
+      width: 100%;
       border-bottom: 1px solid var(--border);
-      background: #080808;
+      background: #090909;
     }
 
-    .topbar-inner {
-      max-width: var(--max);
-
-      min-height: 70px;
-
+    .header-inner {
+      width: 100%;
+      max-width: var(--max-width);
+      min-height: 72px;
       margin: 0 auto;
-
       padding: 0 20px;
 
       display: flex;
@@ -109,329 +107,224 @@
     }
 
     .brand {
+      width: 100%;
+
       display: flex;
       align-items: center;
       justify-content: center;
 
       gap: 14px;
-
-      width: 100%;
     }
 
     .brand-line {
+      flex: 1;
+      max-width: 230px;
       height: 1px;
-
-      width: min(220px, 18vw);
-
       background: var(--border);
     }
 
+    .header-logo {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      object-fit: contain;
+    }
+
     .brand-name {
+      color: var(--text);
       font-size: 21px;
-
       font-weight: 800;
-
       letter-spacing: -0.4px;
-
       white-space: nowrap;
     }
 
-
-    /* =========================================================
-       LOGO PLACEHOLDER
-
-       Replace this later with your real logo.
-       ========================================================= */
-
-    .logo-placeholder {
-      width: 48px;
-      height: 48px;
-
-      flex: 0 0 48px;
-
-      display: grid;
-      place-items: center;
-
-      border: 1px solid #3a3a3a;
-
-      border-radius: 10px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #1c1c1c,
-          #0e0e0e
-        );
-
-      color: #888;
-
-      font-size: 10px;
-
-      font-weight: 900;
-
-      letter-spacing: 0.8px;
-    }
-
-
-    /* =========================================================
+    /* =====================================================
        MAIN
-       ========================================================= */
+       ===================================================== */
 
     .container {
       width: 100%;
-
-      max-width: var(--max);
-
+      max-width: var(--max-width);
       margin: 0 auto;
-
-      padding:
-        28px 20px
-        60px;
+      padding: 26px 20px 65px;
     }
 
-
-    /* =========================================================
+    /* =====================================================
        BANNER
-       ========================================================= */
+       ===================================================== */
 
     .banner {
-
       position: relative;
-
       overflow: hidden;
 
       min-height: 220px;
 
-      margin-bottom: 30px;
+      margin-bottom: 22px;
 
-      border:
-        1px solid var(--border);
-
+      border: 1px solid var(--border);
       border-radius: 16px;
 
       background:
         radial-gradient(
-          circle at 20% 20%,
-          rgba(229, 9, 20, 0.22),
-          transparent 34%
+          circle at 15% 30%,
+          rgba(229, 9, 20, 0.20),
+          transparent 32%
         ),
         linear-gradient(
           135deg,
-          #171717,
-          #0c0c0c 58%,
-          #080808
+          #191919 0%,
+          #101010 55%,
+          #0a0a0a 100%
         );
     }
 
-
     .banner::after {
-
       content: "";
 
       position: absolute;
-
       inset: 0;
 
       background:
         linear-gradient(
           90deg,
-          rgba(0,0,0,0.15),
-          rgba(0,0,0,0.45)
+          rgba(0, 0, 0, 0.02),
+          rgba(0, 0, 0, 0.28)
         );
 
       pointer-events: none;
     }
 
-
     .banner-inner {
-
       position: relative;
-
-      z-index: 1;
+      z-index: 2;
 
       min-height: 220px;
 
-      padding:
-        28px 32px;
+      padding: 28px 32px;
 
       display: flex;
-
       align-items: center;
 
       gap: 24px;
     }
 
-
     .banner-logo {
+      width: 105px;
+      height: 105px;
 
-      width: 96px;
-      height: 96px;
+      flex: 0 0 105px;
 
-      flex: 0 0 96px;
-
-      display: grid;
-      place-items: center;
-
-      border:
-        1px solid #414141;
+      object-fit: contain;
 
       border-radius: 18px;
 
-      background:
-        rgba(255,255,255,0.05);
+      background: rgba(255, 255, 255, 0.04);
 
-      color: #aaa;
-
-      font-size: 14px;
-
-      font-weight: 900;
-
-      letter-spacing: 1px;
-
-      box-shadow:
-        0 14px 45px rgba(0,0,0,0.35);
+      padding: 8px;
     }
-
 
     .banner-copy {
       min-width: 0;
     }
 
-
     .banner-kicker {
-
       margin: 0 0 7px;
 
-      color: #e8e8e8;
+      color: #d0d0d0;
 
       font-size: 10px;
-
       font-weight: 800;
-
       letter-spacing: 2px;
 
       text-transform: uppercase;
     }
 
-
     .banner-title {
-
       margin: 0;
 
-      font-size:
-        clamp(34px, 5vw, 58px);
+      color: #fff;
 
+      font-size: clamp(34px, 5vw, 58px);
       line-height: 0.98;
 
       font-weight: 900;
-
       letter-spacing: -2px;
     }
 
-
     .banner-text {
+      max-width: 660px;
 
-      max-width: 620px;
+      margin: 11px 0 0;
 
-      margin: 12px 0 0;
-
-      color: #b8b8b8;
+      color: #b7b7b7;
 
       font-size: 14px;
-
       line-height: 1.55;
     }
 
-
-    /* =========================================================
+    /* =====================================================
        SEARCH
-       ========================================================= */
+       ===================================================== */
 
     .search-wrap {
-
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
-
     .search-box {
-
       position: relative;
-
       width: 100%;
     }
 
-
     .search-icon {
-
       position: absolute;
-
-      left: 17px;
       top: 50%;
+      left: 17px;
 
-      transform:
-        translateY(-50%);
+      transform: translateY(-50%);
 
       color: #777;
-
-      font-size: 19px;
-
-      line-height: 1;
+      font-size: 18px;
 
       pointer-events: none;
     }
 
-
     #searchInput {
-
       width: 100%;
+      height: 52px;
 
-      height: 54px;
+      padding: 0 18px 0 48px;
 
-      padding:
-        0 18px 0 50px;
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 10px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
 
       outline: none;
 
-      background: var(--panel);
-
+      background: var(--surface);
       color: #fff;
 
-      font-size: 15px;
+      font-size: 14px;
 
       transition:
         border-color 0.2s ease,
         background 0.2s ease;
     }
 
-
     #searchInput::placeholder {
-      color: #6f6f6f;
+      color: #707070;
     }
 
-
     #searchInput:focus {
-
-      border-color: #444;
-
+      border-color: #3a3a3a;
       background: #151515;
     }
 
-
-    /* =========================================================
+    /* =====================================================
        SECTION HEADER
-       ========================================================= */
+       ===================================================== */
 
     .section-head {
-
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
 
       gap: 15px;
@@ -439,37 +332,29 @@
       margin-bottom: 16px;
     }
 
-
     .section-title {
-
       margin: 0;
 
       font-size: 27px;
-
       line-height: 1.1;
 
       font-weight: 800;
-
       letter-spacing: -0.8px;
     }
 
-
     .section-count {
-
       color: var(--muted);
 
-      font-size: 12px;
+      font-size: 11px;
 
       white-space: nowrap;
     }
 
-
-    /* =========================================================
+    /* =====================================================
        VIDEO GALLERY
-       ========================================================= */
+       ===================================================== */
 
     #videoGrid {
-
       display: grid;
 
       grid-template-columns:
@@ -478,23 +363,23 @@
       gap: var(--gap);
     }
 
-
-    /* =========================================================
+    /* =====================================================
        VIDEO CARD
-       ========================================================= */
+       ===================================================== */
 
     .video-card {
-
       min-width: 0;
-
       overflow: hidden;
+
+      display: flex;
+      flex-direction: column;
+
+      background: var(--surface);
 
       border:
         1px solid var(--border);
 
       border-radius: var(--radius);
-
-      background: var(--panel);
 
       transition:
         transform 0.18s ease,
@@ -502,45 +387,35 @@
         background 0.18s ease;
     }
 
-
     .video-card:hover {
+      transform: translateY(-2px);
 
-      transform:
-        translateY(-2px);
+      border-color: #3a3a3a;
 
-      border-color: #3b3b3b;
-
-      background:
-        var(--panel-hover);
+      background: var(--surface-hover);
     }
 
-
-    /* =========================================================
+    /* =====================================================
        THUMBNAIL
-       ========================================================= */
+       ===================================================== */
 
     .thumbnail-link {
-
       display: block;
     }
 
-
     .thumbnail {
-
       position: relative;
-
-      overflow: hidden;
 
       width: 100%;
 
       aspect-ratio: 16 / 9;
 
+      overflow: hidden;
+
       background: #0e0e0e;
     }
 
-
     .thumbnail img {
-
       width: 100%;
       height: 100%;
 
@@ -551,665 +426,427 @@
         filter 0.3s ease;
     }
 
+    .thumbnail-link:hover .thumbnail img {
+      transform: scale(1.025);
 
-    .thumbnail-link:hover
-    .thumbnail img {
-
-      transform:
-        scale(1.025);
-
-      filter:
-        brightness(0.88);
+      filter: brightness(0.88);
     }
 
-
-    /* =========================================================
-       LATEST BADGE
-       ========================================================= */
+    /* =====================================================
+       LATEST
+       ===================================================== */
 
     .latest-badge {
-
       position: absolute;
 
       top: 9px;
       left: 9px;
 
-      z-index: 2;
+      z-index: 5;
 
-      padding:
-        5px 7px;
+      padding: 5px 7px;
 
-      border-radius:
-        5px;
+      border-radius: 5px;
 
-      background:
-        var(--accent);
+      background: var(--accent);
 
-      color:
-        #fff;
+      color: #fff;
 
-      font-size:
-        8px;
+      font-size: 8px;
 
-      font-weight:
-        900;
+      font-weight: 900;
 
-      letter-spacing:
-        0.9px;
+      letter-spacing: 0.9px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
-
-    /* =========================================================
-       VIDEO CONTENT
-       ========================================================= */
+    /* =====================================================
+       CARD CONTENT
+       ===================================================== */
 
     .video-content {
+      padding: 13px;
 
-      padding:
-        13px;
+      display: flex;
+      flex-direction: column;
+
+      flex: 1;
     }
-
 
     .video-title {
-
       margin: 0;
 
-      min-height:
-        46px;
-
-      display:
-        -webkit-box;
-
-      -webkit-box-orient:
-        vertical;
-
-      -webkit-line-clamp:
-        2;
-
-      overflow:
-        hidden;
+      min-height: 45px;
 
       color: #fff;
 
-      font-size:
-        20px;
+      font-size: 20px;
 
-      line-height:
-        1.14;
+      line-height: 1.14;
 
-      font-weight:
-        800;
+      font-weight: 800;
 
-      letter-spacing:
-        -0.35px;
+      letter-spacing: -0.4px;
+
+      display: -webkit-box;
+
+      -webkit-box-orient: vertical;
+
+      -webkit-line-clamp: 2;
+
+      overflow: hidden;
     }
-
 
     .video-description {
+      margin: 7px 0 0;
 
-      margin:
-        7px 0 0;
+      min-height: 54px;
 
-      min-height:
-        54px;
+      color: var(--muted);
 
-      display:
-        -webkit-box;
+      font-size: 12px;
 
-      -webkit-box-orient:
-        vertical;
+      line-height: 1.5;
 
-      -webkit-line-clamp:
-        3;
+      display: -webkit-box;
 
-      overflow:
-        hidden;
+      -webkit-box-orient: vertical;
 
-      color:
-        var(--muted);
+      -webkit-line-clamp: 3;
 
-      font-size:
-        12px;
-
-      line-height:
-        1.5;
+      overflow: hidden;
     }
 
-
-    /* =========================================================
+    /* =====================================================
        CARD FOOTER
-       ========================================================= */
+       ===================================================== */
 
     .video-footer {
+      margin-top: auto;
+      padding-top: 13px;
 
-      display:
-        flex;
+      display: flex;
 
-      align-items:
-        center;
+      align-items: center;
+      justify-content: space-between;
 
-      justify-content:
-        space-between;
-
-      gap:
-        10px;
-
-      margin-top:
-        13px;
+      gap: 10px;
     }
 
-
     .price {
+      color: #fff;
+
+      font-size: 15px;
+
+      font-weight: 800;
+
+      white-space: nowrap;
+    }
+
+    .buy-button {
+      min-height: 36px;
+
+      padding: 8px 13px;
+
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 7px;
+
+      background: var(--accent);
 
       color: #fff;
 
-      font-size:
-        15px;
+      font-size: 11px;
 
-      font-weight:
-        800;
+      font-weight: 800;
 
-      white-space:
-        nowrap;
-    }
-
-
-    .buy-button {
-
-      min-height:
-        36px;
-
-      padding:
-        8px 13px;
-
-      display:
-        inline-flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      border-radius:
-        7px;
-
-      background:
-        var(--accent);
-
-      color:
-        #fff;
-
-      font-size:
-        11px;
-
-      font-weight:
-        800;
-
-      white-space:
-        nowrap;
+      white-space: nowrap;
 
       transition:
         background 0.18s ease;
     }
 
-
     .buy-button:hover {
-
-      background:
-        var(--accent-hover);
+      background: var(--accent-hover);
     }
 
-
-    /* =========================================================
+    /* =====================================================
        NO RESULTS
-       ========================================================= */
+       ===================================================== */
 
     .no-results {
+      grid-column: 1 / -1;
 
-      grid-column:
-        1 / -1;
-
-      padding:
-        55px 20px;
+      padding: 55px 20px;
 
       border:
         1px dashed var(--border);
 
-      border-radius:
-        10px;
+      border-radius: 10px;
 
-      text-align:
-        center;
+      color: var(--muted);
 
-      color:
-        var(--muted);
+      text-align: center;
     }
-
 
     .no-results h3 {
+      margin: 0 0 7px;
 
-      margin:
-        0 0 7px;
+      color: #fff;
 
-      color:
-        #fff;
-
-      font-size:
-        18px;
+      font-size: 18px;
     }
-
 
     .no-results p {
+      margin: 0;
 
-      margin:
-        0;
-
-      font-size:
-        13px;
+      font-size: 13px;
     }
 
-
-    /* =========================================================
+    /* =====================================================
        FOOTER
-       ========================================================= */
+       ===================================================== */
 
     .footer {
+      border-top: 1px solid var(--border);
 
-      border-top:
-        1px solid var(--border);
+      padding: 22px 20px;
 
-      padding:
-        23px 20px;
+      color: var(--muted);
 
-      color:
-        var(--muted);
+      font-size: 11px;
 
-      font-size:
-        11px;
-
-      text-align:
-        center;
+      text-align: center;
     }
 
-
-    /* =========================================================
+    /* =====================================================
        TABLET
-       ========================================================= */
+       ===================================================== */
 
     @media (max-width: 900px) {
 
       #videoGrid {
-
         grid-template-columns:
           repeat(2, minmax(0, 1fr));
       }
 
       .brand-line {
-
-        width:
-          100px;
+        max-width: 120px;
       }
     }
 
-
-    /* =========================================================
+    /* =====================================================
        MOBILE
-       ========================================================= */
+       ===================================================== */
 
     @media (max-width: 600px) {
 
-      .topbar-inner {
-
-        min-height:
-          62px;
-
-        padding:
-          0 12px;
+      .header-inner {
+        min-height: 62px;
+        padding: 0 12px;
       }
-
 
       .brand {
-
-        gap:
-          9px;
+        gap: 9px;
       }
-
 
       .brand-line {
-
-        display:
-          none;
+        display: none;
       }
 
-
-      .logo-placeholder {
-
-        width:
-          38px;
-
-        height:
-          38px;
-
-        flex-basis:
-          38px;
-
-        border-radius:
-          8px;
-
-        font-size:
-          9px;
+      .header-logo {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
       }
-
 
       .brand-name {
-
-        font-size:
-          18px;
+        font-size: 18px;
       }
-
 
       .container {
-
         padding:
-          18px 12px
-          45px;
+          15px 12px
+          48px;
       }
-
 
       .banner {
-
-        min-height:
-          180px;
-
-        border-radius:
-          12px;
-
-        margin-bottom:
-          18px;
+        min-height: 165px;
+        margin-bottom: 15px;
+        border-radius: 11px;
       }
-
 
       .banner-inner {
+        min-height: 165px;
 
-        min-height:
-          180px;
+        padding: 18px;
 
-        padding:
-          20px;
-
-        gap:
-          14px;
+        gap: 13px;
       }
-
 
       .banner-logo {
+        width: 66px;
+        height: 66px;
+        flex-basis: 66px;
 
-        width:
-          64px;
+        padding: 5px;
 
-        height:
-          64px;
-
-        flex-basis:
-          64px;
-
-        border-radius:
-          12px;
-
-        font-size:
-          9px;
+        border-radius: 11px;
       }
-
 
       .banner-kicker {
-
-        font-size:
-          8px;
-
-        letter-spacing:
-          1.5px;
+        font-size: 8px;
+        letter-spacing: 1.4px;
       }
-
 
       .banner-title {
-
-        font-size:
-          30px;
-
-        letter-spacing:
-          -1px;
+        font-size: 29px;
+        letter-spacing: -1px;
       }
-
 
       .banner-text {
-
-        margin-top:
-          8px;
-
-        font-size:
-          11px;
-
-        line-height:
-          1.45;
+        margin-top: 7px;
+        font-size: 11px;
+        line-height: 1.45;
       }
-
-
-      .search-wrap {
-
-        margin-bottom:
-          22px;
-      }
-
 
       #searchInput {
+        height: 46px;
 
-        height:
-          48px;
+        padding-left: 43px;
 
-        font-size:
-          13px;
-
-        padding-left:
-          45px;
+        font-size: 12px;
       }
-
 
       .search-icon {
-
-        left:
-          15px;
-
-        font-size:
-          17px;
+        left: 14px;
+        font-size: 16px;
       }
 
+      .search-wrap {
+        margin-bottom: 20px;
+      }
 
       .section-head {
-
-        margin-bottom:
-          12px;
+        margin-bottom: 12px;
       }
-
 
       .section-title {
-
-        font-size:
-          22px;
+        font-size: 22px;
       }
-
 
       .section-count {
-
-        font-size:
-          9px;
+        font-size: 9px;
       }
 
-
-      /*
-        Two-column gallery on mobile.
-      */
+      /* Two columns on mobile */
 
       #videoGrid {
-
         grid-template-columns:
           repeat(2, minmax(0, 1fr));
 
-        gap:
-          9px;
+        gap: 9px;
       }
-
 
       .video-card {
-
-        border-radius:
-          8px;
+        border-radius: 8px;
       }
-
 
       .video-content {
-
-        padding:
-          9px;
+        padding: 9px;
       }
-
 
       .video-title {
+        min-height: 36px;
 
-        min-height:
-          36px;
+        font-size: 16px;
 
-        font-size:
-          16px;
-
-        line-height:
-          1.12;
+        line-height: 1.12;
       }
-
 
       .video-description {
+        min-height: 42px;
 
-        min-height:
-          42px;
+        margin-top: 5px;
 
-        margin-top:
-          5px;
+        font-size: 10px;
 
-        font-size:
-          10px;
-
-        line-height:
-          1.4;
+        line-height: 1.4;
       }
-
 
       .video-footer {
-
-        margin-top:
-          9px;
-
-        gap:
-          6px;
+        padding-top: 9px;
+        gap: 6px;
       }
-
 
       .price {
-
-        font-size:
-          12px;
+        font-size: 12px;
       }
 
-
       .buy-button {
-
-        min-height:
-          30px;
+        min-height: 30px;
 
         padding:
           6px 8px;
 
-        font-size:
-          9px;
+        font-size: 9px;
 
-        border-radius:
-          5px;
+        border-radius: 5px;
       }
 
-
       .latest-badge {
-
-        top:
-          6px;
-
-        left:
-          6px;
+        top: 6px;
+        left: 6px;
 
         padding:
           4px 5px;
 
-        font-size:
-          7px;
+        font-size: 7px;
       }
     }
 
-
-    /* =========================================================
+    /* =====================================================
        VERY SMALL PHONES
-       ========================================================= */
+       ===================================================== */
 
     @media (max-width: 380px) {
 
-      #videoGrid {
-
-        gap:
-          7px;
+      .container {
+        padding-left: 9px;
+        padding-right: 9px;
       }
 
+      #videoGrid {
+        gap: 7px;
+      }
 
       .video-content {
-
-        padding:
-          8px;
+        padding: 8px;
       }
-
 
       .video-title {
-
-        font-size:
-          14px;
-
-        min-height:
-          32px;
+        font-size: 14px;
+        min-height: 32px;
       }
-
 
       .video-description {
-
-        font-size:
-          9px;
-
-        min-height:
-          38px;
+        font-size: 9px;
+        min-height: 38px;
       }
-
 
       .price {
-
-        font-size:
-          11px;
+        font-size: 11px;
       }
 
-
       .buy-button {
-
         padding:
           6px 7px;
 
-        font-size:
-          8px;
+        font-size: 8px;
       }
     }
 
@@ -1219,33 +856,27 @@
 
 <body>
 
-
-  <!-- =======================================================
+  <!-- =====================================================
        HEADER
-       ======================================================= -->
+       ===================================================== -->
 
-  <header class="topbar">
+  <header class="header">
 
-    <div class="topbar-inner">
+    <div class="header-inner">
 
       <div class="brand">
 
         <div class="brand-line"></div>
 
-
-        <!-- SMALL HEADER LOGO PLACEHOLDER -->
-
         <img
-  src="logo.png"
-  alt="Rashka Barre"
-  class="header-logo"
->
-
+          src="logo.png"
+          alt="Rashka Barre"
+          class="header-logo"
+        >
 
         <div class="brand-name">
           Rashka Barre
         </div>
-
 
         <div class="brand-line"></div>
 
@@ -1256,29 +887,26 @@
   </header>
 
 
-
-  <!-- =======================================================
+  <!-- =====================================================
        MAIN
-       ======================================================= -->
+       ===================================================== -->
 
   <main class="container">
 
 
-    <!-- =====================================================
-         BRAND BANNER
-         ===================================================== -->
+    <!-- ===================================================
+         BANNER
+         =================================================== -->
 
     <section class="banner">
 
       <div class="banner-inner">
 
-
-        <!-- LARGE LOGO PLACEHOLDER -->
-
-        <div class="banner-logo">
-          LOGO
-        </div>
-
+        <img
+          src="logo.png"
+          alt="Rashka Barre logo"
+          class="banner-logo"
+        >
 
         <div class="banner-copy">
 
@@ -1302,16 +930,18 @@
     </section>
 
 
-
-    <!-- =====================================================
+    <!-- ===================================================
          SEARCH
-         ===================================================== -->
+         =================================================== -->
 
     <section class="search-wrap">
 
       <div class="search-box">
 
-        <span class="search-icon">
+        <span
+          class="search-icon"
+          aria-hidden="true"
+        >
           ⌕
         </span>
 
@@ -1329,10 +959,9 @@
     </section>
 
 
-
-    <!-- =====================================================
-         VIDEO HEADER
-         ===================================================== -->
+    <!-- ===================================================
+         VIDEO SECTION
+         =================================================== -->
 
     <section class="section-head">
 
@@ -1350,10 +979,9 @@
     </section>
 
 
-
-    <!-- =====================================================
+    <!-- ===================================================
          VIDEO GALLERY
-         ===================================================== -->
+         =================================================== -->
 
     <section
       id="videoGrid"
@@ -1361,10 +989,9 @@
     ></section>
 
 
-
-    <!-- =====================================================
-         EMPTY STATE
-         ===================================================== -->
+    <!-- ===================================================
+         NO RESULTS
+         =================================================== -->
 
     <div
       id="emptyState"
@@ -1382,34 +1009,29 @@
 
     </div>
 
-
   </main>
 
 
-
-  <!-- =======================================================
+  <!-- =====================================================
        FOOTER
-       ======================================================= -->
+       ===================================================== -->
 
   <footer class="footer">
 
     © <span id="year"></span> Rashka Barre
-
   </footer>
 
 
-
-  <!-- =======================================================
+  <!-- =====================================================
        PRODUCT DATA
-       ======================================================= -->
+       ===================================================== -->
 
   <script src="products.js?v=20260926"></script>
 
 
-
-  <!-- =======================================================
+  <!-- =====================================================
        GALLERY LOGIC
-       ======================================================= -->
+       ===================================================== -->
 
   <script>
 
@@ -1446,17 +1068,12 @@
         /* Current year */
 
         if (year) {
-
           year.textContent =
-            new Date()
-              .getFullYear();
-
+            new Date().getFullYear();
         }
 
 
-        /*
-         * Load products.js
-         */
+        /* Get products */
 
         const products =
           Array.isArray(
@@ -1466,9 +1083,7 @@
             : [];
 
 
-        /*
-         * NEWEST → OLDEST
-         */
+        /* Newest → oldest */
 
         products.sort(
           function (a, b) {
@@ -1489,16 +1104,16 @@
         );
 
 
-        /*
-         * Render gallery
-         */
+        /* Render videos */
 
         function renderVideos(
-          searchTerm = ""
+          searchTerm
         ) {
 
           const query =
-            searchTerm
+            String(
+              searchTerm || ""
+            )
               .trim()
               .toLowerCase();
 
@@ -1527,9 +1142,7 @@
             );
 
 
-          /*
-           * Number of visible videos
-           */
+          /* Count */
 
           count.textContent =
             filtered.length === 1
@@ -1537,9 +1150,7 @@
               : `${filtered.length} videos`;
 
 
-          /*
-           * Nothing found
-           */
+          /* No results */
 
           if (
             filtered.length === 0
@@ -1559,157 +1170,149 @@
             true;
 
 
-          /*
-           * Create cards
-           */
+          /* Build cards */
 
           grid.innerHTML =
-            filtered
-              .map(
-                function (
-                  product
-                ) {
+            filtered.map(
+              function (
+                product
+              ) {
 
-                  const originalIndex =
-                    products.indexOf(
-                      product
-                    );
-
-
-                  const title =
-                    escapeHtml(
-                      product.title ||
-                      "Untitled"
-                    );
+                const originalIndex =
+                  products.indexOf(
+                    product
+                  );
 
 
-                  const description =
-                    escapeHtml(
-                      product.description ||
-                      ""
-                    );
+                const title =
+                  escapeHtml(
+                    product.title ||
+                    "Untitled"
+                  );
 
 
-                  const price =
-                    escapeHtml(
-                      product.price ||
-                      ""
-                    );
+                const description =
+                  escapeHtml(
+                    product.description ||
+                    ""
+                  );
 
 
-                  const thumbnail =
-                    escapeHtml(
-                      product.thumbnail ||
-                      ""
-                    );
+                const price =
+                  escapeHtml(
+                    product.price ||
+                    ""
+                  );
 
 
-                  const paymentUrl =
-                    escapeHtml(
-                      product.paymentUrl ||
-                      "#"
-                    );
+                const thumbnail =
+                  escapeHtml(
+                    product.thumbnail ||
+                    ""
+                  );
 
 
-                  const latest =
-                    originalIndex === 0;
+                const paymentUrl =
+                  escapeHtml(
+                    product.paymentUrl ||
+                    "#"
+                  );
 
 
-                  return `
+                const isLatest =
+                  originalIndex === 0;
 
-                    <article
-                      class="video-card"
+
+                return `
+
+                  <article
+                    class="video-card"
+                  >
+
+                    <a
+                      href="${paymentUrl}"
+                      class="thumbnail-link"
+                      aria-label="${title}"
                     >
 
-
-                      <a
-                        href="${paymentUrl}"
-                        class="thumbnail-link"
-                        aria-label="${title}"
-                      >
-
-                        <div
-                          class="thumbnail"
-                        >
-
-                          ${
-                            latest
-                              ? `
-                                <span
-                                  class="latest-badge"
-                                >
-                                  Latest
-                                </span>
-                              `
-                              : ""
-                          }
-
-
-                          <img
-                            src="${thumbnail}"
-                            alt="${title}"
-                            loading="lazy"
-                          >
-
-                        </div>
-
-                      </a>
-
-
                       <div
-                        class="video-content"
+                        class="thumbnail"
                       >
 
-                        <h3
-                          class="video-title"
+                        ${
+                          isLatest
+                            ? `
+                              <span
+                                class="latest-badge"
+                              >
+                                Latest
+                              </span>
+                            `
+                            : ""
+                        }
+
+                        <img
+                          src="${thumbnail}"
+                          alt="${title}"
+                          loading="lazy"
                         >
-                          ${title}
-                        </h3>
-
-
-                        <p
-                          class="video-description"
-                        >
-                          ${description}
-                        </p>
-
-
-                        <div
-                          class="video-footer"
-                        >
-
-                          <span
-                            class="price"
-                          >
-                            ${price}
-                          </span>
-
-
-                          <a
-                            href="${paymentUrl}"
-                            class="buy-button"
-                          >
-                            Buy & Watch
-                          </a>
-
-                        </div>
 
                       </div>
 
-                    </article>
+                    </a>
 
-                  `;
 
-                }
-              )
-              .join("");
+                    <div
+                      class="video-content"
+                    >
+
+                      <h3
+                        class="video-title"
+                      >
+                        ${title}
+                      </h3>
+
+
+                      <p
+                        class="video-description"
+                      >
+                        ${description}
+                      </p>
+
+
+                      <div
+                        class="video-footer"
+                      >
+
+                        <span
+                          class="price"
+                        >
+                          ${price}
+                        </span>
+
+
+                        <a
+                          href="${paymentUrl}"
+                          class="buy-button"
+                        >
+                          Buy & Watch
+                        </a>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                `;
+
+              }
+            ).join("");
 
         }
 
 
-        /*
-         * Search in real time
-         */
+        /* Search */
 
         searchInput.addEventListener(
           "input",
@@ -1723,20 +1326,15 @@
         );
 
 
-        /*
-         * First load
-         */
+        /* First load */
 
-        renderVideos();
+        renderVideos("");
 
       }
     );
 
 
-    /*
-     * Prevent product text from
-     * becoming HTML.
-     */
+    /* Escape product data */
 
     function escapeHtml(value) {
 
@@ -1775,3 +1373,4 @@
 
 </body>
 </html>
+```
