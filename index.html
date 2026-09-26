@@ -325,7 +325,7 @@
     }
 
     /* =====================================================
-       OVERLAY ON COMING-SOON THUMBNAILS
+       COMING SOON OVERLAY
        ===================================================== */
 
     .coming-soon-overlay {
@@ -386,30 +386,43 @@
     }
 
     /* =====================================================
-       TRAILER BADGE
+       TRAILER OVERLAY
+       SAME STYLE AS COMING SOON LABEL
        ===================================================== */
 
-    .trailer-badge {
+    .trailer-overlay {
       position: absolute;
+      inset: 0;
 
-      top: 10px;
-      left: 10px;
+      display: flex;
 
-      z-index: 5;
+      align-items: center;
+      justify-content: center;
 
+      text-align: center;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.20),
+          rgba(0, 0, 0, 0.72)
+        );
+    }
+
+    .trailer-watch-overlay {
       padding: 6px 9px;
 
       border-radius: 5px;
 
-      background: var(--accent);
+      background: rgba(0, 0, 0, 0.62);
 
       color: #ffffff;
 
-      font-size: 9px;
+      font-size: 10px;
 
       font-weight: 900;
 
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
 
       text-transform: uppercase;
     }
@@ -494,70 +507,6 @@
 
     .buy-button:hover {
       background: var(--accent-hover);
-    }
-
-    /* =====================================================
-       TRAILER WATCH BUTTON
-       ===================================================== */
-
-    .trailer-watch-button {
-      display: inline-flex;
-
-      align-items: center;
-      justify-content: center;
-
-      min-height: 32px;
-
-      padding: 6px 9px;
-
-      border-radius: 5px;
-
-      background: var(--accent);
-
-      color: #ffffff;
-
-      font-size: 10px;
-
-      font-weight: 900;
-
-      letter-spacing: 1.5px;
-
-      text-transform: uppercase;
-
-      white-space: nowrap;
-    }
-
-    .trailer-watch-button:hover {
-      background: var(--accent-hover);
-    }
-
-    /* =====================================================
-       COMING SOON STATUS
-       ===================================================== */
-
-    .status-badge {
-      margin-top: 10px;
-
-      display: inline-flex;
-      align-items: center;
-
-      min-height: 28px;
-
-      padding: 6px 9px;
-
-      border: 1px solid var(--border);
-
-      border-radius: 6px;
-
-      color: var(--muted);
-
-      font-size: 9px;
-
-      font-weight: 800;
-
-      letter-spacing: 0.8px;
-
-      text-transform: uppercase;
     }
 
     /* =====================================================
@@ -722,19 +671,17 @@
         letter-spacing: 1.2px;
       }
 
-      .new-badge,
-      .trailer-badge {
-        top: 6px;
-        padding: 4px 6px;
-        font-size: 7px;
+      .trailer-watch-overlay {
+        padding: 5px 7px;
+        font-size: 8px;
+        letter-spacing: 1.2px;
       }
 
       .new-badge {
+        top: 6px;
         right: 6px;
-      }
-
-      .trailer-badge {
-        left: 6px;
+        padding: 4px 6px;
+        font-size: 7px;
       }
 
       .video-footer {
@@ -751,21 +698,6 @@
         padding: 6px 8px;
         font-size: 8px;
         border-radius: 5px;
-      }
-
-      .trailer-watch-button {
-        min-height: 28px;
-        padding: 5px 7px;
-        font-size: 8px;
-        letter-spacing: 1.2px;
-        border-radius: 5px;
-      }
-
-      .status-badge {
-        margin-top: 8px;
-        min-height: 26px;
-        padding: 5px 7px;
-        font-size: 8px;
       }
 
       .video-description {
@@ -803,6 +735,10 @@
         font-size: 7px;
       }
 
+      .trailer-watch-overlay {
+        font-size: 7px;
+      }
+
       .video-description {
         font-size: 9px;
       }
@@ -815,11 +751,6 @@
         padding: 6px 7px;
         font-size: 8px;
       }
-
-      .trailer-watch-button {
-        padding: 5px 6px;
-        font-size: 7px;
-      }
     }
 
   </style>
@@ -831,9 +762,7 @@
   <main class="container">
 
 
-    <!-- =====================================================
-         BRAND BANNER
-         ===================================================== -->
+    <!-- BRAND BANNER -->
 
     <section class="banner">
 
@@ -867,9 +796,7 @@
     </section>
 
 
-    <!-- =====================================================
-         SEARCH
-         ===================================================== -->
+    <!-- SEARCH -->
 
     <section class="search-wrap">
 
@@ -896,9 +823,7 @@
     </section>
 
 
-    <!-- =====================================================
-         GALLERY INFO
-         ===================================================== -->
+    <!-- GALLERY INFO -->
 
     <div class="gallery-info">
 
@@ -916,9 +841,7 @@
     </div>
 
 
-    <!-- =====================================================
-         VIDEO GALLERY
-         ===================================================== -->
+    <!-- VIDEO GALLERY -->
 
     <section
       id="videoGrid"
@@ -926,9 +849,7 @@
     ></section>
 
 
-    <!-- =====================================================
-         NO RESULTS
-         ===================================================== -->
+    <!-- NO RESULTS -->
 
     <div
       id="emptyState"
@@ -949,25 +870,19 @@
   </main>
 
 
-  <!-- =====================================================
-       FOOTER
-       ===================================================== -->
+  <!-- FOOTER -->
 
   <footer class="footer">
     © <span id="year"></span> Rashka Barre
   </footer>
 
 
-  <!-- =====================================================
-       PRODUCTS
-       ===================================================== -->
+  <!-- PRODUCTS -->
 
   <script src="products.js?v=20260926-1824"></script>
 
 
-  <!-- =====================================================
-       GALLERY SCRIPT
-       ===================================================== -->
+  <!-- GALLERY SCRIPT -->
 
   <script>
 
@@ -1348,7 +1263,6 @@
                           class="thumbnail"
                         >
 
-
                           ${
                             isNew
                               ? `
@@ -1362,24 +1276,30 @@
                           }
 
 
-                          ${
-                            isTrailer
-                              ? `
-                                <span
-                                  class="trailer-badge"
-                                >
-                                  TRAILER
-                                </span>
-                              `
-                              : ""
-                          }
-
-
                           <img
                             src="${thumbnail}"
                             alt="${title}"
                             loading="lazy"
                           >
+
+
+                          ${
+                            isTrailer
+                              ? `
+                                <div
+                                  class="trailer-overlay"
+                                >
+
+                                  <div
+                                    class="trailer-watch-overlay"
+                                  >
+                                    DAAWO HADDDA
+                                  </div>
+
+                                </div>
+                              `
+                              : ""
+                          }
 
                         </div>
 
@@ -1398,16 +1318,8 @@
 
 
                         ${
-                          isTrailer
+                          !isTrailer
                             ? `
-                              <a
-                                href="${paymentUrl}"
-                                class="trailer-watch-button"
-                              >
-                                DAAWO HADDDA
-                              </a>
-                            `
-                            : `
                               <a
                                 href="${paymentUrl}"
                                 class="buy-button"
@@ -1415,6 +1327,7 @@
                                 BUY & WATCH
                               </a>
                             `
+                            : ""
                         }
 
                       </div>
