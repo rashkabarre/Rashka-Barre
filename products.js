@@ -10,7 +10,60 @@ const PRODUCTS = [
     preview: "",
     paymentUrl:
       "https://rashka-payment.waddanisoamli.workers.dev/buy",
-    publishedAt: "2026-09-26"
+    publishedAt: "2026-09-26",
+    status: "available"
+  },
+
+  {
+    id: "taxanaha-kiyow-episode-1",
+    title: "TAXANAHA KIYOW",
+    subtitle: "Qeybta 1 | Episode 1",
+    thumbnail: "",
+    price: "",
+    description: "",
+    preview: "",
+    paymentUrl: "",
+    publishedAt: "",
+    status: "coming-soon"
+  },
+
+  {
+    id: "taxanaha-kiyow-episode-2",
+    title: "TAXANAHA KIYOW",
+    subtitle: "Qeybta 2 | Episode 2",
+    thumbnail: "",
+    price: "",
+    description: "",
+    preview: "",
+    paymentUrl: "",
+    publishedAt: "",
+    status: "coming-soon"
+  },
+
+  {
+    id: "taxanaha-kiyow-episode-3",
+    title: "TAXANAHA KIYOW",
+    subtitle: "Qeybta 3 | Episode 3",
+    thumbnail: "",
+    price: "",
+    description: "",
+    preview: "",
+    paymentUrl: "",
+    publishedAt: "",
+    status: "coming-soon"
+  },
+
+  {
+    id: "taxanaha-kiyow-episode-4",
+    title: "TAXANAHA KIYOW",
+    subtitle: "Qeybta 4 | Episode 4",
+    thumbnail: "",
+    price: "",
+    description: "",
+    preview: "",
+    paymentUrl: "",
+    publishedAt: "",
+    status: "coming-soon"
   }
 ];
 
