@@ -2,71 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
-
-  <meta name="theme-color" content="#080808">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0a">
   <title>Rashka Barre — Videos</title>
-
-  <meta
-    name="description"
-    content="Rashka Barre — documentaries, animal stories, experiences and original videos."
-  >
+  <meta name="description" content="Rashka Barre — documentaries, animal stories, experiences and original videos.">
+  <meta property="og:title" content="Rashka Barre — Videos">
+  <meta property="og:description" content="Documentaries, animal stories, experiences and original videos by Rashka Barre.">
+  <meta property="og:type" content="website">
 
   <style>
-
     /* =========================================================
-       DESIGN
+       DESIGN SYSTEM
        ========================================================= */
-
     :root {
-      --bg: #080808;
-      --panel: #111111;
-      --panel-hover: #171717;
+      --bg: #0a0a0a;
+      --card: #121212;
+      --card-hover: #171717;
       --border: #242424;
-
       --text: #ffffff;
-      --muted: #999999;
-
+      --muted: #a0a0a0;
       --accent: #e50914;
-      --accent-hover: #ff1d28;
-
-      --max: 1180px;
-      --gap: 18px;
-
+      --accent-hover: #f51b25;
+      --max-width: 1080px;
       --radius: 12px;
+      --gap: 18px;
     }
-
 
     /* =========================================================
        RESET
        ========================================================= */
-
     * {
       box-sizing: border-box;
     }
 
     html {
+      margin: 0;
+      padding: 0;
       background: var(--bg);
-      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-
       background: var(--bg);
       color: var(--text);
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
     }
 
     a {
@@ -74,1701 +60,683 @@
       text-decoration: none;
     }
 
-    img {
-      display: block;
-      width: 100%;
-    }
-
-    button,
-    input {
-      font: inherit;
-    }
-
-
     /* =========================================================
-       TOP HEADER
+       HEADER / BANNER WITH LOGO
        ========================================================= */
-
-    .topbar {
+    .header {
+      width: 100%;
       border-bottom: 1px solid var(--border);
-      background: #080808;
+      background: #0a0a0a;
     }
 
-    .topbar-inner {
-      max-width: var(--max);
-
-      min-height: 70px;
-
+    .header-inner {
+      max-width: var(--max-width);
+      min-height: 72px;
       margin: 0 auto;
-
       padding: 0 20px;
-
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      gap: 14px;
-
-      width: 100%;
-    }
-
-    .brand-line {
-      height: 1px;
-
-      width: min(220px, 18vw);
-
-      background: var(--border);
-    }
-
-    .brand-name {
-      font-size: 21px;
-
-      font-weight: 800;
-
-      letter-spacing: -0.4px;
-
-      white-space: nowrap;
-    }
-
-
-    /* =========================================================
-       LOGO PLACEHOLDER
-
-       Replace this later with your real logo.
-       ========================================================= */
-
-    .logo-placeholder {
-      width: 48px;
-      height: 48px;
-
-      flex: 0 0 48px;
-
-      display: grid;
-      place-items: center;
-
-      border: 1px solid #3a3a3a;
-
-      border-radius: 10px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #1c1c1c,
-          #0e0e0e
-        );
-
-      color: #888;
-
-      font-size: 10px;
-
-      font-weight: 900;
-
-      letter-spacing: 0.8px;
-    }
-
-
-    /* =========================================================
-       MAIN
-       ========================================================= */
-
-    .container {
-      width: 100%;
-
-      max-width: var(--max);
-
-      margin: 0 auto;
-
-      padding:
-        28px 20px
-        60px;
-    }
-
-
-    /* =========================================================
-       BANNER
-       ========================================================= */
-
-    .banner {
-
-      position: relative;
-
-      overflow: hidden;
-
-      min-height: 220px;
-
-      margin-bottom: 30px;
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 16px;
-
-      background:
-        radial-gradient(
-          circle at 20% 20%,
-          rgba(229, 9, 20, 0.22),
-          transparent 34%
-        ),
-        linear-gradient(
-          135deg,
-          #171717,
-          #0c0c0c 58%,
-          #080808
-        );
-    }
-
-
-    .banner::after {
-
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(0,0,0,0.15),
-          rgba(0,0,0,0.45)
-        );
-
-      pointer-events: none;
-    }
-
-
-    .banner-inner {
-
-      position: relative;
-
-      z-index: 1;
-
-      min-height: 220px;
-
-      padding:
-        28px 32px;
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 24px;
-    }
-
-
+    /* banner logo – replaces old line + placeholder */
     .banner-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      width: 100%;
+      padding: 6px 0;
+    }
 
-      width: 96px;
-      height: 96px;
-
-      flex: 0 0 96px;
-
+    .banner-logo .logo-icon {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
       display: grid;
       place-items: center;
-
-      border:
-        1px solid #414141;
-
-      border-radius: 18px;
-
-      background:
-        rgba(255,255,255,0.05);
-
-      color: #aaa;
-
-      font-size: 14px;
-
-      font-weight: 900;
-
-      letter-spacing: 1px;
-
-      box-shadow:
-        0 14px 45px rgba(0,0,0,0.35);
-    }
-
-
-    .banner-copy {
-      min-width: 0;
-    }
-
-
-    .banner-kicker {
-
-      margin: 0 0 7px;
-
-      color: #e8e8e8;
-
-      font-size: 10px;
-
-      font-weight: 800;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-    }
-
-
-    .banner-title {
-
-      margin: 0;
-
-      font-size:
-        clamp(34px, 5vw, 58px);
-
-      line-height: 0.98;
-
-      font-weight: 900;
-
-      letter-spacing: -2px;
-    }
-
-
-    .banner-text {
-
-      max-width: 620px;
-
-      margin: 12px 0 0;
-
-      color: #b8b8b8;
-
-      font-size: 14px;
-
-      line-height: 1.55;
-    }
-
-
-    /* =========================================================
-       SEARCH
-       ========================================================= */
-
-    .search-wrap {
-
-      margin-bottom: 30px;
-    }
-
-
-    .search-box {
-
-      position: relative;
-
-      width: 100%;
-    }
-
-
-    .search-icon {
-
-      position: absolute;
-
-      left: 17px;
-      top: 50%;
-
-      transform:
-        translateY(-50%);
-
-      color: #777;
-
-      font-size: 19px;
-
-      line-height: 1;
-
-      pointer-events: none;
-    }
-
-
-    #searchInput {
-
-      width: 100%;
-
-      height: 54px;
-
-      padding:
-        0 18px 0 50px;
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 10px;
-
-      outline: none;
-
-      background: var(--panel);
-
+      border: 2px solid var(--accent);
+      border-radius: 14px;
+      background: linear-gradient(145deg, #1a1a1a, #0e0e0e);
       color: #fff;
-
-      font-size: 15px;
-
-      transition:
-        border-color 0.2s ease,
-        background 0.2s ease;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      box-shadow: 0 0 0 1px rgba(229, 9, 20, 0.2);
     }
 
-
-    #searchInput::placeholder {
-      color: #6f6f6f;
-    }
-
-
-    #searchInput:focus {
-
-      border-color: #444;
-
-      background: #151515;
-    }
-
-
-    /* =========================================================
-       SECTION HEADER
-       ========================================================= */
-
-    .section-head {
-
+    .banner-logo .brand-text {
       display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 15px;
-
-      margin-bottom: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.1;
     }
 
-
-    .section-title {
-
-      margin: 0;
-
-      font-size: 27px;
-
-      line-height: 1.1;
-
-      font-weight: 800;
-
+    .banner-logo .brand-name {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 900;
       letter-spacing: -0.8px;
     }
 
-
-    .section-count {
-
+    .banner-logo .brand-sub {
       color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
 
-      font-size: 12px;
+    /* =========================================================
+       MAIN CONTAINER
+       ========================================================= */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 34px 20px 65px;
+    }
 
+    /* =========================================================
+       WELCOME
+       ========================================================= */
+    .welcome {
+      max-width: 760px;
+      margin: 0 auto 32px;
+      text-align: center;
+    }
+
+    .welcome-label {
+      margin: 0 0 7px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .welcome-title {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(34px, 6vw, 48px);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+    }
+
+    .welcome-text {
+      margin: 10px auto 0;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    /* =========================================================
+       INTRODUCTION
+       ========================================================= */
+    .intro {
+      margin: 0 auto 35px;
+      padding: 18px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .intro-title {
+      margin: 0 0 8px;
+      color: #fff;
+      font-size: 18px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .intro p {
+      margin: 5px 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      max-width: 900px;
+    }
+
+    /* =========================================================
+       SEARCH BAR
+       ========================================================= */
+    .search-section {
+      margin: 0 auto 28px;
+      max-width: 520px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-wrapper {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    #searchInput {
+      width: 100%;
+      padding: 14px 18px 14px 44px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 60px;
+      color: #fff;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    #searchInput::placeholder {
+      color: #5a5a5a;
+      font-weight: 400;
+    }
+
+    #searchInput:focus {
+      border-color: #3a3a3a;
+      background: #181818;
+    }
+
+    .search-clear {
+      position: absolute;
+      right: 14px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 18px;
+      cursor: pointer;
+      padding: 4px 6px;
+      line-height: 1;
+      opacity: 0.7;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    .search-clear:hover {
+      opacity: 1;
+      color: #fff;
+    }
+
+    .search-clear.hidden {
+      display: none;
+    }
+
+    /* =========================================================
+       VIDEO SECTION HEADER
+       ========================================================= */
+    .videos-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 17px;
+      flex-wrap: wrap;
+    }
+
+    .videos-title {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+    }
+
+    .videos-order {
+      color: var(--muted);
+      font-size: 11px;
       white-space: nowrap;
     }
 
-
     /* =========================================================
-       VIDEO GALLERY
+       VIDEO GRID
        ========================================================= */
-
     #videoGrid {
-
       display: grid;
-
-      grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: var(--gap);
     }
-
 
     /* =========================================================
        VIDEO CARD
        ========================================================= */
-
     .video-card {
-
       min-width: 0;
-
       overflow: hidden;
-
-      border:
-        1px solid var(--border);
-
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
-
-      background: var(--panel);
-
-      transition:
-        transform 0.18s ease,
-        border-color 0.18s ease,
-        background 0.18s ease;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
     }
-
 
     .video-card:hover {
-
-      transform:
-        translateY(-2px);
-
-      border-color: #3b3b3b;
-
-      background:
-        var(--panel-hover);
+      transform: translateY(-2px);
+      background: var(--card-hover);
+      border-color: #373737;
     }
-
 
     /* =========================================================
        THUMBNAIL
        ========================================================= */
-
     .thumbnail-link {
-
       display: block;
     }
 
-
     .thumbnail {
-
       position: relative;
-
-      overflow: hidden;
-
       width: 100%;
-
       aspect-ratio: 16 / 9;
-
-      background: #0e0e0e;
+      overflow: hidden;
+      background: #0f0f0f;
     }
 
-
     .thumbnail img {
-
       width: 100%;
       height: 100%;
-
       object-fit: cover;
-
-      transition:
-        transform 0.3s ease,
-        filter 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
-
-    .thumbnail-link:hover
-    .thumbnail img {
-
-      transform:
-        scale(1.025);
-
-      filter:
-        brightness(0.88);
+    .thumbnail-link:hover .thumbnail img {
+      transform: scale(1.025);
     }
-
 
     /* =========================================================
        LATEST BADGE
        ========================================================= */
-
     .latest-badge {
-
       position: absolute;
-
       top: 9px;
       left: 9px;
-
       z-index: 2;
-
-      padding:
-        5px 7px;
-
-      border-radius:
-        5px;
-
-      background:
-        var(--accent);
-
-      color:
-        #fff;
-
-      font-size:
-        8px;
-
-      font-weight:
-        900;
-
-      letter-spacing:
-        0.9px;
-
-      text-transform:
-        uppercase;
+      padding: 5px 7px;
+      border-radius: 5px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
     }
-
 
     /* =========================================================
        VIDEO CONTENT
        ========================================================= */
-
     .video-content {
-
-      padding:
-        13px;
+      padding: 13px;
     }
-
 
     .video-title {
-
       margin: 0;
-
-      min-height:
-        46px;
-
-      display:
-        -webkit-box;
-
-      -webkit-box-orient:
-        vertical;
-
-      -webkit-line-clamp:
-        2;
-
-      overflow:
-        hidden;
-
       color: #fff;
-
-      font-size:
-        20px;
-
-      line-height:
-        1.14;
-
-      font-weight:
-        800;
-
-      letter-spacing:
-        -0.35px;
+      font-size: 21px;
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      min-height: 47px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
     }
-
-
-    .video-description {
-
-      margin:
-        7px 0 0;
-
-      min-height:
-        54px;
-
-      display:
-        -webkit-box;
-
-      -webkit-box-orient:
-        vertical;
-
-      -webkit-line-clamp:
-        3;
-
-      overflow:
-        hidden;
-
-      color:
-        var(--muted);
-
-      font-size:
-        12px;
-
-      line-height:
-        1.5;
-    }
-
 
     /* =========================================================
-       CARD FOOTER
+       NO RESULTS MESSAGE
        ========================================================= */
-
-    .video-footer {
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        space-between;
-
-      gap:
-        10px;
-
-      margin-top:
-        13px;
-    }
-
-
-    .price {
-
-      color: #fff;
-
-      font-size:
-        15px;
-
-      font-weight:
-        800;
-
-      white-space:
-        nowrap;
-    }
-
-
-    .buy-button {
-
-      min-height:
-        36px;
-
-      padding:
-        8px 13px;
-
-      display:
-        inline-flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      border-radius:
-        7px;
-
-      background:
-        var(--accent);
-
-      color:
-        #fff;
-
-      font-size:
-        11px;
-
-      font-weight:
-        800;
-
-      white-space:
-        nowrap;
-
-      transition:
-        background 0.18s ease;
-    }
-
-
-    .buy-button:hover {
-
-      background:
-        var(--accent-hover);
-    }
-
-
-    /* =========================================================
-       NO RESULTS
-       ========================================================= */
-
     .no-results {
-
-      grid-column:
-        1 / -1;
-
-      padding:
-        55px 20px;
-
-      border:
-        1px dashed var(--border);
-
-      border-radius:
-        10px;
-
-      text-align:
-        center;
-
-      color:
-        var(--muted);
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+      font-size: 15px;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
     }
-
-
-    .no-results h3 {
-
-      margin:
-        0 0 7px;
-
-      color:
-        #fff;
-
-      font-size:
-        18px;
-    }
-
-
-    .no-results p {
-
-      margin:
-        0;
-
-      font-size:
-        13px;
-    }
-
 
     /* =========================================================
-       FOOTER
+       RESPONSIVE
        ========================================================= */
-
-    .footer {
-
-      border-top:
-        1px solid var(--border);
-
-      padding:
-        23px 20px;
-
-      color:
-        var(--muted);
-
-      font-size:
-        11px;
-
-      text-align:
-        center;
-    }
-
-
-    /* =========================================================
-       TABLET
-       ========================================================= */
-
-    @media (max-width: 900px) {
-
-      #videoGrid {
-
-        grid-template-columns:
-          repeat(2, minmax(0, 1fr));
-      }
-
-      .brand-line {
-
-        width:
-          100px;
-      }
-    }
-
-
-    /* =========================================================
-       MOBILE
-       ========================================================= */
-
     @media (max-width: 600px) {
-
-      .topbar-inner {
-
-        min-height:
-          62px;
-
-        padding:
-          0 12px;
+      .banner-logo .logo-icon {
+        width: 42px;
+        height: 42px;
+        flex: 0 0 42px;
+        font-size: 17px;
+        border-radius: 11px;
       }
 
-
-      .brand {
-
-        gap:
-          9px;
+      .banner-logo .brand-name {
+        font-size: 19px;
       }
 
-
-      .brand-line {
-
-        display:
-          none;
+      .banner-logo .brand-sub {
+        font-size: 9px;
+        letter-spacing: 2px;
       }
 
-
-      .logo-placeholder {
-
-        width:
-          38px;
-
-        height:
-          38px;
-
-        flex-basis:
-          38px;
-
-        border-radius:
-          8px;
-
-        font-size:
-          9px;
+      .header-inner {
+        min-height: 64px;
+        padding: 0 16px;
       }
-
-
-      .brand-name {
-
-        font-size:
-          18px;
-      }
-
 
       .container {
-
-        padding:
-          18px 12px
-          45px;
+        padding: 26px 16px 50px;
       }
 
-
-      .banner {
-
-        min-height:
-          180px;
-
-        border-radius:
-          12px;
-
-        margin-bottom:
-          18px;
+      #videoGrid {
+        grid-template-columns: 1fr;
+        gap: 14px;
       }
 
-
-      .banner-inner {
-
-        min-height:
-          180px;
-
-        padding:
-          20px;
-
-        gap:
-          14px;
+      .video-title {
+        font-size: 18px;
+        min-height: 42px;
       }
 
-
-      .banner-logo {
-
-        width:
-          64px;
-
-        height:
-          64px;
-
-        flex-basis:
-          64px;
-
-        border-radius:
-          12px;
-
-        font-size:
-          9px;
+      .videos-title {
+        font-size: 22px;
       }
 
-
-      .banner-kicker {
-
-        font-size:
-          8px;
-
-        letter-spacing:
-          1.5px;
+      .search-section {
+        max-width: 100%;
       }
-
-
-      .banner-title {
-
-        font-size:
-          30px;
-
-        letter-spacing:
-          -1px;
-      }
-
-
-      .banner-text {
-
-        margin-top:
-          8px;
-
-        font-size:
-          11px;
-
-        line-height:
-          1.45;
-      }
-
-
-      .search-wrap {
-
-        margin-bottom:
-          22px;
-      }
-
 
       #searchInput {
-
-        height:
-          48px;
-
-        font-size:
-          13px;
-
-        padding-left:
-          45px;
+        padding: 12px 16px 12px 40px;
+        font-size: 13px;
       }
-
 
       .search-icon {
-
-        left:
-          15px;
-
-        font-size:
-          17px;
+        left: 13px;
+        font-size: 15px;
       }
 
-
-      .section-head {
-
-        margin-bottom:
-          12px;
-      }
-
-
-      .section-title {
-
-        font-size:
-          22px;
-      }
-
-
-      .section-count {
-
-        font-size:
-          9px;
-      }
-
-
-      /*
-        Two-column gallery on mobile.
-      */
-
-      #videoGrid {
-
-        grid-template-columns:
-          repeat(2, minmax(0, 1fr));
-
-        gap:
-          9px;
-      }
-
-
-      .video-card {
-
-        border-radius:
-          8px;
-      }
-
-
-      .video-content {
-
-        padding:
-          9px;
-      }
-
-
-      .video-title {
-
-        min-height:
-          36px;
-
-        font-size:
-          16px;
-
-        line-height:
-          1.12;
-      }
-
-
-      .video-description {
-
-        min-height:
-          42px;
-
-        margin-top:
-          5px;
-
-        font-size:
-          10px;
-
-        line-height:
-          1.4;
-      }
-
-
-      .video-footer {
-
-        margin-top:
-          9px;
-
-        gap:
-          6px;
-      }
-
-
-      .price {
-
-        font-size:
-          12px;
-      }
-
-
-      .buy-button {
-
-        min-height:
-          30px;
-
-        padding:
-          6px 8px;
-
-        font-size:
-          9px;
-
-        border-radius:
-          5px;
-      }
-
-
-      .latest-badge {
-
-        top:
-          6px;
-
-        left:
-          6px;
-
-        padding:
-          4px 5px;
-
-        font-size:
-          7px;
+      .search-clear {
+        right: 11px;
+        font-size: 16px;
       }
     }
-
-
-    /* =========================================================
-       VERY SMALL PHONES
-       ========================================================= */
 
     @media (max-width: 380px) {
-
-      #videoGrid {
-
-        gap:
-          7px;
+      .banner-logo {
+        gap: 10px;
       }
 
-
-      .video-content {
-
-        padding:
-          8px;
+      .banner-logo .brand-name {
+        font-size: 16px;
       }
 
-
-      .video-title {
-
-        font-size:
-          14px;
-
-        min-height:
-          32px;
-      }
-
-
-      .video-description {
-
-        font-size:
-          9px;
-
-        min-height:
-          38px;
-      }
-
-
-      .price {
-
-        font-size:
-          11px;
-      }
-
-
-      .buy-button {
-
-        padding:
-          6px 7px;
-
-        font-size:
-          8px;
+      .banner-logo .brand-sub {
+        font-size: 8px;
+        letter-spacing: 1.5px;
       }
     }
-
   </style>
 </head>
-
-
 <body>
 
-
-  <!-- =======================================================
-       HEADER
-       ======================================================= -->
-
-  <header class="topbar">
-
-    <div class="topbar-inner">
-
-      <div class="brand">
-
-        <div class="brand-line"></div>
-
-
-        <!-- SMALL HEADER LOGO PLACEHOLDER -->
-
-        <div class="logo-placeholder">
-          RB
+  <!-- =========================================================
+       HEADER / BANNER LOGO
+       ========================================================= -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="banner-logo">
+        <div class="logo-icon" aria-hidden="true">RB</div>
+        <div class="brand-text">
+          <span class="brand-name">Rashka Barre</span>
+          <span class="brand-sub">Videos</span>
         </div>
-
-
-        <div class="brand-name">
-          Rashka Barre
-        </div>
-
-
-        <div class="brand-line"></div>
-
       </div>
-
     </div>
-
   </header>
 
-
-
-  <!-- =======================================================
-       MAIN
-       ======================================================= -->
-
+  <!-- =========================================================
+       MAIN CONTENT
+       ========================================================= -->
   <main class="container">
 
-
-    <!-- =====================================================
-         BRAND BANNER
-         ===================================================== -->
-
-    <section class="banner">
-
-      <div class="banner-inner">
-
-
-        <!-- LARGE LOGO PLACEHOLDER -->
-
-        <div class="banner-logo">
-          LOGO
-        </div>
-
-
-        <div class="banner-copy">
-
-          <p class="banner-kicker">
-            Official Video Collection
-          </p>
-
-          <h1 class="banner-title">
-            Rashka Barre
-          </h1>
-
-          <p class="banner-text">
-            Documentaries, animal stories, experiences and
-            original videos — all in one place.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         SEARCH
-         ===================================================== -->
-
-    <section class="search-wrap">
-
-      <div class="search-box">
-
-        <span class="search-icon">
-          ⌕
-        </span>
-
-        <input
-          id="searchInput"
-          type="search"
-          placeholder="Search videos..."
-          autocomplete="off"
-          spellcheck="false"
-          aria-label="Search videos"
-        >
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         VIDEO HEADER
-         ===================================================== -->
-
-    <section class="section-head">
-
-      <h2 class="section-title">
-        Videos
-      </h2>
-
-      <span
-        class="section-count"
-        id="sectionCount"
-      >
-        0 videos
-      </span>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         VIDEO GALLERY
-         ===================================================== -->
-
-    <section
-      id="videoGrid"
-      aria-label="Rashka Barre video gallery"
-    ></section>
-
-
-
-    <!-- =====================================================
-         EMPTY STATE
-         ===================================================== -->
-
-    <div
-      id="emptyState"
-      class="no-results"
-      hidden
-    >
-
-      <h3>
-        No videos found
-      </h3>
-
-      <p>
-        Try another search.
+    <!-- WELCOME -->
+    <section class="welcome">
+      <p class="welcome-label">Original Content</p>
+      <h1 class="welcome-title">Stories That Matter</h1>
+      <p class="welcome-text">
+        Documentaries, animal stories, experiences and original videos — crafted with care and curiosity.
       </p>
+    </section>
 
+    <!-- INTRODUCTION -->
+    <section class="intro">
+      <h2 class="intro-title">About the Collection</h2>
+      <p>
+        A curated selection of documentaries, personal experiences, and stories about animals and the natural world.
+        Every video is an original production by Rashka Barre.
+      </p>
+      <p>
+        Use the search bar below to find a specific title or topic across the collection.
+      </p>
+    </section>
+
+    <!-- SEARCH BAR -->
+    <div class="search-section">
+      <div class="search-wrapper">
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search videos by title..."
+          autocomplete="off"
+          aria-label="Search videos by title"
+        >
+        <button
+          class="search-clear hidden"
+          id="searchClear"
+          aria-label="Clear search"
+          type="button"
+        >✕</button>
+      </div>
     </div>
 
+    <!-- VIDEO GALLERY HEADER -->
+    <div class="videos-header">
+      <h2 class="videos-title">All Videos</h2>
+      <span class="videos-order" id="resultCount">12 videos</span>
+    </div>
+
+    <!-- VIDEO GRID -->
+    <div id="videoGrid"></div>
 
   </main>
 
-
-
-  <!-- =======================================================
-       FOOTER
-       ======================================================= -->
-
-  <footer class="footer">
-
-    © <span id="year"></span> Rashka Barre
-
-  </footer>
-
-
-
-  <!-- =======================================================
-       PRODUCT DATA
-       ======================================================= -->
-
-  <script src="products.js?v=20260926"></script>
-
-
-
-  <!-- =======================================================
-       GALLERY LOGIC
-       ======================================================= -->
-
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
   <script>
+    (function() {
+      'use strict';
 
-    document.addEventListener(
-      "DOMContentLoaded",
-      function () {
+      // =====================================================
+      // VIDEO DATA
+      // =====================================================
+      var videos = [
+        {
+          title: "The Last Wild Horses of the Steppe",
+          thumbnail: "https://picsum.photos/seed/rb-horses/640/360",
+          link: "#",
+          latest: true
+        },
+        {
+          title: "Ocean Giants: A Documentary",
+          thumbnail: "https://picsum.photos/seed/rb-ocean/640/360",
+          link: "#",
+          latest: false
+        },
+        {
+          title: "Wolves: The Social Hunters",
+          thumbnail: "https://picsum.photos/seed/rb-wolves/640/360",
+          link: "#",
+          latest: true
+        },
+        {
+          title: "Life in the Arctic Tundra",
+          thumbnail: "https://picsum.photos/seed/rb-arctic/640/360",
+          link: "#",
+          latest: false
+        },
+        {
+          title: "The Secret World of Elephants",
+          thumbnail: "https://picsum.photos/seed/rb-elephants/640/360",
+          link: "#",
+          latest: false
+        },
+        {
+          title: "Rainforest: A Living Pharmacy",
+          thumbnail: "https://picsum.photos/seed/rb-rainforest/640/360",
+          link: "#",
+          latest: true
+        },
+        {
+          title: "Bears: Masters of the Wilderness",
+          thumbnail: "https://picsum.photos/seed/rb-bears/640/360",
+          link: "#",
+          latest: false
+        },
+        {
+          title: "The Migration of Birds",
+          thumbnail: "https://picsum.photos/seed/rb-birds/640/360",
+          link: "#",
+          latest: false
+        },
+        {
+          title: "Coral Reefs: Cities Under the Sea",
+          thumbnail: "https://picsum.photos/seed/rb-coral/640/360",
+          link: "#",
+          latest: false
+        },
+        {
+          title: "My Journey Through Patagonia",
+          thumbnail: "https://picsum.photos/seed/rb-patagonia/640/360",
+          link: "#",
+          latest: false
+        },
+        {
+          title: "The Intelligence of Crows",
+          thumbnail: "https://picsum.photos/seed/rb-crows/640/360",
+          link: "#",
+          latest: false
+        },
+        {
+          title: "Desert Survival: A Documentary",
+          thumbnail: "https://picsum.photos/seed/rb-desert/640/360",
+          link: "#",
+          latest: false
+        }
+      ];
 
-        const grid =
-          document.getElementById(
-            "videoGrid"
-          );
+      // =====================================================
+      // DOM ELEMENTS
+      // =====================================================
+      var videoGrid = document.getElementById('videoGrid');
+      var searchInput = document.getElementById('searchInput');
+      var searchClear = document.getElementById('searchClear');
+      var resultCount = document.getElementById('resultCount');
 
-        const emptyState =
-          document.getElementById(
-            "emptyState"
-          );
+      // =====================================================
+      // RENDER VIDEOS
+      // =====================================================
+      function renderVideos(filterText) {
+        var query = (filterText || '').toLowerCase().trim();
+        var filtered = videos;
 
-        const searchInput =
-          document.getElementById(
-            "searchInput"
-          );
-
-        const count =
-          document.getElementById(
-            "sectionCount"
-          );
-
-        const year =
-          document.getElementById(
-            "year"
-          );
-
-
-        /* Current year */
-
-        if (year) {
-
-          year.textContent =
-            new Date()
-              .getFullYear();
-
+        if (query !== '') {
+          filtered = videos.filter(function(video) {
+            return video.title.toLowerCase().indexOf(query) !== -1;
+          });
         }
 
-
-        /*
-         * Load products.js
-         */
-
-        const products =
-          Array.isArray(
-            window.PRODUCTS
-          )
-            ? [...window.PRODUCTS]
-            : [];
-
-
-        /*
-         * NEWEST → OLDEST
-         */
-
-        products.sort(
-          function (a, b) {
-
-            const dateA =
-              new Date(
-                a.publishedAt || 0
-              ).getTime();
-
-            const dateB =
-              new Date(
-                b.publishedAt || 0
-              ).getTime();
-
-            return dateB - dateA;
-
-          }
-        );
-
-
-        /*
-         * Render gallery
-         */
-
-        function renderVideos(
-          searchTerm = ""
-        ) {
-
-          const query =
-            searchTerm
-              .trim()
-              .toLowerCase();
-
-
-          const filtered =
-            products.filter(
-              function (product) {
-
-                const title =
-                  String(
-                    product.title || ""
-                  ).toLowerCase();
-
-                const description =
-                  String(
-                    product.description || ""
-                  ).toLowerCase();
-
-                return (
-                  !query ||
-                  title.includes(query) ||
-                  description.includes(query)
-                );
-
-              }
-            );
-
-
-          /*
-           * Number of visible videos
-           */
-
-          count.textContent =
-            filtered.length === 1
-              ? "1 video"
-              : `${filtered.length} videos`;
-
-
-          /*
-           * Nothing found
-           */
-
-          if (
-            filtered.length === 0
-          ) {
-
-            grid.innerHTML = "";
-
-            emptyState.hidden =
-              false;
-
-            return;
-
-          }
-
-
-          emptyState.hidden =
-            true;
-
-
-          /*
-           * Create cards
-           */
-
-          grid.innerHTML =
-            filtered
-              .map(
-                function (
-                  product
-                ) {
-
-                  const originalIndex =
-                    products.indexOf(
-                      product
-                    );
-
-
-                  const title =
-                    escapeHtml(
-                      product.title ||
-                      "Untitled"
-                    );
-
-
-                  const description =
-                    escapeHtml(
-                      product.description ||
-                      ""
-                    );
-
-
-                  const price =
-                    escapeHtml(
-                      product.price ||
-                      ""
-                    );
-
-
-                  const thumbnail =
-                    escapeHtml(
-                      product.thumbnail ||
-                      ""
-                    );
-
-
-                  const paymentUrl =
-                    escapeHtml(
-                      product.paymentUrl ||
-                      "#"
-                    );
-
-
-                  const latest =
-                    originalIndex === 0;
-
-
-                  return `
-
-                    <article
-                      class="video-card"
-                    >
-
-
-                      <a
-                        href="${paymentUrl}"
-                        class="thumbnail-link"
-                        aria-label="${title}"
-                      >
-
-                        <div
-                          class="thumbnail"
-                        >
-
-                          ${
-                            latest
-                              ? `
-                                <span
-                                  class="latest-badge"
-                                >
-                                  Latest
-                                </span>
-                              `
-                              : ""
-                          }
-
-
-                          <img
-                            src="${thumbnail}"
-                            alt="${title}"
-                            loading="lazy"
-                          >
-
-                        </div>
-
-                      </a>
-
-
-                      <div
-                        class="video-content"
-                      >
-
-                        <h3
-                          class="video-title"
-                        >
-                          ${title}
-                        </h3>
-
-
-                        <p
-                          class="video-description"
-                        >
-                          ${description}
-                        </p>
-
-
-                        <div
-                          class="video-footer"
-                        >
-
-                          <span
-                            class="price"
-                          >
-                            ${price}
-                          </span>
-
-
-                          <a
-                            href="${paymentUrl}"
-                            class="buy-button"
-                          >
-                            Buy & Watch
-                          </a>
-
-                        </div>
-
-                      </div>
-
-                    </article>
-
-                  `;
-
-                }
-              )
-              .join("");
-
+        // Update count
+        resultCount.textContent = filtered.length + (filtered.length === 1 ? ' video' : ' videos');
+
+        // Build HTML
+        if (filtered.length === 0) {
+          videoGrid.innerHTML =
+            '<div class="no-results">' +
+              'No videos match your search. Try a different keyword.' +
+            '</div>';
+          return;
         }
 
+        var html = '';
+        for (var i = 0; i < filtered.length; i++) {
+          var v = filtered[i];
+          html +=
+            '<article class="video-card">' +
+              '<a href="' + v.link + '" class="thumbnail-link">' +
+                '<div class="thumbnail">' +
+                  (v.latest ? '<span class="latest-badge">Latest</span>' : '') +
+                  '<img src="' + v.thumbnail + '" alt="' + v.title + '" loading="lazy">' +
+                '</div>' +
+              '</a>' +
+              '<div class="video-content">' +
+                '<h3 class="video-title">' + v.title + '</h3>' +
+              '</div>' +
+            '</article>';
+        }
 
-        /*
-         * Search in real time
-         */
-
-        searchInput.addEventListener(
-          "input",
-          function () {
-
-            renderVideos(
-              searchInput.value
-            );
-
-          }
-        );
-
-
-        /*
-         * First load
-         */
-
-        renderVideos();
-
+        videoGrid.innerHTML = html;
       }
-    );
 
+      // =====================================================
+      // SEARCH HANDLING
+      // =====================================================
+      function handleSearch() {
+        var value = searchInput.value;
+        renderVideos(value);
 
-    /*
-     * Prevent product text from
-     * becoming HTML.
-     */
+        // Show/hide clear button
+        if (value.length > 0) {
+          searchClear.classList.remove('hidden');
+        } else {
+          searchClear.classList.add('hidden');
+        }
+      }
 
-    function escapeHtml(value) {
+      // Input event (fires on every keystroke)
+      searchInput.addEventListener('input', handleSearch);
 
-      return String(
-        value ?? ""
-      )
+      // Clear button
+      searchClear.addEventListener('click', function() {
+        searchInput.value = '';
+        handleSearch();
+        searchInput.focus();
+      });
 
-        .replace(
-          /&/g,
-          "&amp;"
-        )
+      // Escape key to clear search
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          searchInput.value = '';
+          handleSearch();
+        }
+      });
 
-        .replace(
-          /</g,
-          "&lt;"
-        )
+      // =====================================================
+      // INITIAL RENDER
+      // =====================================================
+      renderVideos('');
 
-        .replace(
-          />/g,
-          "&gt;"
-        )
-
-        .replace(
-          /"/g,
-          "&quot;"
-        )
-
-        .replace(
-          /'/g,
-          "&#039;"
-        );
-
-    }
-
+    })();
   </script>
 
 </body>
