@@ -1,181 +1,661 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Rashka Barre — Stories Worth Watching</title>
-<meta name="description" content="Original documentaries, experiences and stories from Rashka Barre." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rashka Barre — Videos</title>
+
+  <meta
+    name="description"
+    content="Videos, documentaries and original stories by Rashka Barre."
+  >
+
+  <meta property="og:title" content="Rashka Barre — Videos">
+  <meta
+    property="og:description"
+    content="Videos, documentaries and original stories by Rashka Barre."
+  >
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --border: #242424;
+      --text: #ffffff;
+      --muted: #9b9b9b;
+      --red: #e50914;
+      --red-hover: #ff1f2a;
+      --max-width: 1050px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    /* =================================
+       HEADER
+       ================================= */
+
+    .header {
+      border-bottom: 1px solid var(--border);
+      background: #080808;
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px 20px;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    /* =================================
+       LOGO PLACEHOLDER
+       Replace this later with your logo
+       ================================= */
+
+    .logo-placeholder {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid #333;
+      border-radius: 9px;
+
+      background: #161616;
+
+      color: #999;
+
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    /* =================================
+       MAIN
+       ================================= */
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 38px 20px 70px;
+    }
+
+    /* =================================
+       VIDEOS SECTION HEADING
+       ================================= */
+
+    .section-heading {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-heading h1 {
+      margin: 0;
+
+      font-size: clamp(36px, 6vw, 52px);
+      line-height: 1;
+
+      font-weight: 800;
+      letter-spacing: -1.5px;
+    }
+
+    .section-heading p {
+      margin: 10px 0 0;
+
+      color: var(--muted);
+
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    /* =================================
+       VIDEO LIST
+       ================================= */
+
+    #videoGrid {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .video-card {
+      padding-bottom: 42px;
+      margin-bottom: 42px;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .video-card:last-child {
+      margin-bottom: 0;
+    }
+
+    /* =================================
+       THUMBNAIL
+       ================================= */
+
+    .thumbnail-link {
+      display: block;
+    }
+
+    .thumbnail {
+      position: relative;
+
+      width: 100%;
+      aspect-ratio: 16 / 9;
+
+      overflow: hidden;
+
+      border-radius: 12px;
+
+      background: #111;
+
+      border: 1px solid #202020;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+    }
+
+    .thumbnail-link:hover img {
+      transform: scale(1.025);
+      filter: brightness(0.86);
+    }
+
+    /* =================================
+       LATEST BADGE
+       ================================= */
+
+    .latest-badge {
+      position: absolute;
+
+      top: 14px;
+      left: 14px;
+
+      z-index: 5;
+
+      padding: 7px 10px;
+
+      border-radius: 6px;
+
+      background: var(--red);
+
+      color: white;
+
+      font-size: 10px;
+      font-weight: 900;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+    }
+
+    /* =================================
+       VIDEO INFORMATION
+       ================================= */
+
+    .video-info {
+      padding-top: 18px;
+    }
+
+    .video-title {
+      margin: 0;
+
+      font-size: clamp(29px, 5vw, 44px);
+
+      line-height: 1.06;
+
+      font-weight: 800;
+
+      letter-spacing: -1.2px;
+    }
+
+    .video-description {
+      max-width: 760px;
+
+      margin: 11px 0 0;
+
+      color: var(--muted);
+
+      font-size: 15px;
+
+      line-height: 1.65;
+    }
+
+    /* =================================
+       PRICE + BUTTON
+       ================================= */
+
+    .video-bottom {
+      margin-top: 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 15px;
+    }
+
+    .video-price {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .buy-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-width: 135px;
+
+      padding: 12px 19px;
+
+      border-radius: 8px;
+
+      background: var(--red);
+
+      color: white;
+
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .buy-button:hover {
+      background: var(--red-hover);
+    }
+
+    /* =================================
+       EMPTY
+       ================================= */
+
+    .empty-state {
+      padding: 50px 20px;
+
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+
+      text-align: center;
+
+      color: var(--muted);
+    }
+
+    .empty-state h2 {
+      margin: 0 0 8px;
+      color: white;
+    }
+
+    .empty-state p {
+      margin: 0;
+    }
+
+    /* =================================
+       FOOTER
+       ================================= */
+
+    .footer {
+      border-top: 1px solid var(--border);
+
+      padding: 25px 20px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      text-align: center;
+    }
+
+    /* =================================
+       MOBILE
+       ================================= */
+
+    @media (max-width: 650px) {
+
+      .brand {
+        font-size: 18px;
+      }
+
+      .logo-placeholder {
+        width: 38px;
+        height: 38px;
+      }
+
+      .container {
+        padding-top: 30px;
+      }
+
+      .section-heading h1 {
+        font-size: 38px;
+      }
+
+      .video-title {
+        font-size: 30px;
+      }
+
+      .video-bottom {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .buy-button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- ============================================================
-     HEADER / NAVIGATION
-     ============================================================ -->
-<header class="site-header" id="siteHeader">
-  <div class="container nav-wrap">
-    <a href="index.html" class="brand" aria-label="Rashka Barre home">
-      <span class="brand-mark">RB</span>
-      <span class="brand-text">Rashka Barre</span>
-    </a>
+  <!-- =================================
+       HEADER
+       ================================= -->
 
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+  <header class="header">
 
-    <nav class="nav" id="primaryNav">
-      <a href="index.html" class="nav-link active">Home</a>
-      <a href="index.html#videos" class="nav-link">Videos</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </nav>
-  </div>
-</header>
+    <div class="header-inner">
 
-<!-- ============================================================
-     HERO
-     ============================================================ -->
-<section class="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-grid-overlay"></div>
+      <a
+        href="index.html"
+        class="brand"
+        aria-label="Rashka Barre"
+      >
 
-  <div class="container hero-inner">
-    <p class="hero-eyebrow">Original Video Content</p>
+        <!-- LOGO PLACEHOLDER -->
+        <div class="logo-placeholder">
+          RB
+        </div>
 
-    <h1 class="hero-title">RASHKA BARRE</h1>
+        <span>
+          Rashka Barre
+        </span>
 
-    <p class="hero-tagline">Stories worth watching.</p>
-
-    <p class="hero-desc">
-      Original documentaries, experiences and stories from Rashka Barre.
-    </p>
-
-    <div class="hero-actions">
-      <a href="#videos" class="btn btn-primary btn-lg">
-        Explore Videos
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
-      <a href="about.html" class="btn btn-ghost btn-lg">About Rashka</a>
+
     </div>
 
-    <div class="hero-meta">
-      <span class="meta-dot"></span>
-      <span>@rashkabarre</span>
-      <span class="meta-sep">•</span>
-      <span>YouTube</span>
-    </div>
-  </div>
+  </header>
 
-  <div class="hero-fade"></div>
-</section>
 
-<!-- ============================================================
-     FEATURED VIDEOS
-     ============================================================ -->
-<section class="section" id="videos">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="section-eyebrow">The Collection</p>
-        <h2 class="section-title">Featured Videos</h2>
-      </div>
-      <p class="section-sub">
-        Exclusive documentaries, experiences and original stories. Watch the
-        preview, then purchase to unlock the full video.
+  <!-- =================================
+       MAIN CONTENT
+       ================================= -->
+
+  <main class="container">
+
+    <!-- VIDEOS SECTION -->
+
+    <section class="section-heading">
+
+      <h1>
+        Videos Section
+      </h1>
+
+      <p>
+        Documentaries, episodes and original stories.
       </p>
+
+    </section>
+
+
+    <!-- VIDEO LIST -->
+
+    <section
+      id="videoGrid"
+      aria-label="Rashka Barre videos"
+    ></section>
+
+
+    <div
+      id="emptyState"
+      class="empty-state"
+      hidden
+    >
+
+      <h2>
+        No videos yet
+      </h2>
+
+      <p>
+        New videos will appear here.
+      </p>
+
     </div>
 
-    <!-- Product cards are auto-generated by script.js from products.js -->
-    <div class="video-grid" id="videoGrid"></div>
+  </main>
 
-    <!-- Shown only if products.js is empty -->
-    <div class="empty-state" id="emptyState" hidden>
-      <h3>No videos yet</h3>
-      <p>Add your first product inside <code>products.js</code> to see it here.</p>
-    </div>
-  </div>
-</section>
 
-<!-- ============================================================
-     TRUST / INFO STRIP
-     ============================================================ -->
-<section class="section section-alt">
-  <div class="container info-strip">
-    <div class="info-item">
-      <div class="info-icon">🎬</div>
-      <h4>Original Content</h4>
-      <p>Every video is created and owned by Rashka Barre.</p>
-    </div>
-    <div class="info-item">
-      <div class="info-icon">▶</div>
-      <h4>Free Previews</h4>
-      <p>Watch a short preview before you decide to buy.</p>
-    </div>
-    <div class="info-item">
-      <div class="info-icon">🔒</div>
-      <h4>Secure Purchase</h4>
-      <p>Checkout links will be connected to trusted payment providers.</p>
-    </div>
-  </div>
-</section>
+  <!-- =================================
+       FOOTER
+       ================================= -->
 
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <div class="footer-brand">
-      <span class="brand-mark">RB</span>
-      <div>
-        <strong>Rashka Barre</strong>
-        <p>Stories worth watching.</p>
-      </div>
-    </div>
+  <footer class="footer">
 
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="index.html#videos">Videos</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
+    © <span id="year"></span> Rashka Barre
+  </footer>
 
-    <div class="footer-social">
-      <!-- Replace the YouTube link below with your real channel URL -->
-      <a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <p>© <span id="year"></span> Rashka Barre. All rights reserved.</p>
-  </div>
-</footer>
 
-<!-- ============================================================
-     VIDEO PREVIEW MODAL
-     ============================================================ -->
-<div class="modal" id="previewModal" aria-hidden="true">
-  <div class="modal-backdrop" data-close-modal></div>
-  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Video preview">
-    <button class="modal-close" data-close-modal aria-label="Close preview">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
+  <!-- =================================
+       PRODUCTS
+       ================================= -->
 
-    <div class="modal-video-wrap">
-      <video id="previewVideo" controls playsinline preload="metadata">
-        Your browser does not support the video tag.
-      </video>
-    </div>
+  <script src="products.js?v=20260926"></script>
 
-    <div class="modal-info">
-      <h3 id="modalTitle">Preview</h3>
-      <p id="modalDesc"></p>
-    </div>
-  </div>
-</div>
 
-<script src="products.js?v=20260926"></script>
-<script src="script.js"></script>
+  <!-- =================================
+       DISPLAY VIDEOS
+       ================================= -->
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const videoGrid =
+        document.getElementById("videoGrid");
+
+      const emptyState =
+        document.getElementById("emptyState");
+
+      const year =
+        document.getElementById("year");
+
+
+      if (year) {
+        year.textContent =
+          new Date().getFullYear();
+      }
+
+
+      const products =
+        Array.isArray(window.PRODUCTS)
+          ? [...window.PRODUCTS]
+          : [];
+
+
+      /*
+       * NEWEST → OLDEST
+       */
+
+      products.sort((a, b) => {
+
+        const dateA =
+          new Date(
+            a.publishedAt || 0
+          ).getTime();
+
+        const dateB =
+          new Date(
+            b.publishedAt || 0
+          ).getTime();
+
+        return dateB - dateA;
+
+      });
+
+
+      if (products.length === 0) {
+
+        emptyState.hidden = false;
+
+        return;
+      }
+
+
+      videoGrid.innerHTML =
+        products.map((product, index) => {
+
+          const title =
+            escapeHtml(
+              product.title || "Untitled"
+            );
+
+          const description =
+            escapeHtml(
+              product.description || ""
+            );
+
+          const price =
+            escapeHtml(
+              product.price || ""
+            );
+
+          const thumbnail =
+            escapeHtml(
+              product.thumbnail || ""
+            );
+
+          const paymentUrl =
+            escapeHtml(
+              product.paymentUrl || "#"
+            );
+
+
+          return `
+
+            <article class="video-card">
+
+              <a
+                href="${paymentUrl}"
+                class="thumbnail-link"
+                aria-label="${title}"
+              >
+
+                <div class="thumbnail">
+
+                  ${
+                    index === 0
+                      ? `
+                        <span class="latest-badge">
+                          Latest
+                        </span>
+                      `
+                      : ""
+                  }
+
+                  <img
+                    src="${thumbnail}"
+                    alt="${title}"
+                    loading="${
+                      index === 0
+                        ? "eager"
+                        : "lazy"
+                    }"
+                  >
+
+                </div>
+
+              </a>
+
+
+              <div class="video-info">
+
+                <h2 class="video-title">
+                  ${title}
+                </h2>
+
+                <p class="video-description">
+                  ${description}
+                </p>
+
+
+                <div class="video-bottom">
+
+                  <span class="video-price">
+                    ${price}
+                  </span>
+
+                  <a
+                    href="${paymentUrl}"
+                    class="buy-button"
+                  >
+                    Buy & Watch
+                  </a>
+
+                </div>
+
+              </div>
+
+            </article>
+
+          `;
+
+        }).join("");
+
+    });
+
+
+    function escapeHtml(value) {
+
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+  </script>
+
 </body>
 </html>
