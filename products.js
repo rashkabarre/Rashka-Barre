@@ -6,7 +6,7 @@ const PRODUCTS = [
     price: "$1",
     thumbnail: "aarkii-kiyow.jpg",
     preview: "",
-    paymentUrl: "#"
+    paymentUrl: "https://sifalo.co/gbbt"
   }
 ];
 
