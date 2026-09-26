@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,33 +20,27 @@
 
   <style>
 
-    /* =====================================================
-       DESIGN
-       ===================================================== */
-
     :root {
       --bg: #080808;
       --surface: #111111;
       --surface-hover: #171717;
-
       --border: #252525;
 
       --text: #ffffff;
-      --muted: #9b9b9b;
+      --muted: #999999;
 
       --accent: #e50914;
       --accent-hover: #ff1d28;
 
       --max-width: 1120px;
       --gap: 18px;
-
-      --radius: 12px;
+      --radius: 11px;
     }
 
 
-    /* =====================================================
+    /* ================================
        RESET
-       ===================================================== */
+       ================================ */
 
     * {
       box-sizing: border-box;
@@ -73,7 +68,7 @@
 
     img {
       display: block;
-      max-width: 100%;
+      width: 100%;
     }
 
     a {
@@ -86,126 +81,148 @@
     }
 
 
-    /* =====================================================
+    /* ================================
        HEADER
-       ===================================================== */
+       ================================ */
 
     .header {
       width: 100%;
 
-      background: #080808;
-
       border-bottom:
         1px solid var(--border);
-    }
 
+      background:
+        #080808;
+    }
 
     .header-inner {
-      width: 100%;
       max-width: var(--max-width);
 
-      min-height: 70px;
+      min-height:
+        68px;
 
-      margin: 0 auto;
+      margin:
+        0 auto;
 
-      padding: 0 20px;
+      padding:
+        0 20px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
     }
-
 
     .brand {
-      width: 100%;
+      display:
+        flex;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items:
+        center;
 
-      gap: 13px;
+      justify-content:
+        center;
+
+      gap:
+        12px;
     }
 
-
     .brand-line {
-      height: 1px;
+      width:
+        150px;
 
-      flex: 1;
-
-      max-width: 220px;
+      height:
+        1px;
 
       background:
         var(--border);
     }
 
-
     .header-logo {
-      width: 48px;
-      height: 48px;
+      width:
+        46px;
 
-      flex: 0 0 48px;
+      height:
+        46px;
 
-      object-fit: contain;
+      object-fit:
+        contain;
     }
-
 
     .brand-name {
-      color: #fff;
+      font-size:
+        20px;
 
-      font-size: 21px;
+      font-weight:
+        800;
 
-      font-weight: 800;
+      letter-spacing:
+        -0.4px;
 
-      letter-spacing: -0.4px;
-
-      white-space: nowrap;
+      white-space:
+        nowrap;
     }
 
 
-    /* =====================================================
+    /* ================================
        MAIN
-       ===================================================== */
+       ================================ */
 
     .container {
-      width: 100%;
+      width:
+        100%;
 
-      max-width: var(--max-width);
+      max-width:
+        var(--max-width);
 
-      margin: 0 auto;
+      margin:
+        0 auto;
 
       padding:
         25px 20px
-        65px;
+        60px;
     }
 
 
-    /* =====================================================
+    /* ================================
        BANNER
-       ===================================================== */
+       ================================ */
 
     .banner {
-      position: relative;
 
-      overflow: hidden;
+      position:
+        relative;
 
-      min-height: 215px;
+      overflow:
+        hidden;
 
-      margin-bottom: 20px;
+      min-height:
+        205px;
+
+      margin-bottom:
+        23px;
 
       border:
         1px solid var(--border);
 
-      border-radius: 15px;
+      border-radius:
+        14px;
 
       background:
+
         radial-gradient(
           circle at 15% 40%,
           rgba(229, 9, 20, 0.20),
           transparent 32%
         ),
+
         linear-gradient(
           135deg,
-          #1a1a1a,
+          #191919,
           #101010 55%,
           #090909
         );
@@ -213,126 +230,169 @@
 
 
     .banner-inner {
-      position: relative;
 
-      z-index: 2;
-
-      min-height: 215px;
+      min-height:
+        205px;
 
       padding:
-        28px 32px;
+        26px 30px;
 
-      display: flex;
-      align-items: center;
+      display:
+        flex;
 
-      gap: 25px;
+      align-items:
+        center;
+
+      gap:
+        22px;
     }
 
 
     .banner-logo {
-      width: 105px;
-      height: 105px;
 
-      flex: 0 0 105px;
+      width:
+        95px;
 
-      object-fit: contain;
+      height:
+        95px;
 
-      padding: 8px;
+      flex:
+        0 0 95px;
 
-      border-radius: 17px;
+      object-fit:
+        contain;
+
+      padding:
+        7px;
+
+      border-radius:
+        15px;
 
       background:
-        rgba(255, 255, 255, 0.04);
+        rgba(255,255,255,0.04);
 
       border:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255,255,255,0.08);
     }
 
 
     .banner-kicker {
-      margin: 0 0 7px;
 
-      color: #cfcfcf;
+      margin:
+        0 0 6px;
 
-      font-size: 10px;
+      color:
+        #c8c8c8;
 
-      font-weight: 800;
+      font-size:
+        10px;
 
-      letter-spacing: 2px;
+      font-weight:
+        800;
 
-      text-transform: uppercase;
+      letter-spacing:
+        2px;
+
+      text-transform:
+        uppercase;
     }
 
 
     .banner-title {
-      margin: 0;
 
-      color: #fff;
+      margin:
+        0;
+
+      color:
+        #fff;
 
       font-size:
-        clamp(36px, 5vw, 58px);
+        clamp(35px, 5vw, 55px);
 
-      line-height: 0.98;
+      line-height:
+        1;
 
-      font-weight: 900;
+      font-weight:
+        900;
 
-      letter-spacing: -2px;
+      letter-spacing:
+        -2px;
     }
 
 
     .banner-text {
-      max-width: 650px;
 
-      margin: 11px 0 0;
+      max-width:
+        630px;
 
-      color: #b7b7b7;
+      margin:
+        10px 0 0;
 
-      font-size: 14px;
+      color:
+        #b3b3b3;
 
-      line-height: 1.55;
+      font-size:
+        14px;
+
+      line-height:
+        1.5;
     }
 
 
-    /* =====================================================
+    /* ================================
        SEARCH
-       ===================================================== */
+       ================================ */
 
     .search-wrap {
-      margin-bottom: 27px;
+
+      margin-bottom:
+        26px;
     }
 
 
     .search-box {
-      position: relative;
 
-      width: 100%;
+      position:
+        relative;
     }
 
 
     .search-icon {
-      position: absolute;
 
-      top: 50%;
-      left: 16px;
+      position:
+        absolute;
+
+      left:
+        16px;
+
+      top:
+        50%;
 
       transform:
         translateY(-50%);
 
-      color: #777;
+      color:
+        #777;
 
-      font-size: 18px;
+      font-size:
+        18px;
 
-      pointer-events: none;
+      pointer-events:
+        none;
     }
 
 
     #searchInput {
-      width: 100%;
 
-      height: 52px;
+      width:
+        100%;
+
+      height:
+        50px;
 
       padding:
-        0 18px 0 48px;
+        0 17px 0 47px;
 
       border:
         1px solid var(--border);
@@ -355,248 +415,71 @@
 
 
     #searchInput::placeholder {
-      color: #6e6e6e;
+      color:
+        #6d6d6d;
     }
 
 
     #searchInput:focus {
+
       border-color:
-        #3c3c3c;
+        #404040;
 
       background:
         #151515;
     }
 
 
-    /* =====================================================
-       VIDEOS HEADING
-       ===================================================== */
-
-    .section-head {
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 15px;
-
-      margin-bottom: 16px;
-    }
-
-
-    .section-title {
-      margin: 0;
-
-      color: #fff;
-
-      font-size: 27px;
-
-      line-height: 1.1;
-
-      font-weight: 800;
-
-      letter-spacing: -0.8px;
-    }
-
-
-    .section-count {
-      color: var(--muted);
-
-      font-size: 11px;
-
-      white-space: nowrap;
-    }
-
-
-    /* =====================================================
-       VIDEO GALLERY
-       ===================================================== */
+    /* ================================
+       VIDEO GRID
+       ================================ */
 
     #videoGrid {
-      display: grid;
 
-      /*
-        Two columns.
-        Rectangular 16:9 video thumbnails.
-      */
+      display:
+        grid;
 
       grid-template-columns:
         repeat(2, minmax(0, 1fr));
 
-      gap: var(--gap);
+      gap:
+        25px var(--gap);
     }
 
 
-    /* =====================================================
-       VIDEO CARD
-       ===================================================== */
+    /* ================================
+       VIDEO ITEM
+       ================================ */
 
-    .video-card {
-      min-width: 0;
-
-      overflow: hidden;
-
-      display: flex;
-
-      flex-direction: column;
-
-      background:
-        var(--surface);
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        var(--radius);
-
-      transition:
-        transform 0.18s ease,
-        border-color 0.18s ease,
-        background 0.18s ease;
+    .video-item {
+      min-width:
+        0;
     }
 
 
-    .video-card:hover {
-      transform:
-        translateY(-2px);
+    /* ================================
+       VIDEO TITLE
+       ================================ */
 
-      border-color:
-        #3b3b3b;
+    .video-title {
 
-      background:
-        var(--surface-hover);
-    }
-
-
-    /* =====================================================
-       RECTANGULAR VIDEO THUMBNAIL
-       ===================================================== */
-
-    .thumbnail-link {
-      display: block;
-    }
-
-
-    .thumbnail {
-      position: relative;
-
-      width: 100%;
-
-      /*
-        Standard rectangular video format.
-      */
-
-      aspect-ratio:
-        16 / 9;
-
-      overflow: hidden;
-
-      background: #0e0e0e;
-    }
-
-
-    .thumbnail img {
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-
-      transition:
-        transform 0.3s ease,
-        filter 0.3s ease;
-    }
-
-
-    .thumbnail-link:hover
-    .thumbnail img {
-      transform:
-        scale(1.025);
-
-      filter:
-        brightness(0.88);
-    }
-
-
-    /* =====================================================
-       NEW BADGE
-       ===================================================== */
-
-    .new-badge {
-      position: absolute;
-
-      top: 9px;
-      left: 9px;
-
-      z-index: 5;
-
-      padding:
-        5px 8px;
-
-      border-radius:
-        5px;
-
-      background:
-        var(--accent);
+      margin:
+        0;
 
       color:
         #fff;
 
       font-size:
-        9px;
+        24px;
+
+      line-height:
+        1.1;
 
       font-weight:
         900;
 
       letter-spacing:
-        1px;
-
-      text-transform:
-        uppercase;
-    }
-
-
-    /* =====================================================
-       VIDEO INFORMATION
-       ===================================================== */
-
-    .video-content {
-      min-height: 146px;
-
-      padding:
-        13px;
-
-      display:
-        flex;
-
-      flex-direction:
-        column;
-    }
-
-
-    /*
-      ALL TITLES ARE UPPERCASE.
-    */
-
-    .video-title {
-      margin: 0;
-
-      min-height: 45px;
-
-      color:
-        #fff;
-
-      font-size:
-        20px;
-
-      line-height:
-        1.14;
-
-      font-weight:
-        800;
-
-      letter-spacing:
-        -0.35px;
+        -0.55px;
 
       text-transform:
         uppercase;
@@ -615,12 +498,17 @@
     }
 
 
-    .video-description {
+    /* ================================
+       SUBTITLE / DESCRIPTION
+       ================================ */
+
+    .video-subtitle {
+
       margin:
-        7px 0 0;
+        6px 0 11px;
 
       min-height:
-        54px;
+        19px;
 
       color:
         var(--muted);
@@ -638,23 +526,129 @@
         vertical;
 
       -webkit-line-clamp:
-        3;
+        2;
 
       overflow:
         hidden;
     }
 
 
-    /* =====================================================
+    /* ================================
+       THUMBNAIL
+       ================================ */
+
+    .thumbnail-link {
+
+      display:
+        block;
+    }
+
+
+    .thumbnail {
+
+      position:
+        relative;
+
+      width:
+        100%;
+
+      aspect-ratio:
+        16 / 9;
+
+      overflow:
+        hidden;
+
+      background:
+        #101010;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        var(--radius);
+    }
+
+
+    .thumbnail img {
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      object-fit:
+        cover;
+
+      transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+    }
+
+
+    .thumbnail-link:hover
+    .thumbnail img {
+
+      transform:
+        scale(1.025);
+
+      filter:
+        brightness(0.88);
+    }
+
+
+    /* ================================
+       NEW BADGE
+       ================================ */
+
+    .new-badge {
+
+      position:
+        absolute;
+
+      top:
+        9px;
+
+      left:
+        9px;
+
+      z-index:
+        5;
+
+      padding:
+        5px 7px;
+
+      border-radius:
+        5px;
+
+      background:
+        var(--accent);
+
+      color:
+        #fff;
+
+      font-size:
+        8px;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        0.9px;
+
+      text-transform:
+        uppercase;
+    }
+
+
+    /* ================================
        PRICE + BUTTON
-       ===================================================== */
+       ================================ */
 
     .video-footer {
-      margin-top:
-        auto;
 
-      padding-top:
-        13px;
+      margin-top:
+        10px;
 
       display:
         flex;
@@ -671,11 +665,12 @@
 
 
     .price {
+
       color:
         #fff;
 
       font-size:
-        15px;
+        14px;
 
       font-weight:
         800;
@@ -686,11 +681,6 @@
 
 
     .buy-button {
-      min-height:
-        36px;
-
-      padding:
-        8px 13px;
 
       display:
         inline-flex;
@@ -700,6 +690,12 @@
 
       justify-content:
         center;
+
+      min-height:
+        35px;
+
+      padding:
+        8px 13px;
 
       border-radius:
         7px;
@@ -711,30 +707,29 @@
         #fff;
 
       font-size:
-        11px;
+        10px;
 
       font-weight:
         800;
 
       white-space:
         nowrap;
-
-      transition:
-        background 0.18s ease;
     }
 
 
     .buy-button:hover {
+
       background:
         var(--accent-hover);
     }
 
 
-    /* =====================================================
+    /* ================================
        NO RESULTS
-       ===================================================== */
+       ================================ */
 
     .no-results {
+
       grid-column:
         1 / -1;
 
@@ -756,6 +751,7 @@
 
 
     .no-results h3 {
+
       margin:
         0 0 7px;
 
@@ -768,6 +764,7 @@
 
 
     .no-results p {
+
       margin:
         0;
 
@@ -776,16 +773,17 @@
     }
 
 
-    /* =====================================================
+    /* ================================
        FOOTER
-       ===================================================== */
+       ================================ */
 
     .footer {
+
       border-top:
         1px solid var(--border);
 
       padding:
-        23px 20px;
+        22px 20px;
 
       color:
         var(--muted);
@@ -798,24 +796,19 @@
     }
 
 
-    /* =====================================================
-       MOBILE / WEBVIEW
-       ===================================================== */
+    /* ================================
+       MOBILE
+       ================================ */
 
     @media (max-width: 700px) {
 
       .header-inner {
+
         min-height:
           62px;
 
         padding:
           0 12px;
-      }
-
-
-      .brand {
-        gap:
-          9px;
       }
 
 
@@ -826,60 +819,66 @@
 
 
       .header-logo {
+
         width:
           40px;
 
         height:
           40px;
-
-        flex-basis:
-          40px;
       }
 
 
       .brand-name {
+
         font-size:
           18px;
       }
 
 
       .container {
+
         padding:
           14px 12px
-          48px;
+          45px;
       }
 
 
       .banner {
+
         min-height:
-          165px;
+          160px;
 
         border-radius:
           11px;
+
+        margin-bottom:
+          15px;
       }
 
 
       .banner-inner {
+
         min-height:
-          165px;
+          160px;
 
         padding:
           18px;
 
         gap:
-          14px;
+          13px;
       }
 
 
       .banner-logo {
+
         width:
-          70px;
+          68px;
 
         height:
-          70px;
+          68px;
 
         flex-basis:
-          70px;
+          68px;
 
         border-radius:
           11px;
@@ -890,6 +889,7 @@
 
 
       .banner-kicker {
+
         font-size:
           8px;
 
@@ -899,8 +899,9 @@
 
 
       .banner-title {
+
         font-size:
-          30px;
+          29px;
 
         letter-spacing:
           -1px;
@@ -908,11 +909,12 @@
 
 
       .banner-text {
+
         margin-top:
           7px;
 
         font-size:
-          11px;
+          10px;
 
         line-height:
           1.4;
@@ -920,6 +922,7 @@
 
 
       #searchInput {
+
         height:
           46px;
 
@@ -932,69 +935,36 @@
 
 
       .search-wrap {
+
         margin-bottom:
-          21px;
+          20px;
       }
 
-
-      .section-title {
-        font-size:
-          22px;
-      }
-
-
-      .section-count {
-        font-size:
-          9px;
-      }
-
-
-      /*
-        Two-column gallery remains on mobile.
-      */
 
       #videoGrid {
+
         grid-template-columns:
           repeat(2, minmax(0, 1fr));
 
         gap:
-          9px;
-      }
-
-
-      .video-card {
-        border-radius:
-          8px;
-      }
-
-
-      .video-content {
-        min-height:
-          125px;
-
-        padding:
-          9px;
+          20px 9px;
       }
 
 
       .video-title {
-        min-height:
-          36px;
 
         font-size:
           15px;
 
-        line-height:
-          1.12;
+        letter-spacing:
+          -0.25px;
       }
 
 
-      .video-description {
-        min-height:
-          42px;
+      .video-subtitle {
 
-        margin-top:
-          5px;
+        margin:
+          5px 0 8px;
 
         font-size:
           10px;
@@ -1004,27 +974,40 @@
       }
 
 
-      .video-footer {
-        padding-top:
+      .thumbnail {
+
+        border-radius:
           8px;
       }
 
 
+      .video-footer {
+
+        margin-top:
+          8px;
+
+        gap:
+          5px;
+      }
+
+
       .price {
+
         font-size:
-          12px;
+          11px;
       }
 
 
       .buy-button {
+
         min-height:
-          30px;
+          29px;
 
         padding:
           6px 8px;
 
         font-size:
-          9px;
+          8px;
 
         border-radius:
           5px;
@@ -1032,6 +1015,7 @@
 
 
       .new-badge {
+
         top:
           6px;
 
@@ -1039,7 +1023,7 @@
           6px;
 
         padding:
-          4px 6px;
+          4px 5px;
 
         font-size:
           7px;
@@ -1047,13 +1031,14 @@
     }
 
 
-    /* =====================================================
+    /* ================================
        VERY SMALL PHONES
-       ===================================================== */
+       ================================ */
 
     @media (max-width: 380px) {
 
       .container {
+
         padding-left:
           8px;
 
@@ -1063,50 +1048,40 @@
 
 
       #videoGrid {
+
         gap:
-          7px;
-      }
-
-
-      .video-content {
-        min-height:
-          118px;
-
-        padding:
-          8px;
+          18px 7px;
       }
 
 
       .video-title {
-        font-size:
-          13px;
 
-        min-height:
-          30px;
+        font-size:
+          14px;
       }
 
 
-      .video-description {
+      .video-subtitle {
+
         font-size:
           9px;
-
-        min-height:
-          38px;
       }
 
 
       .price {
+
         font-size:
-          11px;
+          10px;
       }
 
 
       .buy-button {
-        padding:
-          6px 7px;
 
         font-size:
           8px;
+
+        padding:
+          6px 7px;
       }
     }
 
@@ -1194,7 +1169,7 @@
 
 
     <!-- ===================================================
-         SEARCH BAR
+         SEARCH
          =================================================== -->
 
     <section class="search-wrap">
@@ -1224,27 +1199,6 @@
 
 
     <!-- ===================================================
-         VIDEO SECTION HEADER
-         =================================================== -->
-
-    <section class="section-head">
-
-      <h2 class="section-title">
-        Videos
-      </h2>
-
-      <span
-        id="sectionCount"
-        class="section-count"
-      >
-        0 videos
-      </span>
-
-    </section>
-
-
-
-    <!-- ===================================================
          VIDEO GALLERY
          =================================================== -->
 
@@ -1252,7 +1206,6 @@
       id="videoGrid"
       aria-label="Rashka Barre video gallery"
     ></section>
-
 
 
     <!-- ===================================================
@@ -1293,7 +1246,7 @@
 
 
   <!-- =====================================================
-       PRODUCTS
+       PRODUCT DATA
        ===================================================== -->
 
   <script src="products.js?v=20260926"></script>
@@ -1301,7 +1254,7 @@
 
 
   <!-- =====================================================
-       GALLERY SCRIPT
+       GALLERY LOGIC
        ===================================================== -->
 
   <script>
@@ -1325,18 +1278,11 @@
             "searchInput"
           );
 
-        const count =
-          document.getElementById(
-            "sectionCount"
-          );
-
         const year =
           document.getElementById(
             "year"
           );
 
-
-        /* Year */
 
         if (year) {
 
@@ -1346,7 +1292,9 @@
         }
 
 
-        /* Products */
+        /*
+         * Load products
+         */
 
         const products =
           Array.isArray(
@@ -1357,8 +1305,8 @@
 
 
         /*
-          NEWEST → OLDEST
-        */
+         * NEWEST → OLDEST
+         */
 
         products.sort(
           function (a, b) {
@@ -1380,8 +1328,8 @@
 
 
         /*
-          Render videos
-        */
+         * Render gallery
+         */
 
         function renderVideos(
           searchTerm
@@ -1404,12 +1352,10 @@
                     product.title || ""
                   ).toLowerCase();
 
-
                 const description =
                   String(
                     product.description || ""
                   ).toLowerCase();
-
 
                 return (
                   !query ||
@@ -1420,20 +1366,6 @@
               }
             );
 
-
-          /*
-            Count
-          */
-
-          count.textContent =
-            filtered.length === 1
-              ? "1 video"
-              : `${filtered.length} videos`;
-
-
-          /*
-            No results
-          */
 
           if (
             filtered.length === 0
@@ -1446,6 +1378,7 @@
               false;
 
             return;
+
           }
 
 
@@ -1454,8 +1387,8 @@
 
 
           /*
-            Build cards
-          */
+           * Build each video
+           */
 
           grid.innerHTML =
             filtered
@@ -1463,12 +1396,6 @@
                 function (
                   product
                 ) {
-
-                  const originalIndex =
-                    products.indexOf(
-                      product
-                    );
-
 
                   const title =
                     escapeHtml(
@@ -1506,20 +1433,45 @@
 
 
                   /*
-                    The newest video
-                    receives NEW/CUSUB.
-                  */
+                   * Products are already sorted.
+                   * First one is the newest.
+                   */
 
-                  const isNew/CUSUB =
+                  const originalIndex =
+                    products.indexOf(
+                      product
+                    );
+
+
+                  const isNew =
                     originalIndex === 0;
 
 
                   return `
 
                     <article
-                      class="video-card"
+                      class="video-item"
                     >
 
+                      <!-- VIDEO TITLE -->
+
+                      <h2
+                        class="video-title"
+                      >
+                        ${title}
+                      </h2>
+
+
+                      <!-- SMALL SUBTITLE -->
+
+                      <p
+                        class="video-subtitle"
+                      >
+                        ${description}
+                      </p>
+
+
+                      <!-- RECTANGULAR VIDEO -->
 
                       <a
                         href="${paymentUrl}"
@@ -1537,7 +1489,7 @@
                                 <span
                                   class="new-badge"
                                 >
-                                  New
+                                  NEW
                                 </span>
                               `
                               : ""
@@ -1555,43 +1507,25 @@
                       </a>
 
 
+                      <!-- PRICE + BUY -->
+
                       <div
-                        class="video-content"
+                        class="video-footer"
                       >
 
-                        <h3
-                          class="video-title"
+                        <span
+                          class="price"
                         >
-                          ${title}
-                        </h3>
+                          ${price}
+                        </span>
 
 
-                        <p
-                          class="video-description"
+                        <a
+                          href="${paymentUrl}"
+                          class="buy-button"
                         >
-                          ${description}
-                        </p>
-
-
-                        <div
-                          class="video-footer"
-                        >
-
-                          <span
-                            class="price"
-                          >
-                            ${price}
-                          </span>
-
-
-                          <a
-                            href="${paymentUrl}"
-                            class="buy-button"
-                          >
-                            Buy & Watch
-                          </a>
-
-                        </div>
+                          BUY & WATCH
+                        </a>
 
                       </div>
 
@@ -1607,8 +1541,8 @@
 
 
         /*
-          Live search
-        */
+         * Search
+         */
 
         searchInput.addEventListener(
           "input",
@@ -1623,8 +1557,8 @@
 
 
         /*
-          Initial gallery
-        */
+         * First load
+         */
 
         renderVideos("");
 
@@ -1633,10 +1567,12 @@
 
 
     /*
-      Escape HTML
-    */
+     * Escape HTML
+     */
 
-    function escapeHtml(value) {
+    function escapeHtml(
+      value
+    ) {
 
       return String(
         value ?? ""
@@ -1673,3 +1609,4 @@
 
 </body>
 </html>
+```
