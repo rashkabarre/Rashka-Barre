@@ -20,7 +20,7 @@ const PRODUCTS = [
     subtitle: "Qeybta 1 | Episode 1",
     thumbnail: "episode-1.jpg",
     price: "",
-    description: "",
+    description: "Kani waa Qeybta 1-aad ee Taxanaha Kiyow oo dhammaystiran.",
     preview: "",
     paymentUrl: "",
     publishedAt: "",
