@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,7 @@
     content="width=device-width, initial-scale=1.0, viewport-fit=cover"
   >
 
-  <meta name="theme-color" content="#090909">
+  <meta name="theme-color" content="#080808">
 
   <title>Rashka Barre — Videos</title>
 
@@ -18,35 +17,35 @@
     content="Rashka Barre — documentaries, animal stories, experiences and original videos."
   >
 
-  <meta
-    property="og:title"
-    content="Rashka Barre — Videos"
-  >
-
-  <meta
-    property="og:description"
-    content="Documentaries, animal stories, experiences and original videos by Rashka Barre."
-  >
-
-  <meta
-    property="og:type"
-    content="website"
-  >
-
   <style>
+
+    /* =====================================================
+       DESIGN
+       ===================================================== */
+
     :root {
-      --bg: #090909;
+      --bg: #080808;
       --surface: #111111;
       --surface-hover: #171717;
+
       --border: #252525;
+
       --text: #ffffff;
-      --muted: #a0a0a0;
+      --muted: #9b9b9b;
+
       --accent: #e50914;
-      --accent-hover: #ff1c28;
-      --max-width: 1180px;
+      --accent-hover: #ff1d28;
+
+      --max-width: 1120px;
       --gap: 18px;
+
       --radius: 12px;
     }
+
+
+    /* =====================================================
+       RESET
+       ===================================================== */
 
     * {
       box-sizing: border-box;
@@ -59,12 +58,15 @@
 
     body {
       margin: 0;
+
       background: var(--bg);
       color: var(--text);
+
       font-family:
         Arial,
         Helvetica,
         sans-serif;
+
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -79,10 +81,10 @@
       text-decoration: none;
     }
 
-    button,
     input {
       font: inherit;
     }
+
 
     /* =====================================================
        HEADER
@@ -90,21 +92,29 @@
 
     .header {
       width: 100%;
-      border-bottom: 1px solid var(--border);
-      background: #090909;
+
+      background: #080808;
+
+      border-bottom:
+        1px solid var(--border);
     }
+
 
     .header-inner {
       width: 100%;
       max-width: var(--max-width);
-      min-height: 72px;
+
+      min-height: 70px;
+
       margin: 0 auto;
+
       padding: 0 20px;
 
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
 
     .brand {
       width: 100%;
@@ -113,30 +123,44 @@
       align-items: center;
       justify-content: center;
 
-      gap: 14px;
+      gap: 13px;
     }
+
 
     .brand-line {
-      flex: 1;
-      max-width: 230px;
       height: 1px;
-      background: var(--border);
+
+      flex: 1;
+
+      max-width: 220px;
+
+      background:
+        var(--border);
     }
 
+
     .header-logo {
-      width: 46px;
-      height: 46px;
-      flex: 0 0 46px;
+      width: 48px;
+      height: 48px;
+
+      flex: 0 0 48px;
+
       object-fit: contain;
     }
 
+
     .brand-name {
-      color: var(--text);
+      color: #fff;
+
       font-size: 21px;
+
       font-weight: 800;
+
       letter-spacing: -0.4px;
+
       white-space: nowrap;
     }
+
 
     /* =====================================================
        MAIN
@@ -144,10 +168,16 @@
 
     .container {
       width: 100%;
+
       max-width: var(--max-width);
+
       margin: 0 auto;
-      padding: 26px 20px 65px;
+
+      padding:
+        25px 20px
+        65px;
     }
+
 
     /* =====================================================
        BANNER
@@ -155,58 +185,49 @@
 
     .banner {
       position: relative;
+
       overflow: hidden;
 
-      min-height: 220px;
+      min-height: 215px;
 
-      margin-bottom: 22px;
+      margin-bottom: 20px;
 
-      border: 1px solid var(--border);
-      border-radius: 16px;
+      border:
+        1px solid var(--border);
+
+      border-radius: 15px;
 
       background:
         radial-gradient(
-          circle at 15% 30%,
+          circle at 15% 40%,
           rgba(229, 9, 20, 0.20),
           transparent 32%
         ),
         linear-gradient(
           135deg,
-          #191919 0%,
+          #1a1a1a,
           #101010 55%,
-          #0a0a0a 100%
+          #090909
         );
     }
 
-    .banner::after {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(0, 0, 0, 0.02),
-          rgba(0, 0, 0, 0.28)
-        );
-
-      pointer-events: none;
-    }
 
     .banner-inner {
       position: relative;
+
       z-index: 2;
 
-      min-height: 220px;
+      min-height: 215px;
 
-      padding: 28px 32px;
+      padding:
+        28px 32px;
 
       display: flex;
       align-items: center;
 
-      gap: 24px;
+      gap: 25px;
     }
+
 
     .banner-logo {
       width: 105px;
@@ -216,115 +237,146 @@
 
       object-fit: contain;
 
-      border-radius: 18px;
-
-      background: rgba(255, 255, 255, 0.04);
-
       padding: 8px;
+
+      border-radius: 17px;
+
+      background:
+        rgba(255, 255, 255, 0.04);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .banner-copy {
-      min-width: 0;
-    }
 
     .banner-kicker {
       margin: 0 0 7px;
 
-      color: #d0d0d0;
+      color: #cfcfcf;
 
       font-size: 10px;
+
       font-weight: 800;
+
       letter-spacing: 2px;
 
       text-transform: uppercase;
     }
+
 
     .banner-title {
       margin: 0;
 
       color: #fff;
 
-      font-size: clamp(34px, 5vw, 58px);
+      font-size:
+        clamp(36px, 5vw, 58px);
+
       line-height: 0.98;
 
       font-weight: 900;
+
       letter-spacing: -2px;
     }
 
+
     .banner-text {
-      max-width: 660px;
+      max-width: 650px;
 
       margin: 11px 0 0;
 
       color: #b7b7b7;
 
       font-size: 14px;
+
       line-height: 1.55;
     }
+
 
     /* =====================================================
        SEARCH
        ===================================================== */
 
     .search-wrap {
-      margin-bottom: 28px;
+      margin-bottom: 27px;
     }
+
 
     .search-box {
       position: relative;
+
       width: 100%;
     }
 
+
     .search-icon {
       position: absolute;
-      top: 50%;
-      left: 17px;
 
-      transform: translateY(-50%);
+      top: 50%;
+      left: 16px;
+
+      transform:
+        translateY(-50%);
 
       color: #777;
+
       font-size: 18px;
 
       pointer-events: none;
     }
 
+
     #searchInput {
       width: 100%;
+
       height: 52px;
 
-      padding: 0 18px 0 48px;
+      padding:
+        0 18px 0 48px;
 
-      border: 1px solid var(--border);
-      border-radius: 9px;
+      border:
+        1px solid var(--border);
 
-      outline: none;
+      border-radius:
+        9px;
 
-      background: var(--surface);
-      color: #fff;
+      outline:
+        none;
 
-      font-size: 14px;
+      background:
+        var(--surface);
 
-      transition:
-        border-color 0.2s ease,
-        background 0.2s ease;
+      color:
+        #fff;
+
+      font-size:
+        14px;
     }
+
 
     #searchInput::placeholder {
-      color: #707070;
+      color: #6e6e6e;
     }
+
 
     #searchInput:focus {
-      border-color: #3a3a3a;
-      background: #151515;
+      border-color:
+        #3c3c3c;
+
+      background:
+        #151515;
     }
 
+
     /* =====================================================
-       SECTION HEADER
+       VIDEOS HEADING
        ===================================================== */
 
     .section-head {
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
 
       gap: 15px;
@@ -332,15 +384,21 @@
       margin-bottom: 16px;
     }
 
+
     .section-title {
       margin: 0;
 
+      color: #fff;
+
       font-size: 27px;
+
       line-height: 1.1;
 
       font-weight: 800;
+
       letter-spacing: -0.8px;
     }
+
 
     .section-count {
       color: var(--muted);
@@ -350,6 +408,7 @@
       white-space: nowrap;
     }
 
+
     /* =====================================================
        VIDEO GALLERY
        ===================================================== */
@@ -357,11 +416,17 @@
     #videoGrid {
       display: grid;
 
+      /*
+        Two columns.
+        Rectangular 16:9 video thumbnails.
+      */
+
       grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+        repeat(2, minmax(0, 1fr));
 
       gap: var(--gap);
     }
+
 
     /* =====================================================
        VIDEO CARD
@@ -369,17 +434,21 @@
 
     .video-card {
       min-width: 0;
+
       overflow: hidden;
 
       display: flex;
+
       flex-direction: column;
 
-      background: var(--surface);
+      background:
+        var(--surface);
 
       border:
         1px solid var(--border);
 
-      border-radius: var(--radius);
+      border-radius:
+        var(--radius);
 
       transition:
         transform 0.18s ease,
@@ -387,33 +456,45 @@
         background 0.18s ease;
     }
 
+
     .video-card:hover {
-      transform: translateY(-2px);
+      transform:
+        translateY(-2px);
 
-      border-color: #3a3a3a;
+      border-color:
+        #3b3b3b;
 
-      background: var(--surface-hover);
+      background:
+        var(--surface-hover);
     }
 
+
     /* =====================================================
-       THUMBNAIL
+       RECTANGULAR VIDEO THUMBNAIL
        ===================================================== */
 
     .thumbnail-link {
       display: block;
     }
 
+
     .thumbnail {
       position: relative;
 
       width: 100%;
 
-      aspect-ratio: 16 / 9;
+      /*
+        Standard rectangular video format.
+      */
+
+      aspect-ratio:
+        16 / 9;
 
       overflow: hidden;
 
       background: #0e0e0e;
     }
+
 
     .thumbnail img {
       width: 100%;
@@ -426,17 +507,22 @@
         filter 0.3s ease;
     }
 
-    .thumbnail-link:hover .thumbnail img {
-      transform: scale(1.025);
 
-      filter: brightness(0.88);
+    .thumbnail-link:hover
+    .thumbnail img {
+      transform:
+        scale(1.025);
+
+      filter:
+        brightness(0.88);
     }
 
+
     /* =====================================================
-       LATEST
+       NEW BADGE
        ===================================================== */
 
-    .latest-badge {
+    .new-badge {
       position: absolute;
 
       top: 9px;
@@ -444,370 +530,522 @@
 
       z-index: 5;
 
-      padding: 5px 7px;
+      padding:
+        5px 8px;
 
-      border-radius: 5px;
+      border-radius:
+        5px;
 
-      background: var(--accent);
+      background:
+        var(--accent);
 
-      color: #fff;
+      color:
+        #fff;
 
-      font-size: 8px;
+      font-size:
+        9px;
 
-      font-weight: 900;
+      font-weight:
+        900;
 
-      letter-spacing: 0.9px;
+      letter-spacing:
+        1px;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
     }
 
+
     /* =====================================================
-       CARD CONTENT
+       VIDEO INFORMATION
        ===================================================== */
 
     .video-content {
-      padding: 13px;
+      min-height: 146px;
 
-      display: flex;
-      flex-direction: column;
+      padding:
+        13px;
 
-      flex: 1;
+      display:
+        flex;
+
+      flex-direction:
+        column;
     }
+
+
+    /*
+      ALL TITLES ARE UPPERCASE.
+    */
 
     .video-title {
       margin: 0;
 
       min-height: 45px;
 
-      color: #fff;
+      color:
+        #fff;
 
-      font-size: 20px;
+      font-size:
+        20px;
 
-      line-height: 1.14;
+      line-height:
+        1.14;
 
-      font-weight: 800;
+      font-weight:
+        800;
 
-      letter-spacing: -0.4px;
+      letter-spacing:
+        -0.35px;
 
-      display: -webkit-box;
+      text-transform:
+        uppercase;
 
-      -webkit-box-orient: vertical;
+      display:
+        -webkit-box;
 
-      -webkit-line-clamp: 2;
+      -webkit-box-orient:
+        vertical;
 
-      overflow: hidden;
+      -webkit-line-clamp:
+        2;
+
+      overflow:
+        hidden;
     }
+
 
     .video-description {
-      margin: 7px 0 0;
+      margin:
+        7px 0 0;
 
-      min-height: 54px;
+      min-height:
+        54px;
 
-      color: var(--muted);
+      color:
+        var(--muted);
 
-      font-size: 12px;
+      font-size:
+        12px;
 
-      line-height: 1.5;
+      line-height:
+        1.5;
 
-      display: -webkit-box;
+      display:
+        -webkit-box;
 
-      -webkit-box-orient: vertical;
+      -webkit-box-orient:
+        vertical;
 
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp:
+        3;
 
-      overflow: hidden;
+      overflow:
+        hidden;
     }
 
+
     /* =====================================================
-       CARD FOOTER
+       PRICE + BUTTON
        ===================================================== */
 
     .video-footer {
-      margin-top: auto;
-      padding-top: 13px;
+      margin-top:
+        auto;
 
-      display: flex;
+      padding-top:
+        13px;
 
-      align-items: center;
-      justify-content: space-between;
+      display:
+        flex;
 
-      gap: 10px;
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        10px;
     }
+
 
     .price {
-      color: #fff;
+      color:
+        #fff;
 
-      font-size: 15px;
+      font-size:
+        15px;
 
-      font-weight: 800;
+      font-weight:
+        800;
 
-      white-space: nowrap;
+      white-space:
+        nowrap;
     }
 
+
     .buy-button {
-      min-height: 36px;
+      min-height:
+        36px;
 
-      padding: 8px 13px;
+      padding:
+        8px 13px;
 
-      display: inline-flex;
+      display:
+        inline-flex;
 
-      align-items: center;
-      justify-content: center;
+      align-items:
+        center;
 
-      border-radius: 7px;
+      justify-content:
+        center;
 
-      background: var(--accent);
+      border-radius:
+        7px;
 
-      color: #fff;
+      background:
+        var(--accent);
 
-      font-size: 11px;
+      color:
+        #fff;
 
-      font-weight: 800;
+      font-size:
+        11px;
 
-      white-space: nowrap;
+      font-weight:
+        800;
+
+      white-space:
+        nowrap;
 
       transition:
         background 0.18s ease;
     }
 
+
     .buy-button:hover {
-      background: var(--accent-hover);
+      background:
+        var(--accent-hover);
     }
+
 
     /* =====================================================
        NO RESULTS
        ===================================================== */
 
     .no-results {
-      grid-column: 1 / -1;
+      grid-column:
+        1 / -1;
 
-      padding: 55px 20px;
+      padding:
+        50px 20px;
 
       border:
         1px dashed var(--border);
 
-      border-radius: 10px;
+      border-radius:
+        10px;
 
-      color: var(--muted);
+      text-align:
+        center;
 
-      text-align: center;
+      color:
+        var(--muted);
     }
+
 
     .no-results h3 {
-      margin: 0 0 7px;
+      margin:
+        0 0 7px;
 
-      color: #fff;
+      color:
+        #fff;
 
-      font-size: 18px;
+      font-size:
+        18px;
     }
+
 
     .no-results p {
-      margin: 0;
+      margin:
+        0;
 
-      font-size: 13px;
+      font-size:
+        13px;
     }
+
 
     /* =====================================================
        FOOTER
        ===================================================== */
 
     .footer {
-      border-top: 1px solid var(--border);
+      border-top:
+        1px solid var(--border);
 
-      padding: 22px 20px;
+      padding:
+        23px 20px;
 
-      color: var(--muted);
+      color:
+        var(--muted);
 
-      font-size: 11px;
+      font-size:
+        11px;
 
-      text-align: center;
+      text-align:
+        center;
     }
 
-    /* =====================================================
-       TABLET
-       ===================================================== */
-
-    @media (max-width: 900px) {
-
-      #videoGrid {
-        grid-template-columns:
-          repeat(2, minmax(0, 1fr));
-      }
-
-      .brand-line {
-        max-width: 120px;
-      }
-    }
 
     /* =====================================================
-       MOBILE
+       MOBILE / WEBVIEW
        ===================================================== */
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
 
       .header-inner {
-        min-height: 62px;
-        padding: 0 12px;
+        min-height:
+          62px;
+
+        padding:
+          0 12px;
       }
+
 
       .brand {
-        gap: 9px;
+        gap:
+          9px;
       }
+
 
       .brand-line {
-        display: none;
+        display:
+          none;
       }
+
 
       .header-logo {
-        width: 38px;
-        height: 38px;
-        flex-basis: 38px;
+        width:
+          40px;
+
+        height:
+          40px;
+
+        flex-basis:
+          40px;
       }
 
+
       .brand-name {
-        font-size: 18px;
+        font-size:
+          18px;
       }
+
 
       .container {
         padding:
-          15px 12px
+          14px 12px
           48px;
       }
 
+
       .banner {
-        min-height: 165px;
-        margin-bottom: 15px;
-        border-radius: 11px;
+        min-height:
+          165px;
+
+        border-radius:
+          11px;
       }
+
 
       .banner-inner {
-        min-height: 165px;
+        min-height:
+          165px;
 
-        padding: 18px;
+        padding:
+          18px;
 
-        gap: 13px;
+        gap:
+          14px;
       }
+
 
       .banner-logo {
-        width: 66px;
-        height: 66px;
-        flex-basis: 66px;
+        width:
+          70px;
 
-        padding: 5px;
+        height:
+          70px;
 
-        border-radius: 11px;
+        flex-basis:
+          70px;
+
+        border-radius:
+          11px;
+
+        padding:
+          5px;
       }
+
 
       .banner-kicker {
-        font-size: 8px;
-        letter-spacing: 1.4px;
+        font-size:
+          8px;
+
+        letter-spacing:
+          1.4px;
       }
+
 
       .banner-title {
-        font-size: 29px;
-        letter-spacing: -1px;
+        font-size:
+          30px;
+
+        letter-spacing:
+          -1px;
       }
+
 
       .banner-text {
-        margin-top: 7px;
-        font-size: 11px;
-        line-height: 1.45;
+        margin-top:
+          7px;
+
+        font-size:
+          11px;
+
+        line-height:
+          1.4;
       }
+
 
       #searchInput {
-        height: 46px;
+        height:
+          46px;
 
-        padding-left: 43px;
+        padding-left:
+          43px;
 
-        font-size: 12px;
+        font-size:
+          12px;
       }
 
-      .search-icon {
-        left: 14px;
-        font-size: 16px;
-      }
 
       .search-wrap {
-        margin-bottom: 20px;
+        margin-bottom:
+          21px;
       }
 
-      .section-head {
-        margin-bottom: 12px;
-      }
 
       .section-title {
-        font-size: 22px;
+        font-size:
+          22px;
       }
+
 
       .section-count {
-        font-size: 9px;
+        font-size:
+          9px;
       }
 
-      /* Two columns on mobile */
+
+      /*
+        Two-column gallery remains on mobile.
+      */
 
       #videoGrid {
         grid-template-columns:
           repeat(2, minmax(0, 1fr));
 
-        gap: 9px;
+        gap:
+          9px;
       }
+
 
       .video-card {
-        border-radius: 8px;
+        border-radius:
+          8px;
       }
+
 
       .video-content {
-        padding: 9px;
+        min-height:
+          125px;
+
+        padding:
+          9px;
       }
+
 
       .video-title {
-        min-height: 36px;
+        min-height:
+          36px;
 
-        font-size: 16px;
+        font-size:
+          15px;
 
-        line-height: 1.12;
+        line-height:
+          1.12;
       }
+
 
       .video-description {
-        min-height: 42px;
+        min-height:
+          42px;
 
-        margin-top: 5px;
+        margin-top:
+          5px;
 
-        font-size: 10px;
+        font-size:
+          10px;
 
-        line-height: 1.4;
+        line-height:
+          1.4;
       }
+
 
       .video-footer {
-        padding-top: 9px;
-        gap: 6px;
+        padding-top:
+          8px;
       }
+
 
       .price {
-        font-size: 12px;
+        font-size:
+          12px;
       }
 
+
       .buy-button {
-        min-height: 30px;
+        min-height:
+          30px;
 
         padding:
           6px 8px;
 
-        font-size: 9px;
+        font-size:
+          9px;
 
-        border-radius: 5px;
+        border-radius:
+          5px;
       }
 
-      .latest-badge {
-        top: 6px;
-        left: 6px;
+
+      .new-badge {
+        top:
+          6px;
+
+        left:
+          6px;
 
         padding:
-          4px 5px;
+          4px 6px;
 
-        font-size: 7px;
+        font-size:
+          7px;
       }
     }
+
 
     /* =====================================================
        VERY SMALL PHONES
@@ -816,37 +1054,59 @@
     @media (max-width: 380px) {
 
       .container {
-        padding-left: 9px;
-        padding-right: 9px;
+        padding-left:
+          8px;
+
+        padding-right:
+          8px;
       }
+
 
       #videoGrid {
-        gap: 7px;
+        gap:
+          7px;
       }
+
 
       .video-content {
-        padding: 8px;
+        min-height:
+          118px;
+
+        padding:
+          8px;
       }
+
 
       .video-title {
-        font-size: 14px;
-        min-height: 32px;
+        font-size:
+          13px;
+
+        min-height:
+          30px;
       }
+
 
       .video-description {
-        font-size: 9px;
-        min-height: 38px;
+        font-size:
+          9px;
+
+        min-height:
+          38px;
       }
 
+
       .price {
-        font-size: 11px;
+        font-size:
+          11px;
       }
+
 
       .buy-button {
         padding:
           6px 7px;
 
-        font-size: 8px;
+        font-size:
+          8px;
       }
     }
 
@@ -855,6 +1115,7 @@
 
 
 <body>
+
 
   <!-- =====================================================
        HEADER
@@ -887,6 +1148,7 @@
   </header>
 
 
+
   <!-- =====================================================
        MAIN
        ===================================================== -->
@@ -908,7 +1170,7 @@
           class="banner-logo"
         >
 
-        <div class="banner-copy">
+        <div>
 
           <p class="banner-kicker">
             Official Video Collection
@@ -930,8 +1192,9 @@
     </section>
 
 
+
     <!-- ===================================================
-         SEARCH
+         SEARCH BAR
          =================================================== -->
 
     <section class="search-wrap">
@@ -959,8 +1222,9 @@
     </section>
 
 
+
     <!-- ===================================================
-         VIDEO SECTION
+         VIDEO SECTION HEADER
          =================================================== -->
 
     <section class="section-head">
@@ -970,13 +1234,14 @@
       </h2>
 
       <span
-        class="section-count"
         id="sectionCount"
+        class="section-count"
       >
         0 videos
       </span>
 
     </section>
+
 
 
     <!-- ===================================================
@@ -987,6 +1252,7 @@
       id="videoGrid"
       aria-label="Rashka Barre video gallery"
     ></section>
+
 
 
     <!-- ===================================================
@@ -1009,7 +1275,9 @@
 
     </div>
 
+
   </main>
+
 
 
   <!-- =====================================================
@@ -1019,18 +1287,21 @@
   <footer class="footer">
 
     © <span id="year"></span> Rashka Barre
+
   </footer>
 
 
+
   <!-- =====================================================
-       PRODUCT DATA
+       PRODUCTS
        ===================================================== -->
 
   <script src="products.js?v=20260926"></script>
 
 
+
   <!-- =====================================================
-       GALLERY LOGIC
+       GALLERY SCRIPT
        ===================================================== -->
 
   <script>
@@ -1065,15 +1336,17 @@
           );
 
 
-        /* Current year */
+        /* Year */
 
         if (year) {
+
           year.textContent =
             new Date().getFullYear();
+
         }
 
 
-        /* Get products */
+        /* Products */
 
         const products =
           Array.isArray(
@@ -1083,7 +1356,9 @@
             : [];
 
 
-        /* Newest → oldest */
+        /*
+          NEWEST → OLDEST
+        */
 
         products.sort(
           function (a, b) {
@@ -1104,7 +1379,9 @@
         );
 
 
-        /* Render videos */
+        /*
+          Render videos
+        */
 
         function renderVideos(
           searchTerm
@@ -1127,10 +1404,12 @@
                     product.title || ""
                   ).toLowerCase();
 
+
                 const description =
                   String(
                     product.description || ""
                   ).toLowerCase();
+
 
                 return (
                   !query ||
@@ -1142,7 +1421,9 @@
             );
 
 
-          /* Count */
+          /*
+            Count
+          */
 
           count.textContent =
             filtered.length === 1
@@ -1150,19 +1431,21 @@
               : `${filtered.length} videos`;
 
 
-          /* No results */
+          /*
+            No results
+          */
 
           if (
             filtered.length === 0
           ) {
 
-            grid.innerHTML = "";
+            grid.innerHTML =
+              "";
 
             emptyState.hidden =
               false;
 
             return;
-
           }
 
 
@@ -1170,149 +1453,162 @@
             true;
 
 
-          /* Build cards */
+          /*
+            Build cards
+          */
 
           grid.innerHTML =
-            filtered.map(
-              function (
-                product
-              ) {
+            filtered
+              .map(
+                function (
+                  product
+                ) {
 
-                const originalIndex =
-                  products.indexOf(
-                    product
-                  );
-
-
-                const title =
-                  escapeHtml(
-                    product.title ||
-                    "Untitled"
-                  );
+                  const originalIndex =
+                    products.indexOf(
+                      product
+                    );
 
 
-                const description =
-                  escapeHtml(
-                    product.description ||
-                    ""
-                  );
+                  const title =
+                    escapeHtml(
+                      product.title ||
+                      "Untitled"
+                    );
 
 
-                const price =
-                  escapeHtml(
-                    product.price ||
-                    ""
-                  );
+                  const description =
+                    escapeHtml(
+                      product.description ||
+                      ""
+                    );
 
 
-                const thumbnail =
-                  escapeHtml(
-                    product.thumbnail ||
-                    ""
-                  );
+                  const price =
+                    escapeHtml(
+                      product.price ||
+                      ""
+                    );
 
 
-                const paymentUrl =
-                  escapeHtml(
-                    product.paymentUrl ||
-                    "#"
-                  );
+                  const thumbnail =
+                    escapeHtml(
+                      product.thumbnail ||
+                      ""
+                    );
 
 
-                const isLatest =
-                  originalIndex === 0;
+                  const paymentUrl =
+                    escapeHtml(
+                      product.paymentUrl ||
+                      "#"
+                    );
 
 
-                return `
+                  /*
+                    The newest video
+                    receives NEW.
+                  */
 
-                  <article
-                    class="video-card"
-                  >
+                  const isNew =
+                    originalIndex === 0;
 
-                    <a
-                      href="${paymentUrl}"
-                      class="thumbnail-link"
-                      aria-label="${title}"
+
+                  return `
+
+                    <article
+                      class="video-card"
                     >
 
-                      <div
-                        class="thumbnail"
+
+                      <a
+                        href="${paymentUrl}"
+                        class="thumbnail-link"
+                        aria-label="${title}"
                       >
 
-                        ${
-                          isLatest
-                            ? `
-                              <span
-                                class="latest-badge"
-                              >
-                                Latest
-                              </span>
-                            `
-                            : ""
-                        }
-
-                        <img
-                          src="${thumbnail}"
-                          alt="${title}"
-                          loading="lazy"
+                        <div
+                          class="thumbnail"
                         >
 
-                      </div>
-
-                    </a>
-
-
-                    <div
-                      class="video-content"
-                    >
-
-                      <h3
-                        class="video-title"
-                      >
-                        ${title}
-                      </h3>
+                          ${
+                            isNew
+                              ? `
+                                <span
+                                  class="new-badge"
+                                >
+                                  New
+                                </span>
+                              `
+                              : ""
+                          }
 
 
-                      <p
-                        class="video-description"
-                      >
-                        ${description}
-                      </p>
+                          <img
+                            src="${thumbnail}"
+                            alt="${title}"
+                            loading="lazy"
+                          >
+
+                        </div>
+
+                      </a>
 
 
                       <div
-                        class="video-footer"
+                        class="video-content"
                       >
 
-                        <span
-                          class="price"
+                        <h3
+                          class="video-title"
                         >
-                          ${price}
-                        </span>
+                          ${title}
+                        </h3>
 
 
-                        <a
-                          href="${paymentUrl}"
-                          class="buy-button"
+                        <p
+                          class="video-description"
                         >
-                          Buy & Watch
-                        </a>
+                          ${description}
+                        </p>
+
+
+                        <div
+                          class="video-footer"
+                        >
+
+                          <span
+                            class="price"
+                          >
+                            ${price}
+                          </span>
+
+
+                          <a
+                            href="${paymentUrl}"
+                            class="buy-button"
+                          >
+                            Buy & Watch
+                          </a>
+
+                        </div>
 
                       </div>
 
-                    </div>
+                    </article>
 
-                  </article>
+                  `;
 
-                `;
-
-              }
-            ).join("");
+                }
+              )
+              .join("");
 
         }
 
 
-        /* Search */
+        /*
+          Live search
+        */
 
         searchInput.addEventListener(
           "input",
@@ -1326,7 +1622,9 @@
         );
 
 
-        /* First load */
+        /*
+          Initial gallery
+        */
 
         renderVideos("");
 
@@ -1334,7 +1632,9 @@
     );
 
 
-    /* Escape product data */
+    /*
+      Escape HTML
+    */
 
     function escapeHtml(value) {
 
@@ -1373,4 +1673,3 @@
 
 </body>
 </html>
-```
