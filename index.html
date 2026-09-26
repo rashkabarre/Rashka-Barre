@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,58 +22,34 @@
 
   <style>
 
-    /* =====================================================
-       DESIGN
-       ===================================================== */
-
     :root {
       --bg: #080808;
       --surface: #111111;
-      --surface-hover: #171717;
-
       --border: #252525;
-
       --text: #ffffff;
       --muted: #999999;
-
       --accent: #e50914;
       --accent-hover: #ff1d28;
-
       --max-width: 1120px;
-
       --column-gap: 18px;
       --row-gap: 32px;
-
       --radius: 11px;
     }
-
-
-    /* =====================================================
-       RESET
-       ===================================================== */
 
     * {
       box-sizing: border-box;
     }
 
     html {
-      margin: 0;
-      padding: 0;
       background: var(--bg);
       scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-
       background: var(--bg);
       color: var(--text);
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -100,14 +75,9 @@
 
     .container {
       width: 100%;
-
       max-width: var(--max-width);
-
       margin: 0 auto;
-
-      padding:
-        24px 20px
-        65px;
+      padding: 24px 20px 65px;
     }
 
 
@@ -117,16 +87,10 @@
 
     .banner {
       position: relative;
-
       overflow: hidden;
-
       min-height: 210px;
-
       margin-bottom: 20px;
-
-      border:
-        1px solid var(--border);
-
+      border: 1px solid var(--border);
       border-radius: 15px;
 
       background:
@@ -143,25 +107,18 @@
         );
     }
 
-
     .banner-inner {
       min-height: 210px;
-
-      padding:
-        28px 32px;
+      padding: 28px 32px;
 
       display: flex;
-
       align-items: center;
-
       gap: 24px;
     }
-
 
     .banner-logo {
       width: 100px;
       height: 100px;
-
       flex: 0 0 100px;
 
       object-fit: contain;
@@ -170,71 +127,52 @@
 
       border:
         1px solid
-        rgba(255, 255, 255, 0.08);
+        rgba(255,255,255,0.08);
 
       border-radius: 16px;
 
       background:
-        rgba(255, 255, 255, 0.04);
+        rgba(255,255,255,0.04);
     }
-
 
     .banner-kicker {
-      margin:
-        0 0 7px;
+      margin: 0 0 7px;
 
-      color:
-        #c9c9c9;
+      color: #c9c9c9;
 
-      font-size:
-        10px;
+      font-size: 10px;
+      font-weight: 800;
 
-      font-weight:
-        800;
+      letter-spacing: 2px;
 
-      letter-spacing:
-        2px;
-
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
-
 
     .banner-title {
       margin: 0;
 
-      color:
-        #ffffff;
+      color: #ffffff;
 
       font-size:
         clamp(36px, 5vw, 56px);
 
-      line-height:
-        1;
+      line-height: 1;
 
-      font-weight:
-        900;
+      font-weight: 900;
 
-      letter-spacing:
-        -1.8px;
+      letter-spacing: -1.8px;
     }
 
-
     .banner-text {
-      max-width:
-        650px;
+      max-width: 650px;
 
-      margin:
-        10px 0 0;
+      margin: 10px 0 0;
 
-      color:
-        #b4b4b4;
+      color: #b4b4b4;
 
-      font-size:
-        14px;
+      font-size: 14px;
 
-      line-height:
-        1.55;
+      line-height: 1.55;
     }
 
 
@@ -243,50 +181,33 @@
        ===================================================== */
 
     .search-wrap {
-      margin-bottom:
-        26px;
+      margin-bottom: 26px;
     }
-
 
     .search-box {
-      position:
-        relative;
-
-      width:
-        100%;
+      position: relative;
+      width: 100%;
     }
 
-
     .search-icon {
-      position:
-        absolute;
+      position: absolute;
 
-      top:
-        50%;
-
-      left:
-        16px;
+      top: 50%;
+      left: 16px;
 
       transform:
         translateY(-50%);
 
-      color:
-        #777;
+      color: #777;
 
-      font-size:
-        18px;
+      font-size: 18px;
 
-      pointer-events:
-        none;
+      pointer-events: none;
     }
 
-
     #searchInput {
-      width:
-        100%;
-
-      height:
-        50px;
+      width: 100%;
+      height: 50px;
 
       padding:
         0 17px 0 47px;
@@ -294,84 +215,59 @@
       border:
         1px solid var(--border);
 
-      border-radius:
-        9px;
+      border-radius: 9px;
 
-      outline:
-        none;
+      outline: none;
 
-      background:
-        var(--surface);
+      background: var(--surface);
 
-      color:
-        #ffffff;
+      color: #ffffff;
 
-      font-size:
-        14px;
+      font-size: 14px;
     }
-
 
     #searchInput::placeholder {
-      color:
-        #6d6d6d;
+      color: #6d6d6d;
     }
 
-
     #searchInput:focus {
-      border-color:
-        #404040;
-
-      background:
-        #151515;
+      border-color: #404040;
+      background: #151515;
     }
 
 
     /* =====================================================
-       GALLERY HEADER
+       GALLERY INFO
        ===================================================== */
 
     .gallery-info {
-      display:
-        flex;
+      display: flex;
 
-      align-items:
-        center;
+      align-items: center;
 
-      justify-content:
-        space-between;
+      justify-content: space-between;
 
-      gap:
-        15px;
+      gap: 15px;
 
-      margin-bottom:
-        16px;
+      margin-bottom: 16px;
     }
-
 
     .gallery-count {
-      margin:
-        0;
+      margin: 0;
 
-      color:
-        #ffffff;
+      color: #ffffff;
 
-      font-size:
-        12px;
+      font-size: 12px;
 
-      font-weight:
-        700;
+      font-weight: 700;
     }
 
-
     .gallery-order {
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        11px;
+      font-size: 11px;
 
-      white-space:
-        nowrap;
+      white-space: nowrap;
     }
 
 
@@ -380,8 +276,7 @@
        ===================================================== */
 
     #videoGrid {
-      display:
-        grid;
+      display: grid;
 
       grid-template-columns:
         repeat(2, minmax(0, 1fr));
@@ -399,48 +294,36 @@
        ===================================================== */
 
     .video-item {
-      min-width:
-        0;
+      min-width: 0;
     }
 
 
     /* =====================================================
-       TITLE
+       VIDEO TITLE
        ===================================================== */
 
     .video-title {
-      margin:
-        0;
+      margin: 0;
 
-      color:
-        #ffffff;
+      color: #ffffff;
 
-      font-size:
-        24px;
+      font-size: 24px;
 
-      line-height:
-        1.1;
+      line-height: 1.1;
 
-      font-weight:
-        900;
+      font-weight: 900;
 
-      letter-spacing:
-        -0.55px;
+      letter-spacing: -0.55px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
-      display:
-        -webkit-box;
+      display: -webkit-box;
 
-      -webkit-box-orient:
-        vertical;
+      -webkit-box-orient: vertical;
 
-      -webkit-line-clamp:
-        2;
+      -webkit-line-clamp: 2;
 
-      overflow:
-        hidden;
+      overflow: hidden;
     }
 
 
@@ -476,27 +359,16 @@
        THUMBNAIL
        ===================================================== */
 
-    .thumbnail-link {
-      display:
-        block;
-    }
-
-
     .thumbnail {
-      position:
-        relative;
+      position: relative;
 
-      width:
-        100%;
+      width: 100%;
 
-      aspect-ratio:
-        16 / 9;
+      aspect-ratio: 16 / 9;
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
-      background:
-        #101010;
+      background: #101010;
 
       border:
         1px solid var(--border);
@@ -505,24 +377,23 @@
         var(--radius);
     }
 
-
     .thumbnail img {
-      width:
-        100%;
+      width: 100%;
+      height: 100%;
 
-      height:
-        100%;
-
-      object-fit:
-        cover;
+      object-fit: cover;
 
       transition:
         transform 0.3s ease,
         filter 0.3s ease;
     }
 
+    .thumbnail-link {
+      display: block;
+    }
 
-    .thumbnail-link:hover .thumbnail img {
+    .thumbnail-link:hover
+    .thumbnail img {
       transform:
         scale(1.025);
 
@@ -532,88 +403,101 @@
 
 
     /* =====================================================
-       COMING SOON PLACEHOLDER
+       TRAILER LABEL
+       ===================================================== */
+
+    .trailer-badge {
+      position: absolute;
+
+      top: 10px;
+      left: 10px;
+
+      z-index: 5;
+
+      padding:
+        6px 9px;
+
+      border-radius: 5px;
+
+      background:
+        var(--accent);
+
+      color: #ffffff;
+
+      font-size: 9px;
+
+      font-weight: 900;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+    }
+
+
+    /* =====================================================
+       LARGE COMING SOON TEXT
        ===================================================== */
 
     .coming-soon-box {
-      width:
-        100%;
+      position: absolute;
 
-      height:
-        100%;
+      inset: 0;
 
-      display:
-        flex;
+      display: flex;
 
-      align-items:
-        center;
+      align-items: center;
 
-      justify-content:
-        center;
+      justify-content: center;
 
-      text-align:
-        center;
+      text-align: center;
 
       background:
         linear-gradient(
           135deg,
-          #151515,
+          #1c1c1c,
           #0c0c0c
         );
     }
 
-
     .coming-soon-content {
-      padding:
-        15px;
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 8px;
     }
 
-
-    .coming-soon-icon {
-      width:
-        42px;
-
-      height:
-        42px;
-
-      margin:
-        0 auto 10px;
-
-      display:
-        grid;
-
-      place-items:
-        center;
-
-      border:
-        1px solid #363636;
-
-      border-radius:
-        50%;
-
-      color:
-        #999;
+    .coming-soon-main {
+      color: #ffffff;
 
       font-size:
-        16px;
-    }
+        clamp(25px, 4vw, 45px);
 
+      line-height: 1;
 
-    .coming-soon-text {
-      color:
-        #ffffff;
-
-      font-size:
-        12px;
-
-      font-weight:
-        900;
+      font-weight: 900;
 
       letter-spacing:
-        1.5px;
+        -1px;
 
       text-transform:
         uppercase;
+    }
+
+    .coming-soon-label {
+      color: #929292;
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
     }
 
 
@@ -622,23 +506,72 @@
        ===================================================== */
 
     .new-badge {
-      position:
-        absolute;
+      position: absolute;
 
-      top:
-        9px;
+      top: 9px;
+      left: 9px;
 
-      left:
-        9px;
-
-      z-index:
-        5;
+      z-index: 5;
 
       padding:
         5px 7px;
 
-      border-radius:
-        5px;
+      border-radius: 5px;
+
+      background:
+        var(--accent);
+
+      color: #ffffff;
+
+      font-size: 8px;
+
+      font-weight: 900;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+    }
+
+
+    /* =====================================================
+       PRICE + BUY
+       ===================================================== */
+
+    .video-footer {
+      margin-top: 10px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 10px;
+    }
+
+    .price {
+      color: #ffffff;
+
+      font-size: 15px;
+
+      font-weight: 800;
+
+      white-space: nowrap;
+    }
+
+    .buy-button {
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 36px;
+
+      padding:
+        8px 14px;
+
+      border-radius: 7px;
 
       background:
         var(--accent);
@@ -647,21 +580,54 @@
         #ffffff;
 
       font-size:
-        8px;
+        11px;
 
       font-weight:
-        900;
+        800;
 
-      letter-spacing:
-        1px;
+      white-space:
+        nowrap;
+    }
 
-      text-transform:
-        uppercase;
+    .buy-button:hover {
+      background:
+        var(--accent-hover);
     }
 
 
     /* =====================================================
-       STATUS
+       DESCRIPTION
+       ===================================================== */
+
+    .video-description {
+      margin:
+        10px 0 0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+
+      line-height:
+        1.6;
+
+      display:
+        -webkit-box;
+
+      -webkit-box-orient:
+        vertical;
+
+      -webkit-line-clamp:
+        4;
+
+      overflow:
+        hidden;
+    }
+
+
+    /* =====================================================
+       COMING SOON STATUS
        ===================================================== */
 
     .status-badge {
@@ -704,119 +670,6 @@
 
 
     /* =====================================================
-       PRICE + BUY
-       ===================================================== */
-
-    .video-footer {
-      margin-top:
-        10px;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        space-between;
-
-      gap:
-        10px;
-    }
-
-
-    .price {
-      color:
-        #ffffff;
-
-      font-size:
-        15px;
-
-      font-weight:
-        800;
-
-      white-space:
-        nowrap;
-    }
-
-
-    .buy-button {
-      display:
-        inline-flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      min-height:
-        36px;
-
-      padding:
-        8px 14px;
-
-      border-radius:
-        7px;
-
-      background:
-        var(--accent);
-
-      color:
-        #ffffff;
-
-      font-size:
-        11px;
-
-      font-weight:
-        800;
-
-      white-space:
-        nowrap;
-
-      transition:
-        background 0.2s ease;
-    }
-
-
-    .buy-button:hover {
-      background:
-        var(--accent-hover);
-    }
-
-
-    /* =====================================================
-       DESCRIPTION
-       ===================================================== */
-
-    .video-description {
-      margin:
-        10px 0 0;
-
-      color:
-        var(--muted);
-
-      font-size:
-        13px;
-
-      line-height:
-        1.6;
-
-      display:
-        -webkit-box;
-
-      -webkit-box-orient:
-        vertical;
-
-      -webkit-line-clamp:
-        4;
-
-      overflow:
-        hidden;
-    }
-
-
-    /* =====================================================
        NO RESULTS
        ===================================================== */
 
@@ -840,7 +693,6 @@
         var(--muted);
     }
 
-
     .no-results h3 {
       margin:
         0 0 7px;
@@ -851,7 +703,6 @@
       font-size:
         18px;
     }
-
 
     .no-results p {
       margin:
@@ -885,7 +736,7 @@
 
 
     /* =====================================================
-       MOBILE
+       MOBILE / WEBVIEW
        ===================================================== */
 
     @media (max-width: 700px) {
@@ -1008,7 +859,7 @@
           9px;
 
         row-gap:
-          24px;
+          22px;
       }
 
 
@@ -1036,28 +887,23 @@
       }
 
 
-      .coming-soon-text {
+      .coming-soon-main {
         font-size:
-          9px;
+          21px;
       }
 
 
-      .coming-soon-icon {
-        width:
-          34px;
-
-        height:
-          34px;
-
-        margin-bottom:
-          7px;
-
+      .coming-soon-label {
         font-size:
-          13px;
+          8px;
+
+        letter-spacing:
+          1.4px;
       }
 
 
-      .new-badge {
+      .new-badge,
+      .trailer-badge {
         top:
           6px;
 
@@ -1065,7 +911,7 @@
           6px;
 
         padding:
-          4px 5px;
+          4px 6px;
 
         font-size:
           7px;
@@ -1147,11 +993,12 @@
 
 
       #videoGrid {
+
         column-gap:
           7px;
 
         row-gap:
-          20px;
+          18px;
       }
 
 
@@ -1164,6 +1011,18 @@
       .video-subtitle {
         font-size:
           9px;
+      }
+
+
+      .coming-soon-main {
+        font-size:
+          17px;
+      }
+
+
+      .coming-soon-label {
+        font-size:
+          7px;
       }
 
 
@@ -1344,7 +1203,7 @@
 
 
   <!-- =====================================================
-       GALLERY SCRIPT
+       GALLERY LOGIC
        ===================================================== -->
 
   <script>
@@ -1392,7 +1251,7 @@
 
 
         /*
-         * Load products.js
+         * Load products
          */
 
         const products =
@@ -1404,28 +1263,28 @@
 
 
         /*
-         * Sort:
+         * Published videos:
+         * NEWEST → OLDEST
          *
-         * 1. Published videos with dates:
-         *    newest first.
+         * Coming-soon episodes:
+         * Episode 1 → Episode 2 → Episode 3 → Episode 4
          *
-         * 2. Coming-soon videos:
-         *    episode order.
+         * Published videos always appear first.
          */
 
         products.sort(
           function (a, b) {
 
-            const aComingSoon =
+            const aSoon =
               a.status === "coming-soon";
 
-            const bComingSoon =
+            const bSoon =
               b.status === "coming-soon";
 
 
             if (
-              !aComingSoon &&
-              !bComingSoon
+              !aSoon &&
+              !bSoon
             ) {
 
               const dateA =
@@ -1443,36 +1302,29 @@
 
 
             if (
-              aComingSoon &&
-              bComingSoon
+              aSoon &&
+              bSoon
             ) {
 
-              const episodeA =
+              return (
                 extractEpisodeNumber(
                   a.subtitle
-                );
-
-              const episodeB =
+                ) -
                 extractEpisodeNumber(
                   b.subtitle
-                );
-
-              return episodeA - episodeB;
+                )
+              );
             }
 
 
-            /*
-             * Published videos come first.
-             */
-
-            return aComingSoon ? 1 : -1;
+            return aSoon ? 1 : -1;
 
           }
         );
 
 
         /*
-         * Render
+         * Search + render
          */
 
         function renderVideos(
@@ -1529,19 +1381,11 @@
             );
 
 
-          /*
-           * Count
-           */
-
           galleryCount.textContent =
             filtered.length === 1
               ? "1 video"
               : `${filtered.length} videos`;
 
-
-          /*
-           * No results
-           */
 
           if (
             filtered.length === 0
@@ -1554,16 +1398,13 @@
               false;
 
             return;
+
           }
 
 
           emptyState.hidden =
             true;
 
-
-          /*
-           * Build cards
-           */
 
           grid.innerHTML =
             filtered
@@ -1619,10 +1460,10 @@
                     "coming-soon";
 
 
-                  /*
-                   * NEW only for a published
-                   * video with the newest date.
-                   */
+                  const isTrailer =
+                    product.id ===
+                    "aarkii-kiyow";
+
 
                   const newestPublished =
                     products.find(
@@ -1644,14 +1485,95 @@
                       product;
 
 
+                  /*
+                   * Coming-soon card
+                   */
+
+                  if (
+                    isComingSoon
+                  ) {
+
+                    const episodeNumber =
+                      extractEpisodeNumber(
+                        product.subtitle
+                      );
+
+
+                    return `
+
+                      <article
+                        class="video-item"
+                      >
+
+                        <h2
+                          class="video-title"
+                        >
+                          ${title}
+                        </h2>
+
+
+                        <p
+                          class="video-subtitle"
+                        >
+                          ${subtitle}
+                        </p>
+
+
+                        <div
+                          class="thumbnail"
+                        >
+
+                          <div
+                            class="coming-soon-box"
+                          >
+
+                            <div
+                              class="coming-soon-content"
+                            >
+
+                              <div
+                                class="coming-soon-main"
+                              >
+                                EPISODE
+                                ${episodeNumber}
+                              </div>
+
+                              <div
+                                class="coming-soon-label"
+                              >
+                                Coming Soon
+                              </div>
+
+                            </div>
+
+                          </div>
+
+                        </div>
+
+
+                        <div
+                          class="status-badge"
+                        >
+                          Coming Soon
+                        </div>
+
+
+                      </article>
+
+                    `;
+
+                  }
+
+
+                  /*
+                   * Trailer / available video
+                   */
+
                   return `
 
                     <article
                       class="video-item"
                     >
-
-
-                      <!-- TITLE -->
 
                       <h2
                         class="video-title"
@@ -1660,8 +1582,6 @@
                       </h2>
 
 
-                      <!-- SUBTITLE -->
-
                       <p
                         class="video-subtitle"
                       >
@@ -1669,129 +1589,80 @@
                       </p>
 
 
-                      ${
-                        isComingSoon
+                      <a
+                        href="${paymentUrl}"
+                        class="thumbnail-link"
+                        aria-label="${title}"
+                      >
 
-                          ? `
+                        <div
+                          class="thumbnail"
+                        >
 
-                            <!-- COMING SOON -->
-
-                            <div
-                              class="thumbnail"
-                            >
-
-                              <div
-                                class="coming-soon-box"
-                              >
-
-                                <div
-                                  class="coming-soon-content"
+                          ${
+                            isNew
+                              ? `
+                                <span
+                                  class="new-badge"
                                 >
-
-                                  <div
-                                    class="coming-soon-icon"
-                                  >
-                                    ▶
-                                  </div>
-
-                                  <div
-                                    class="coming-soon-text"
-                                  >
-                                    Coming Soon
-                                  </div>
-
-                                </div>
-
-                              </div>
-
-                            </div>
+                                  NEW
+                                </span>
+                              `
+                              : ""
+                          }
 
 
-                            <div
-                              class="status-badge"
-                            >
-                              Coming Soon
-                            </div>
-
-                          `
-
-                          : `
-
-                            <!-- AVAILABLE VIDEO -->
-
-                            <a
-                              href="${paymentUrl}"
-                              class="thumbnail-link"
-                              aria-label="${title}"
-                            >
-
-                              <div
-                                class="thumbnail"
-                              >
-
-                                ${
-                                  isNew
-                                    ? `
-                                      <span
-                                        class="new-badge"
-                                      >
-                                        NEW
-                                      </span>
-                                    `
-                                    : ""
-                                }
-
-
-                                <img
-                                  src="${thumbnail}"
-                                  alt="${title}"
-                                  loading="lazy"
+                          ${
+                            isTrailer
+                              ? `
+                                <span
+                                  class="trailer-badge"
                                 >
-
-                              </div>
-
-                            </a>
-
-
-                            <!-- PRICE -->
-
-                            <div
-                              class="video-footer"
-                            >
-
-                              <span
-                                class="price"
-                              >
-                                ${price}
-                              </span>
+                                  TRAILER
+                                </span>
+                              `
+                              : ""
+                          }
 
 
-                              <a
-                                href="${paymentUrl}"
-                                class="buy-button"
-                              >
-                                BUY & WATCH
-                              </a>
+                          <img
+                            src="${thumbnail}"
+                            alt="${title}"
+                            loading="lazy"
+                          >
 
-                            </div>
+                        </div>
 
-                          `
-                      }
+                      </a>
 
 
-                      ${
-                        !isComingSoon
-                          ? `
-                            <!-- DESCRIPTION -->
+                      <div
+                        class="video-footer"
+                      >
 
-                            <p
-                              class="video-description"
-                            >
-                              ${description}
-                            </p>
-                          `
-                          : ""
-                      }
+                        <span
+                          class="price"
+                        >
+                          ${price}
+                        </span>
+
+
+                        <a
+                          href="${paymentUrl}"
+                          class="buy-button"
+                        >
+                          BUY & WATCH
+                        </a>
+
+                      </div>
+
+
+                      <p
+                        class="video-description"
+                      >
+                        ${description}
+                      </p>
+
 
                     </article>
 
@@ -1821,7 +1692,7 @@
 
 
         /*
-         * First load
+         * Initial render
          */
 
         renderVideos("");
@@ -1831,9 +1702,7 @@
 
 
     /*
-     * Extract the episode number
-     * from:
-     *
+     * Get episode number from:
      * Qeybta 1 | Episode 1
      */
 
@@ -1899,4 +1768,3 @@
 
 </body>
 </html>
-```
