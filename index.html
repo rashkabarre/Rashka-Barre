@@ -497,6 +497,41 @@
     }
 
     /* =====================================================
+       TRAILER WATCH BUTTON
+       ===================================================== */
+
+    .trailer-watch-button {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 32px;
+
+      padding: 6px 9px;
+
+      border-radius: 5px;
+
+      background: var(--accent);
+
+      color: #ffffff;
+
+      font-size: 10px;
+
+      font-weight: 900;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+
+      white-space: nowrap;
+    }
+
+    .trailer-watch-button:hover {
+      background: var(--accent-hover);
+    }
+
+    /* =====================================================
        COMING SOON STATUS
        ===================================================== */
 
@@ -718,6 +753,14 @@
         border-radius: 5px;
       }
 
+      .trailer-watch-button {
+        min-height: 28px;
+        padding: 5px 7px;
+        font-size: 8px;
+        letter-spacing: 1.2px;
+        border-radius: 5px;
+      }
+
       .status-badge {
         margin-top: 8px;
         min-height: 26px;
@@ -771,6 +814,11 @@
       .buy-button {
         padding: 6px 7px;
         font-size: 8px;
+      }
+
+      .trailer-watch-button {
+        padding: 5px 6px;
+        font-size: 7px;
       }
     }
 
@@ -914,7 +962,7 @@
        PRODUCTS
        ===================================================== -->
 
-  <script src="products.js?v=20260926-1730"></script>
+  <script src="products.js?v=20260926-1824"></script>
 
 
   <!-- =====================================================
@@ -1252,6 +1300,13 @@
                         </div>
 
 
+                        <p
+                          class="video-description"
+                        >
+                          ${description}
+                        </p>
+
+
                       </article>
 
                     `;
@@ -1342,12 +1397,25 @@
                         </span>
 
 
-                        <a
-                          href="${paymentUrl}"
-                          class="buy-button"
-                        >
-                          BUY & WATCH
-                        </a>
+                        ${
+                          isTrailer
+                            ? `
+                              <a
+                                href="${paymentUrl}"
+                                class="trailer-watch-button"
+                              >
+                                DAAWO HADDDA
+                              </a>
+                            `
+                            : `
+                              <a
+                                href="${paymentUrl}"
+                                class="buy-button"
+                              >
+                                BUY & WATCH
+                              </a>
+                            `
+                        }
 
                       </div>
 
