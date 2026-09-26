@@ -6,7 +6,7 @@ const PRODUCTS = [
     price: "$0.25",
     thumbnail: "aarkii-kiyow.jpg",
     preview: "",
-    paymentUrl: "https://sifalo.co/gbbt"
+    paymentUrl: "https://rashka-payment.waddanisoamli.workers.dev/buy"
   }
 ];
 
