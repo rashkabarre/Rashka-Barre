@@ -1,7 +1,7 @@
 const PRODUCTS = [
   {
     id: "aarkii-kiyow",
-    title: "TUSMO | TRAILER",
+    title: "TUSMO TRAILER",
     subtitle: "Tusaale dokumentari",
     thumbnail: "aarkii-kiyow.jpg",
     price: "$0.25",
