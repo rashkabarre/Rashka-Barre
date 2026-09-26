@@ -2,51 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
 
   <title>Rashka Barre — Videos</title>
 
   <meta
     name="description"
-    content="Videos, documentaries and original stories by Rashka Barre."
+    content="Rashka Barre — documentaries, animal stories and original videos."
   >
 
+  <meta name="theme-color" content="#0b0b0b">
+
+  <!-- Social sharing -->
   <meta property="og:title" content="Rashka Barre — Videos">
   <meta
     property="og:description"
-    content="Videos, documentaries and original stories by Rashka Barre."
+    content="Documentaries, animal stories and original videos by Rashka Barre."
   >
   <meta property="og:type" content="website">
 
   <style>
+
+    /* =====================================================
+       BASIC
+       ===================================================== */
+
     :root {
-      --bg: #080808;
-      --surface: #111111;
-      --border: #242424;
+      --bg: #0b0b0b;
+      --surface: #121212;
+      --surface-2: #171717;
+      --border: #262626;
+
       --text: #ffffff;
-      --muted: #9b9b9b;
-      --red: #e50914;
-      --red-hover: #ff1f2a;
-      --max-width: 1050px;
+      --muted: #999999;
+
+      --accent: #e50914;
+      --accent-hover: #ff1d28;
+
+      --max-width: 1100px;
+      --gap: 22px;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
+
       background: var(--bg);
       color: var(--text);
+
       font-family:
         Arial,
         Helvetica,
         sans-serif;
-    }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     img {
@@ -54,120 +75,289 @@
       width: 100%;
     }
 
-    /* =================================
-       HEADER
-       ================================= */
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    .header {
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
+    .site-header {
+      width: 100%;
+
       border-bottom: 1px solid var(--border);
-      background: #080808;
+
+      background: rgba(11, 11, 11, 0.96);
+
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     .header-inner {
       max-width: var(--max-width);
+
+      min-height: 68px;
+
       margin: 0 auto;
-      padding: 18px 20px;
-
-      display: flex;
-      align-items: center;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-
-      font-size: 21px;
-      font-weight: 800;
-    }
-
-    /* =================================
-       LOGO PLACEHOLDER
-       Replace this later with your logo
-       ================================= */
-
-    .logo-placeholder {
-      width: 42px;
-      height: 42px;
+      padding: 0 20px;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      border: 1px solid #333;
+      position: relative;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+
+      width: 100%;
+
+      gap: 14px;
+
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    .brand-line {
+      height: 1px;
+
+      flex: 1;
+
+      background: var(--border);
+    }
+
+    .brand-name {
+      white-space: nowrap;
+
+      letter-spacing: -0.4px;
+    }
+
+    /* =====================================================
+       LOGO PLACEHOLDER
+
+       Replace RB with your actual logo later.
+       ===================================================== */
+
+    .logo-placeholder {
+      width: 42px;
+      height: 42px;
+
+      flex: 0 0 42px;
+
+      display: grid;
+      place-items: center;
+
+      border: 1px solid #363636;
       border-radius: 9px;
 
-      background: #161616;
+      background: #171717;
 
-      color: #999;
+      color: #888;
 
       font-size: 11px;
       font-weight: 900;
+      letter-spacing: 0.5px;
     }
 
-    /* =================================
+
+    /* =====================================================
        MAIN
-       ================================= */
+       ===================================================== */
 
     .container {
+      width: 100%;
+
       max-width: var(--max-width);
+
       margin: 0 auto;
-      padding: 38px 20px 70px;
+
+      padding:
+        38px 20px
+        70px;
     }
 
-    /* =================================
-       VIDEOS SECTION HEADING
-       ================================= */
 
-    .section-heading {
-      margin-bottom: 30px;
-      padding-bottom: 20px;
+    /* =====================================================
+       WELCOME
+       ===================================================== */
 
-      border-bottom: 1px solid var(--border);
+    .welcome {
+      text-align: center;
+
+      max-width: 780px;
+
+      margin: 0 auto 42px;
     }
 
-    .section-heading h1 {
+    .welcome-kicker {
+      margin: 0 0 9px;
+
+      color: var(--accent);
+
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+    .welcome h1 {
       margin: 0;
 
-      font-size: clamp(36px, 6vw, 52px);
+      font-size:
+        clamp(34px, 6vw, 54px);
+
       line-height: 1;
 
       font-weight: 800;
-      letter-spacing: -1.5px;
+
+      letter-spacing: -1.8px;
     }
 
-    .section-heading p {
-      margin: 10px 0 0;
+    .welcome p {
+      margin: 13px auto 0;
+
+      max-width: 720px;
 
       color: var(--muted);
 
       font-size: 15px;
-      line-height: 1.5;
+
+      line-height: 1.55;
     }
 
-    /* =================================
-       VIDEO LIST
-       ================================= */
 
-    #videoGrid {
-      display: flex;
-      flex-direction: column;
-    }
+    /* =====================================================
+       INTRODUCTION
+       ===================================================== */
 
-    .video-card {
-      padding-bottom: 42px;
-      margin-bottom: 42px;
+    .introduction {
+      max-width: 850px;
 
+      margin: 0 auto 45px;
+
+      padding: 22px 0;
+
+      border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
 
-    .video-card:last-child {
-      margin-bottom: 0;
+    .introduction h2 {
+      margin: 0 0 10px;
+
+      font-size: 19px;
+
+      font-weight: 800;
+
+      letter-spacing: -0.3px;
     }
 
-    /* =================================
+    .introduction p {
+      margin: 5px 0;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      line-height: 1.55;
+    }
+
+
+    /* =====================================================
+       VIDEO SECTION
+       ===================================================== */
+
+    .videos-heading {
+      margin-bottom: 20px;
+
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+
+      gap: 15px;
+    }
+
+    .videos-heading h2 {
+      margin: 0;
+
+      font-size: 27px;
+
+      line-height: 1.1;
+
+      font-weight: 800;
+
+      letter-spacing: -0.8px;
+    }
+
+    .videos-heading span {
+      color: var(--muted);
+
+      font-size: 12px;
+
+      white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       VIDEO GRID
+       ===================================================== */
+
+    #videoGrid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: var(--gap);
+    }
+
+
+    /* =====================================================
+       VIDEO CARD
+       ===================================================== */
+
+    .video-card {
+      min-width: 0;
+
+      overflow: hidden;
+
+      background: var(--surface);
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .video-card:hover {
+      transform: translateY(-2px);
+
+      border-color: #3a3a3a;
+    }
+
+
+    /* =====================================================
        THUMBNAIL
-       ================================= */
+       ===================================================== */
 
     .thumbnail-link {
       display: block;
@@ -177,15 +367,12 @@
       position: relative;
 
       width: 100%;
+
       aspect-ratio: 16 / 9;
 
       overflow: hidden;
 
-      border-radius: 12px;
-
       background: #111;
-
-      border: 1px solid #202020;
     }
 
     .thumbnail img {
@@ -201,119 +388,149 @@
 
     .thumbnail-link:hover img {
       transform: scale(1.025);
-      filter: brightness(0.86);
+
+      filter: brightness(0.88);
     }
 
-    /* =================================
+
+    /* =====================================================
        LATEST BADGE
-       ================================= */
+       ===================================================== */
 
     .latest-badge {
       position: absolute;
 
-      top: 14px;
-      left: 14px;
+      top: 10px;
+      left: 10px;
 
-      z-index: 5;
+      z-index: 2;
 
-      padding: 7px 10px;
+      padding: 6px 8px;
 
-      border-radius: 6px;
+      border-radius: 5px;
 
-      background: var(--red);
+      background: var(--accent);
 
-      color: white;
+      color: #fff;
 
-      font-size: 10px;
+      font-size: 9px;
+
       font-weight: 900;
 
-      letter-spacing: 1px;
+      letter-spacing: 0.9px;
 
       text-transform: uppercase;
     }
 
-    /* =================================
-       VIDEO INFORMATION
-       ================================= */
+
+    /* =====================================================
+       VIDEO DETAILS
+       ===================================================== */
 
     .video-info {
-      padding-top: 18px;
+      padding: 16px;
     }
 
     .video-title {
       margin: 0;
 
-      font-size: clamp(29px, 5vw, 44px);
+      color: #fff;
 
-      line-height: 1.06;
+      font-size:
+        clamp(20px, 3vw, 27px);
+
+      line-height: 1.12;
 
       font-weight: 800;
 
-      letter-spacing: -1.2px;
+      letter-spacing: -0.6px;
     }
 
     .video-description {
-      max-width: 760px;
-
-      margin: 11px 0 0;
+      margin: 8px 0 0;
 
       color: var(--muted);
 
-      font-size: 15px;
+      font-size: 13px;
 
-      line-height: 1.65;
+      line-height: 1.5;
+
+      display: -webkit-box;
+
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+
+      overflow: hidden;
     }
 
-    /* =================================
+
+    /* =====================================================
        PRICE + BUTTON
-       ================================= */
+       ===================================================== */
 
     .video-bottom {
-      margin-top: 20px;
+      margin-top: 15px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
 
-      gap: 15px;
+      gap: 12px;
     }
 
     .video-price {
-      font-size: 18px;
+      color: #fff;
+
+      font-size: 16px;
+
       font-weight: 800;
+
+      white-space: nowrap;
     }
 
     .buy-button {
       display: inline-flex;
+
       align-items: center;
       justify-content: center;
 
-      min-width: 135px;
+      min-height: 38px;
 
-      padding: 12px 19px;
+      padding: 9px 14px;
 
-      border-radius: 8px;
+      border-radius: 7px;
 
-      background: var(--red);
+      background: var(--accent);
 
-      color: white;
+      color: #fff;
 
-      font-size: 14px;
+      font-size: 12px;
+
       font-weight: 800;
+
+      white-space: nowrap;
+
+      transition:
+        background 0.2s ease;
     }
 
     .buy-button:hover {
-      background: var(--red-hover);
+      background: var(--accent-hover);
     }
 
-    /* =================================
-       EMPTY
-       ================================= */
+
+    /* =====================================================
+       EMPTY STATE
+       ===================================================== */
 
     .empty-state {
-      padding: 50px 20px;
+      padding: 45px 20px;
 
-      border: 1px dashed var(--border);
+      border:
+        1px dashed var(--border);
+
       border-radius: 10px;
 
       text-align: center;
@@ -321,124 +538,344 @@
       color: var(--muted);
     }
 
-    .empty-state h2 {
-      margin: 0 0 8px;
-      color: white;
+    .empty-state h3 {
+      margin: 0 0 7px;
+
+      color: #fff;
+
+      font-size: 18px;
     }
 
     .empty-state p {
       margin: 0;
+
+      font-size: 13px;
     }
 
-    /* =================================
+
+    /* =====================================================
        FOOTER
-       ================================= */
+       ===================================================== */
 
     .footer {
       border-top: 1px solid var(--border);
 
-      padding: 25px 20px;
+      padding: 22px 20px;
 
       color: var(--muted);
 
-      font-size: 13px;
+      font-size: 12px;
 
       text-align: center;
     }
 
-    /* =================================
-       MOBILE
-       ================================= */
 
-    @media (max-width: 650px) {
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 700px) {
+
+      .header-inner {
+        min-height: 62px;
+
+        padding: 0 14px;
+      }
 
       .brand {
         font-size: 18px;
+
+        gap: 9px;
+      }
+
+      .brand-line {
+        display: none;
       }
 
       .logo-placeholder {
-        width: 38px;
-        height: 38px;
+        width: 37px;
+        height: 37px;
+
+        flex-basis: 37px;
       }
 
       .container {
-        padding-top: 30px;
+        padding:
+          28px 14px
+          50px;
       }
 
-      .section-heading h1 {
-        font-size: 38px;
+      .welcome {
+        margin-bottom: 32px;
+      }
+
+      .welcome h1 {
+        font-size: 36px;
+
+        letter-spacing: -1.2px;
+      }
+
+      .welcome p {
+        font-size: 14px;
+      }
+
+      .introduction {
+        margin-bottom: 34px;
+
+        padding: 18px 0;
+      }
+
+      .introduction h2 {
+        font-size: 18px;
+      }
+
+      .introduction p {
+        font-size: 13px;
+      }
+
+      /*
+         Two columns on mobile as requested.
+         Small screens get a little smaller gap.
+      */
+
+      #videoGrid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+      }
+
+      .video-card {
+        border-radius: 9px;
+      }
+
+      .video-info {
+        padding: 10px;
       }
 
       .video-title {
-        font-size: 30px;
+        font-size: 17px;
+
+        letter-spacing: -0.3px;
+      }
+
+      .video-description {
+        margin-top: 6px;
+
+        font-size: 11px;
+
+        line-height: 1.4;
+
+        -webkit-line-clamp: 3;
       }
 
       .video-bottom {
-        flex-direction: column;
-        align-items: stretch;
+        margin-top: 10px;
+
+        gap: 7px;
+      }
+
+      .video-price {
+        font-size: 13px;
       }
 
       .buy-button {
-        width: 100%;
+        min-height: 32px;
+
+        padding:
+          7px 9px;
+
+        font-size: 10px;
+
+        border-radius: 5px;
+      }
+
+      .latest-badge {
+        top: 7px;
+        left: 7px;
+
+        padding: 5px 6px;
+
+        font-size: 8px;
+      }
+
+      .videos-heading {
+        margin-bottom: 14px;
+      }
+
+      .videos-heading h2 {
+        font-size: 23px;
+      }
+
+      .videos-heading span {
+        font-size: 10px;
       }
     }
+
+
+    /* =====================================================
+       VERY SMALL PHONES
+       ===================================================== */
+
+    @media (max-width: 390px) {
+
+      .container {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      #videoGrid {
+        gap: 8px;
+      }
+
+      .video-info {
+        padding: 8px;
+      }
+
+      .video-title {
+        font-size: 15px;
+      }
+
+      .video-description {
+        font-size: 10px;
+      }
+
+      .video-price {
+        font-size: 12px;
+      }
+
+      .buy-button {
+        padding:
+          7px 8px;
+
+        font-size: 9px;
+      }
+    }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- =================================
-       HEADER
-       ================================= -->
 
-  <header class="header">
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header class="site-header">
 
     <div class="header-inner">
 
-      <a
-        href="index.html"
-        class="brand"
-        aria-label="Rashka Barre"
-      >
+      <div class="brand">
+
+        <div class="brand-line"></div>
 
         <!-- LOGO PLACEHOLDER -->
         <div class="logo-placeholder">
           RB
         </div>
 
-        <span>
+        <div class="brand-name">
           Rashka Barre
-        </span>
+        </div>
 
-      </a>
+        <div class="brand-line"></div>
+
+      </div>
 
     </div>
 
   </header>
 
 
-  <!-- =================================
-       MAIN CONTENT
-       ================================= -->
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
 
   <main class="container">
 
-    <!-- VIDEOS SECTION -->
 
-    <section class="section-heading">
+    <!-- ===================================================
+         WELCOME
+         =================================================== -->
+
+    <section class="welcome">
+
+      <p class="welcome-kicker">
+        Welcome
+      </p>
 
       <h1>
         Videos Section
       </h1>
 
       <p>
-        Documentaries, episodes and original stories.
+        Welcome to Rashka Barre, where stories, documentaries
+        and unforgettable experiences come together.
       </p>
 
     </section>
 
 
-    <!-- VIDEO LIST -->
+
+    <!-- ===================================================
+         INTRODUCTION
+         =================================================== -->
+
+    <section class="introduction">
+
+      <h2>
+        About Rashka Barre
+      </h2>
+
+      <p>
+        Rashka Barre is a Somali creator focused on storytelling,
+        documentaries and real experiences.
+      </p>
+
+      <p>
+        This website brings selected original videos together
+        in one place, including documentary stories about animals,
+        nature, people and the world around us.
+      </p>
+
+      <p>
+        New videos are added regularly, with the newest upload
+        always appearing first.
+      </p>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         VIDEO HEADING
+         =================================================== -->
+
+    <section class="videos-heading">
+
+      <h2>
+        Latest Videos
+      </h2>
+
+      <span>
+        Newest → Oldest
+      </span>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         VIDEO GRID
+
+         JavaScript inserts ONLY videos that exist in
+         products.js.
+
+         No empty placeholders.
+         =================================================== -->
 
     <section
       id="videoGrid"
@@ -446,15 +883,17 @@
     ></section>
 
 
+    <!-- EMPTY STATE -->
+
     <div
       id="emptyState"
       class="empty-state"
       hidden
     >
 
-      <h2>
+      <h3>
         No videos yet
-      </h2>
+      </h3>
 
       <p>
         New videos will appear here.
@@ -462,12 +901,14 @@
 
     </div>
 
+
   </main>
 
 
-  <!-- =================================
+
+  <!-- =====================================================
        FOOTER
-       ================================= -->
+       ===================================================== -->
 
   <footer class="footer">
 
@@ -475,187 +916,280 @@
   </footer>
 
 
-  <!-- =================================
+
+  <!-- =====================================================
        PRODUCTS
-       ================================= -->
+
+       Cache-busting is included so new product information
+       does not remain stuck in an old browser cache.
+       ===================================================== -->
 
   <script src="products.js?v=20260926"></script>
 
 
-  <!-- =================================
-       DISPLAY VIDEOS
-       ================================= -->
+  <!-- =====================================================
+       VIDEO DISPLAY
+       ===================================================== -->
 
   <script>
 
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
 
-      const videoGrid =
-        document.getElementById("videoGrid");
+        const videoGrid =
+          document.getElementById(
+            "videoGrid"
+          );
 
-      const emptyState =
-        document.getElementById("emptyState");
+        const emptyState =
+          document.getElementById(
+            "emptyState"
+          );
 
-      const year =
-        document.getElementById("year");
-
-
-      if (year) {
-        year.textContent =
-          new Date().getFullYear();
-      }
-
-
-      const products =
-        Array.isArray(window.PRODUCTS)
-          ? [...window.PRODUCTS]
-          : [];
+        const year =
+          document.getElementById(
+            "year"
+          );
 
 
-      /*
-       * NEWEST → OLDEST
-       */
+        if (year) {
 
-      products.sort((a, b) => {
+          year.textContent =
+            new Date()
+              .getFullYear();
 
-        const dateA =
-          new Date(
-            a.publishedAt || 0
-          ).getTime();
-
-        const dateB =
-          new Date(
-            b.publishedAt || 0
-          ).getTime();
-
-        return dateB - dateA;
-
-      });
+        }
 
 
-      if (products.length === 0) {
+        /*
+         * Read products.js
+         */
 
-        emptyState.hidden = false;
-
-        return;
-      }
-
-
-      videoGrid.innerHTML =
-        products.map((product, index) => {
-
-          const title =
-            escapeHtml(
-              product.title || "Untitled"
-            );
-
-          const description =
-            escapeHtml(
-              product.description || ""
-            );
-
-          const price =
-            escapeHtml(
-              product.price || ""
-            );
-
-          const thumbnail =
-            escapeHtml(
-              product.thumbnail || ""
-            );
-
-          const paymentUrl =
-            escapeHtml(
-              product.paymentUrl || "#"
-            );
+        const products =
+          Array.isArray(
+            window.PRODUCTS
+          )
+            ? [...window.PRODUCTS]
+            : [];
 
 
-          return `
+        /*
+         * Newest → Oldest
+         */
 
-            <article class="video-card">
+        products.sort(
+          (a, b) => {
 
-              <a
-                href="${paymentUrl}"
-                class="thumbnail-link"
-                aria-label="${title}"
-              >
+            const dateA =
+              new Date(
+                a.publishedAt || 0
+              ).getTime();
 
-                <div class="thumbnail">
+            const dateB =
+              new Date(
+                b.publishedAt || 0
+              ).getTime();
 
-                  ${
-                    index === 0
-                      ? `
-                        <span class="latest-badge">
-                          Latest
+            return dateB - dateA;
+
+          }
+        );
+
+
+        /*
+         * No products = no empty cards.
+         */
+
+        if (
+          products.length === 0
+        ) {
+
+          emptyState.hidden =
+            false;
+
+          return;
+
+        }
+
+
+        /*
+         * Display only real products.
+         */
+
+        videoGrid.innerHTML =
+          products
+            .map(
+              (
+                product,
+                index
+              ) => {
+
+                const title =
+                  escapeHtml(
+                    product.title ||
+                    "Untitled"
+                  );
+
+                const description =
+                  escapeHtml(
+                    product.description ||
+                    ""
+                  );
+
+                const price =
+                  escapeHtml(
+                    product.price ||
+                    ""
+                  );
+
+                const thumbnail =
+                  escapeHtml(
+                    product.thumbnail ||
+                    ""
+                  );
+
+                const paymentUrl =
+                  escapeHtml(
+                    product.paymentUrl ||
+                    "#"
+                  );
+
+
+                return `
+
+                  <article
+                    class="video-card"
+                  >
+
+                    <a
+                      href="${paymentUrl}"
+                      class="thumbnail-link"
+                      aria-label="${title}"
+                    >
+
+                      <div class="thumbnail">
+
+                        ${
+                          index === 0
+                            ? `
+                              <span
+                                class="latest-badge"
+                              >
+                                Latest
+                              </span>
+                            `
+                            : ""
+                        }
+
+                        <img
+                          src="${thumbnail}"
+                          alt="${title}"
+                          loading="${
+                            index === 0
+                              ? "eager"
+                              : "lazy"
+                          }"
+                        >
+
+                      </div>
+
+                    </a>
+
+
+                    <div
+                      class="video-info"
+                    >
+
+                      <h3
+                        class="video-title"
+                      >
+                        ${title}
+                      </h3>
+
+
+                      <p
+                        class="video-description"
+                      >
+                        ${description}
+                      </p>
+
+
+                      <div
+                        class="video-bottom"
+                      >
+
+                        <span
+                          class="video-price"
+                        >
+                          ${price}
                         </span>
-                      `
-                      : ""
-                  }
-
-                  <img
-                    src="${thumbnail}"
-                    alt="${title}"
-                    loading="${
-                      index === 0
-                        ? "eager"
-                        : "lazy"
-                    }"
-                  >
-
-                </div>
-
-              </a>
 
 
-              <div class="video-info">
+                        <a
+                          href="${paymentUrl}"
+                          class="buy-button"
+                        >
+                          Buy & Watch
+                        </a>
 
-                <h2 class="video-title">
-                  ${title}
-                </h2>
+                      </div>
 
-                <p class="video-description">
-                  ${description}
-                </p>
+                    </div>
 
+                  </article>
 
-                <div class="video-bottom">
+                `;
 
-                  <span class="video-price">
-                    ${price}
-                  </span>
+              }
+            )
+            .join("");
 
-                  <a
-                    href="${paymentUrl}"
-                    class="buy-button"
-                  >
-                    Buy & Watch
-                  </a>
-
-                </div>
-
-              </div>
-
-            </article>
-
-          `;
-
-        }).join("");
-
-    });
+      }
+    );
 
 
-    function escapeHtml(value) {
+    /*
+     * Protect HTML output.
+     */
 
-      return String(value ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+    function escapeHtml(
+      value
+    ) {
+
+      return String(
+        value ?? ""
+      )
+
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+
+        .replace(
+          /</g,
+          "&lt;"
+        )
+
+        .replace(
+          />/g,
+          "&gt;"
+        )
+
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+
+        .replace(
+          /'/g,
+          "&#039;"
+        );
 
     }
 
   </script>
+
 
 </body>
 </html>
