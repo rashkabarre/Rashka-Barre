@@ -1,12 +1,1538 @@
-<h2 class="video-title">${title}</h2>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
 
-<p class="video-subtitle">${subtitle}</p>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
 
-<a href="${paymentUrl}" class="thumbnail-link">
-  <div class="thumbnail">
-    ${isNew ? '<span class="new-badge">NEW</span>' : ''}
-    <img src="${thumbnail}" alt="${title}">
-  </div>
-</a>
+  <meta name="theme-color" content="#080808">
 
-<p class="video-description">${description}</p>
+  <title>Rashka Barre — Videos</title>
+
+  <meta
+    name="description"
+    content="Rashka Barre — documentaries, animal stories, experiences and original videos."
+  >
+
+  <meta property="og:title" content="Rashka Barre — Videos">
+  <meta
+    property="og:description"
+    content="Documentaries, animal stories, experiences and original videos by Rashka Barre."
+  >
+  <meta property="og:type" content="website">
+
+  <style>
+
+    :root {
+      --bg: #080808;
+      --panel: #111111;
+      --panel-hover: #171717;
+      --border: #262626;
+
+      --text: #ffffff;
+      --muted: #9a9a9a;
+
+      --accent: #e50914;
+      --accent-hover: #ff1d28;
+
+      --max-width: 1120px;
+      --gap: 20px;
+      --radius: 12px;
+    }
+
+
+    /* =====================================================
+       RESET
+       ===================================================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--bg);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    input {
+      font: inherit;
+    }
+
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
+    .header {
+      width: 100%;
+      border-bottom: 1px solid var(--border);
+      background: #080808;
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      min-height: 68px;
+
+      margin: 0 auto;
+      padding: 0 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand {
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 12px;
+    }
+
+    .brand-line {
+      width: 170px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .header-logo {
+      width: 46px;
+      height: 46px;
+
+      flex: 0 0 46px;
+
+      object-fit: contain;
+    }
+
+    .brand-name {
+      color: #fff;
+
+      font-size: 20px;
+      font-weight: 800;
+
+      letter-spacing: -0.4px;
+
+      white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       MAIN
+       ===================================================== */
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+
+      margin: 0 auto;
+
+      padding:
+        24px 20px
+        65px;
+    }
+
+
+    /* =====================================================
+       BANNER
+       ===================================================== */
+
+    .banner {
+      position: relative;
+      overflow: hidden;
+
+      min-height: 210px;
+
+      margin-bottom: 20px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 15px;
+
+      background:
+        radial-gradient(
+          circle at 12% 45%,
+          rgba(229, 9, 20, 0.22),
+          transparent 33%
+        ),
+        linear-gradient(
+          135deg,
+          #1b1b1b,
+          #101010 55%,
+          #090909
+        );
+    }
+
+    .banner-inner {
+      min-height: 210px;
+
+      padding:
+        28px 32px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 24px;
+    }
+
+    .banner-logo {
+      width: 100px;
+      height: 100px;
+
+      flex: 0 0 100px;
+
+      object-fit: contain;
+
+      padding: 7px;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+      border-radius: 16px;
+
+      background:
+        rgba(255, 255, 255, 0.04);
+    }
+
+    .banner-kicker {
+      margin: 0 0 7px;
+
+      color: #cfcfcf;
+
+      font-size: 10px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+    .banner-title {
+      margin: 0;
+
+      color: #fff;
+
+      font-size:
+        clamp(36px, 5vw, 56px);
+
+      line-height: 1;
+
+      font-weight: 900;
+
+      letter-spacing: -1.8px;
+    }
+
+    .banner-text {
+      max-width: 650px;
+
+      margin: 10px 0 0;
+
+      color: #b5b5b5;
+
+      font-size: 14px;
+
+      line-height: 1.55;
+    }
+
+
+    /* =====================================================
+       SEARCH
+       ===================================================== */
+
+    .search-wrap {
+      margin-bottom: 27px;
+    }
+
+    .search-box {
+      position: relative;
+    }
+
+    .search-icon {
+      position: absolute;
+
+      left: 16px;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      color: #777;
+
+      font-size: 18px;
+
+      pointer-events: none;
+    }
+
+    #searchInput {
+      width: 100%;
+
+      height: 52px;
+
+      padding:
+        0 18px 0 47px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 9px;
+
+      outline: none;
+
+      background:
+        var(--panel);
+
+      color: #fff;
+
+      font-size: 14px;
+
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    #searchInput::placeholder {
+      color: #6f6f6f;
+    }
+
+    #searchInput:focus {
+      border-color: #3d3d3d;
+      background: #151515;
+    }
+
+
+    /* =====================================================
+       GALLERY HEADING
+       ===================================================== */
+
+    .gallery-head {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-bottom: 17px;
+    }
+
+    .gallery-title {
+      margin: 0;
+
+      color: #fff;
+
+      font-size: 28px;
+
+      line-height: 1.1;
+
+      font-weight: 800;
+
+      letter-spacing: -0.7px;
+    }
+
+    .gallery-count {
+      color: var(--muted);
+
+      font-size: 11px;
+
+      white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       VIDEO GRID
+       ===================================================== */
+
+    #videoGrid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap:
+        30px var(--gap);
+    }
+
+
+    /* =====================================================
+       VIDEO ITEM
+       ===================================================== */
+
+    .video-item {
+      min-width: 0;
+    }
+
+
+    /* =====================================================
+       TITLE ABOVE THUMBNAIL
+       ===================================================== */
+
+    .video-title {
+      margin: 0;
+
+      color: #fff;
+
+      font-size: 24px;
+
+      line-height: 1.1;
+
+      font-weight: 900;
+
+      letter-spacing: -0.6px;
+
+      text-transform: uppercase;
+
+      display: -webkit-box;
+
+      -webkit-box-orient: vertical;
+
+      -webkit-line-clamp: 2;
+
+      overflow: hidden;
+    }
+
+
+    /* =====================================================
+       SUBTITLE
+       ===================================================== */
+
+    .video-subtitle {
+      margin:
+        5px 0 11px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      line-height: 1.4;
+
+      display: -webkit-box;
+
+      -webkit-box-orient: vertical;
+
+      -webkit-line-clamp: 2;
+
+      overflow: hidden;
+    }
+
+
+    /* =====================================================
+       THUMBNAIL — STANDARD 16:9
+       ===================================================== */
+
+    .thumbnail-link {
+      display: block;
+    }
+
+    .thumbnail {
+      position: relative;
+
+      width: 100%;
+
+      aspect-ratio: 16 / 9;
+
+      overflow: hidden;
+
+      background: #101010;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: var(--radius);
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+    }
+
+    .thumbnail-link:hover .thumbnail img {
+      transform: scale(1.025);
+      filter: brightness(0.88);
+    }
+
+
+    /* =====================================================
+       NEW BADGE
+       ===================================================== */
+
+    .new-badge {
+      position: absolute;
+
+      top: 10px;
+      left: 10px;
+
+      z-index: 5;
+
+      padding:
+        6px 8px;
+
+      border-radius: 5px;
+
+      background:
+        var(--accent);
+
+      color: #fff;
+
+      font-size: 9px;
+
+      font-weight: 900;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+    }
+
+
+    /* =====================================================
+       PRICE + BUY
+       ===================================================== */
+
+    .video-footer {
+      margin-top: 11px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 12px;
+    }
+
+    .price {
+      color: #fff;
+
+      font-size: 15px;
+
+      font-weight: 800;
+
+      white-space: nowrap;
+    }
+
+    .buy-button {
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 36px;
+
+      padding:
+        8px 14px;
+
+      border-radius: 7px;
+
+      background:
+        var(--accent);
+
+      color: #fff;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      white-space: nowrap;
+
+      transition:
+        background 0.2s ease;
+    }
+
+    .buy-button:hover {
+      background:
+        var(--accent-hover);
+    }
+
+
+    /* =====================================================
+       DESCRIPTION — BELOW PRICE / BUTTON
+       ===================================================== */
+
+    .video-description {
+      margin:
+        10px 0 0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+
+      line-height:
+        1.6;
+
+      display:
+        -webkit-box;
+
+      -webkit-box-orient:
+        vertical;
+
+      -webkit-line-clamp:
+        4;
+
+      overflow:
+        hidden;
+    }
+
+
+    /* =====================================================
+       NO RESULTS
+       ===================================================== */
+
+    .no-results {
+
+      grid-column:
+        1 / -1;
+
+      padding:
+        55px 20px;
+
+      border:
+        1px dashed var(--border);
+
+      border-radius:
+        10px;
+
+      text-align:
+        center;
+
+      color:
+        var(--muted);
+    }
+
+    .no-results h3 {
+      margin:
+        0 0 7px;
+
+      color:
+        #fff;
+
+      font-size:
+        18px;
+    }
+
+    .no-results p {
+      margin:
+        0;
+
+      font-size:
+        13px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    .footer {
+
+      border-top:
+        1px solid var(--border);
+
+      padding:
+        23px 20px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        11px;
+
+      text-align:
+        center;
+    }
+
+
+    /* =====================================================
+       MOBILE / WEBVIEW
+       ===================================================== */
+
+    @media (max-width: 700px) {
+
+      .header-inner {
+        min-height:
+          62px;
+
+        padding:
+          0 12px;
+      }
+
+      .brand {
+        gap:
+          9px;
+      }
+
+      .brand-line {
+        display:
+          none;
+      }
+
+      .header-logo {
+        width:
+          40px;
+
+        height:
+          40px;
+
+        flex-basis:
+          40px;
+      }
+
+      .brand-name {
+        font-size:
+          18px;
+      }
+
+      .container {
+        padding:
+          13px 12px
+          48px;
+      }
+
+      .banner {
+        min-height:
+          165px;
+
+        border-radius:
+          11px;
+      }
+
+      .banner-inner {
+        min-height:
+          165px;
+
+        padding:
+          18px;
+
+        gap:
+          14px;
+      }
+
+      .banner-logo {
+        width:
+          70px;
+
+        height:
+          70px;
+
+        flex-basis:
+          70px;
+
+        padding:
+          5px;
+
+        border-radius:
+          11px;
+      }
+
+      .banner-kicker {
+        font-size:
+          8px;
+
+        letter-spacing:
+          1.4px;
+      }
+
+      .banner-title {
+        font-size:
+          30px;
+
+        letter-spacing:
+          -1px;
+      }
+
+      .banner-text {
+        margin-top:
+          7px;
+
+        font-size:
+          10px;
+
+        line-height:
+          1.4;
+      }
+
+      #searchInput {
+        height:
+          46px;
+
+        padding-left:
+          43px;
+
+        font-size:
+          12px;
+      }
+
+      .search-wrap {
+        margin-bottom:
+          20px;
+      }
+
+      .gallery-title {
+        font-size:
+          23px;
+      }
+
+      .gallery-count {
+        font-size:
+          9px;
+      }
+
+      #videoGrid {
+
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        gap:
+          22px 9px;
+      }
+
+      .video-title {
+        font-size:
+          16px;
+
+        letter-spacing:
+          -0.25px;
+      }
+
+      .video-subtitle {
+        margin:
+          4px 0 8px;
+
+        font-size:
+          10px;
+      }
+
+      .thumbnail {
+        border-radius:
+          8px;
+      }
+
+      .new-badge {
+        top:
+          6px;
+
+        left:
+          6px;
+
+        padding:
+          4px 6px;
+
+        font-size:
+          7px;
+      }
+
+      .video-footer {
+        margin-top:
+          8px;
+
+        gap:
+          6px;
+      }
+
+      .price {
+        font-size:
+          11px;
+      }
+
+      .buy-button {
+        min-height:
+          30px;
+
+        padding:
+          6px 8px;
+
+        font-size:
+          8px;
+
+        border-radius:
+          5px;
+      }
+
+      .video-description {
+        margin-top:
+          8px;
+
+        font-size:
+          10px;
+
+        line-height:
+          1.45;
+      }
+    }
+
+
+    /* =====================================================
+       VERY SMALL PHONES
+       ===================================================== */
+
+    @media (max-width: 380px) {
+
+      .container {
+        padding-left:
+          8px;
+
+        padding-right:
+          8px;
+      }
+
+      #videoGrid {
+        gap:
+          18px 7px;
+      }
+
+      .video-title {
+        font-size:
+          14px;
+      }
+
+      .video-subtitle {
+        font-size:
+          9px;
+      }
+
+      .video-description {
+        font-size:
+          9px;
+      }
+
+      .price {
+        font-size:
+          10px;
+      }
+
+      .buy-button {
+        padding:
+          6px 7px;
+
+        font-size:
+          8px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header class="header">
+
+    <div class="header-inner">
+
+      <div class="brand">
+
+        <div class="brand-line"></div>
+
+        <img
+          src="logo.png"
+          alt="Rashka Barre"
+          class="header-logo"
+        >
+
+        <div class="brand-name">
+          Rashka Barre
+        </div>
+
+        <div class="brand-line"></div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main class="container">
+
+
+    <!-- ===================================================
+         BANNER
+         =================================================== -->
+
+    <section class="banner">
+
+      <div class="banner-inner">
+
+        <img
+          src="logo.png"
+          alt="Rashka Barre logo"
+          class="banner-logo"
+        >
+
+        <div>
+
+          <p class="banner-kicker">
+            Official Video Collection
+          </p>
+
+          <h1 class="banner-title">
+            Rashka Barre
+          </h1>
+
+          <p class="banner-text">
+            Documentaries, animal stories, experiences and
+            original videos — all in one place.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         SEARCH BAR
+         =================================================== -->
+
+    <section class="search-wrap">
+
+      <div class="search-box">
+
+        <span
+          class="search-icon"
+          aria-hidden="true"
+        >
+          ⌕
+        </span>
+
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Search videos..."
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search videos"
+        >
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         GALLERY HEADING
+         =================================================== -->
+
+    <section class="gallery-head">
+
+      <h2 class="gallery-title">
+        Videos
+      </h2>
+
+      <span
+        class="gallery-count"
+        id="galleryCount"
+      >
+        0 videos
+      </span>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         VIDEO GALLERY
+         =================================================== -->
+
+    <section
+      id="videoGrid"
+      aria-label="Rashka Barre videos"
+    ></section>
+
+
+
+    <!-- ===================================================
+         NO RESULTS
+         =================================================== -->
+
+    <div
+      id="emptyState"
+      class="no-results"
+      hidden
+    >
+
+      <h3>
+        No videos found
+      </h3>
+
+      <p>
+        Try another search.
+      </p>
+
+    </div>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer class="footer">
+
+    © <span id="year"></span> Rashka Barre
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       PRODUCTS
+       ===================================================== -->
+
+  <script src="products.js?v=20260926"></script>
+
+
+
+  <!-- =====================================================
+       GALLERY SCRIPT
+       ===================================================== -->
+
+  <script>
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
+
+        const grid =
+          document.getElementById(
+            "videoGrid"
+          );
+
+        const emptyState =
+          document.getElementById(
+            "emptyState"
+          );
+
+        const searchInput =
+          document.getElementById(
+            "searchInput"
+          );
+
+        const galleryCount =
+          document.getElementById(
+            "galleryCount"
+          );
+
+        const year =
+          document.getElementById(
+            "year"
+          );
+
+
+        /* Current year */
+
+        if (year) {
+
+          year.textContent =
+            new Date().getFullYear();
+
+        }
+
+
+        /* Load product data */
+
+        const products =
+          Array.isArray(
+            window.PRODUCTS
+          )
+            ? [...window.PRODUCTS]
+            : [];
+
+
+        /*
+          NEWEST → OLDEST
+
+          publishedAt controls order.
+        */
+
+        products.sort(
+          function (a, b) {
+
+            const dateA =
+              new Date(
+                a.publishedAt || 0
+              ).getTime();
+
+            const dateB =
+              new Date(
+                b.publishedAt || 0
+              ).getTime();
+
+            return dateB - dateA;
+
+          }
+        );
+
+
+        /*
+          Render videos
+        */
+
+        function renderVideos(
+          searchTerm
+        ) {
+
+          const query =
+            String(
+              searchTerm || ""
+            )
+              .trim()
+              .toLowerCase();
+
+
+          const filtered =
+            products.filter(
+              function (product) {
+
+                const title =
+                  String(
+                    product.title || ""
+                  ).toLowerCase();
+
+                const subtitle =
+                  String(
+                    product.subtitle || ""
+                  ).toLowerCase();
+
+                const description =
+                  String(
+                    product.description || ""
+                  ).toLowerCase();
+
+                return (
+                  !query ||
+                  title.includes(query) ||
+                  subtitle.includes(query) ||
+                  description.includes(query)
+                );
+
+              }
+            );
+
+
+          /*
+            Count
+          */
+
+          galleryCount.textContent =
+            filtered.length === 1
+              ? "1 video"
+              : `${filtered.length} videos`;
+
+
+          /*
+            No results
+          */
+
+          if (
+            filtered.length === 0
+          ) {
+
+            grid.innerHTML =
+              "";
+
+            emptyState.hidden =
+              false;
+
+            return;
+
+          }
+
+
+          emptyState.hidden =
+            true;
+
+
+          /*
+            Build the gallery
+          */
+
+          grid.innerHTML =
+            filtered
+              .map(
+                function (
+                  product
+                ) {
+
+                  const title =
+                    escapeHtml(
+                      product.title ||
+                      "Untitled"
+                    );
+
+
+                  const subtitle =
+                    escapeHtml(
+                      product.subtitle ||
+                      ""
+                    );
+
+
+                  const description =
+                    escapeHtml(
+                      product.description ||
+                      ""
+                    );
+
+
+                  const price =
+                    escapeHtml(
+                      product.price ||
+                      ""
+                    );
+
+
+                  const thumbnail =
+                    escapeHtml(
+                      product.thumbnail ||
+                      ""
+                    );
+
+
+                  const paymentUrl =
+                    escapeHtml(
+                      product.paymentUrl ||
+                      "#"
+                    );
+
+
+                  /*
+                    The first product in the
+                    sorted list is the newest.
+                  */
+
+                  const isNew =
+                    products.indexOf(
+                      product
+                    ) === 0;
+
+
+                  return `
+
+                    <article
+                      class="video-item"
+                    >
+
+
+                      <!-- TITLE -->
+
+                      <h2
+                        class="video-title"
+                      >
+                        ${title}
+                      </h2>
+
+
+                      <!-- SUBTITLE -->
+
+                      <p
+                        class="video-subtitle"
+                      >
+                        ${subtitle}
+                      </p>
+
+
+                      <!-- THUMBNAIL -->
+
+                      <a
+                        href="${paymentUrl}"
+                        class="thumbnail-link"
+                        aria-label="${title}"
+                      >
+
+                        <div
+                          class="thumbnail"
+                        >
+
+                          ${
+                            isNew
+                              ? `
+                                <span
+                                  class="new-badge"
+                                >
+                                  NEW
+                                </span>
+                              `
+                              : ""
+                          }
+
+
+                          <img
+                            src="${thumbnail}"
+                            alt="${title}"
+                            loading="lazy"
+                          >
+
+                        </div>
+
+                      </a>
+
+
+                      <!-- PRICE + BUY -->
+
+                      <div
+                        class="video-footer"
+                      >
+
+                        <span
+                          class="price"
+                        >
+                          ${price}
+                        </span>
+
+
+                        <a
+                          href="${paymentUrl}"
+                          class="buy-button"
+                        >
+                          BUY & WATCH
+                        </a>
+
+                      </div>
+
+
+                      <!-- DESCRIPTION -->
+
+                      <p
+                        class="video-description"
+                      >
+                        ${description}
+                      </p>
+
+
+                    </article>
+
+                  `;
+
+                }
+              )
+              .join("");
+
+        }
+
+
+        /*
+          SEARCH
+        */
+
+        searchInput.addEventListener(
+          "input",
+          function () {
+
+            renderVideos(
+              searchInput.value
+            );
+
+          }
+        );
+
+
+        /*
+          FIRST LOAD
+        */
+
+        renderVideos("");
+
+      }
+    );
+
+
+    /*
+      Escape HTML
+    */
+
+    function escapeHtml(
+      value
+    ) {
+
+      return String(
+        value ?? ""
+      )
+
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+
+        .replace(
+          /</g,
+          "&lt;"
+        )
+
+        .replace(
+          />/g,
+          "&gt;"
+        )
+
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+
+        .replace(
+          /'/g,
+          "&#039;"
+        );
+
+    }
+
+  </script>
+
+</body>
+</html>
+```
