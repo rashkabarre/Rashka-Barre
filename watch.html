@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="referrer"
+    content="strict-origin-when-cross-origin"
+  >
+
+  <title>Aarkii Kiyow — Watch</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .video-wrap {
+      width: 100%;
+      max-width: 1200px;
+      aspect-ratio: 16 / 9;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .error {
+      text-align: center;
+      max-width: 500px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page">
+  <div class="video-wrap" id="videoContainer"></div>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  const token = params.get("token");
+  const expires = params.get("expires");
+
+  const container = document.getElementById("videoContainer");
+
+  if (!token || !expires) {
+    container.innerHTML = `
+      <div class="error">
+        <h1>Invalid viewing link</h1>
+        <p>Please return to your purchase confirmation and try again.</p>
+      </div>
+    `;
+  } else {
+    const iframeUrl =
+      "https://player.mediadelivery.net/embed/" +
+      "761815/" +
+      "2861540b-30a0-4331-9e66-d267627aac29" +
+      "?token=" + encodeURIComponent(token) +
+      "&expires=" + encodeURIComponent(expires);
+
+    const iframe = document.createElement("iframe");
+
+    iframe.src = iframeUrl;
+
+    iframe.title = "Aarkii Kiyow";
+    iframe.allow =
+      "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+
+    container.appendChild(iframe);
+  }
+</script>
+
+</body>
+</html>
