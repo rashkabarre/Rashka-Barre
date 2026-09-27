@@ -1254,7 +1254,7 @@
 
 
                       <a
-                        href="${paymentUrl}"
+                        href="${isTrailer ? "watch.html" : paymentUrl}"
                         class="thumbnail-link"
                         aria-label="${title}"
                       >
@@ -1317,18 +1317,12 @@
                         </span>
 
 
-                        ${
-                          !isTrailer
-                            ? `
-                              <a
-                                href="${paymentUrl}"
-                                class="buy-button"
-                              >
-                                BUY & WATCH
-                              </a>
-                            `
-                            : ""
-                        }
+                        <a
+                          href="${paymentUrl}"
+                          class="buy-button"
+                        >
+                          ${isTrailer ? "BUY FULL VIDEO" : "BUY & WATCH"}
+                        </a>
 
                       </div>
 
