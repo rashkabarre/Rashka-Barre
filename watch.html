@@ -78,6 +78,18 @@ function setupPlayer(iframe){
   console.log("Bunny Player.js playing event");
   recordView();
  });
+
+ player.on("timeupdate",function(timingData){
+  try{
+   const data=typeof timingData==="string"?JSON.parse(timingData):timingData;
+   if(data && Number(data.seconds)>0){
+    console.log("Bunny playback time detected:",data.seconds);
+    recordView();
+   }
+  }catch(error){
+   console.error("Bunny timeupdate parse error:",error);
+  }
+ });
 }
 
 if(token&&expires){
@@ -101,4 +113,4 @@ if(token&&expires){
 </script>
 </body>
 </html>
-<!-- Bunny Player.js view tracking: 2026-09-28 -->
+<!-- Bunny Player.js view tracking + timeupdate fallback: 2026-09-28 -->
