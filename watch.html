@@ -217,15 +217,43 @@
       player.on("ready", function () {
         // Do not autoplay. The viewer starts the trailer normally.
         player.setLoop(false);
+
+        // Poll Bunny for the real playback position. This is the
+        // reliable cutoff even if the player's timeupdate event is
+        // throttled or formatted differently by the browser.
+        const watchClock = window.setInterval(function () {
+          if (locked) {
+            window.clearInterval(watchClock);
+            return;
+          }
+
+          player.getCurrentTime(function (seconds) {
+            const current = Number(seconds);
+
+            if (
+              Number.isFinite(current) &&
+              current >= FREE_LIMIT_SECONDS
+            ) {
+              lockPreview();
+            }
+          });
+        }, 250);
       });
 
       player.on("timeupdate", function (data) {
         if (!data) return;
 
-        const seconds =
-          typeof data === "object"
-            ? Number(data.seconds)
-            : Number(JSON.parse(data).seconds);
+        let seconds;
+
+        if (typeof data === "object") {
+          seconds = Number(data.seconds);
+        } else {
+          try {
+            seconds = Number(JSON.parse(data).seconds);
+          } catch (error) {
+            seconds = NaN;
+          }
+        }
 
         if (Number.isFinite(seconds) && seconds >= FREE_LIMIT_SECONDS) {
           lockPreview();
