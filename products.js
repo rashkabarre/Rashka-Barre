@@ -1,20 +1,5 @@
 const PRODUCTS = [
   {
-    id: "aarkii-kiyow",
-    title: "TUSMO | TRAILER",
-    subtitle: "Tusaale dokumentari",
-    thumbnail: "aarkii-kiyow.jpg",
-    price: "$0.25",
-    description:
-      "Kani waa muuqaal tusaale ah oo laga soo qaatay dokumentariga Aarkii Kiyow. Waa qayb kooban oo muujinaysa sheekada iyo qaabka dokumentariga, mana aha dokumentariga oo dhammaystiran.",
-    preview: "",
-    paymentUrl:
-      "https://rashka-payment.waddanisoamli.workers.dev/buy",
-    publishedAt: "2026-09-26",
-    status: "available"
-  },
-
-  {
     id: "taxanaha-kiyow-episode-1",
     title: "TAXANAHA KIYOW",
     subtitle: "Qeybta 1 | Episode 1",
