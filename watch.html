@@ -22,12 +22,15 @@ iframe{width:100%;height:100%;border:0;display:block}
 <script>
 const LIBRARY_ID="763894";
 const EPISODE_1_ID="7e638a65-c874-4b96-b1c5-24a9201d8946";
-const PAYMENT_URL="https://rashka-payment.waddanisoamli.workers.dev/buy?product=taxanaha-kiyow-episode-1";
+const VIDEO_KEY="taxanaha-kiyow-episode-1";
+const PAYMENT_URL="https://rashka-payment.waddanisoamli.workers.dev/buy?product="+VIDEO_KEY;
+const ENGAGEMENT_URL="https://rashka-engagement.waddanisoamli.workers.dev";
 
 const params=new URLSearchParams(location.search);
 const token=params.get("token");
 const expires=params.get("expires");
 const container=document.getElementById("videoContainer");
+let viewRecorded=false;
 
 function showPurchaseGate(){
  const gate=document.createElement("div");
@@ -35,6 +38,43 @@ function showPurchaseGate(){
  gate.innerHTML='<div class="gate-card"><p class="gate-kicker">FULL EPISODE</p><h1>TAXANAHA KIYOW — Qeybta 1</h1><p>Qeybtan waxaa heli kara oo keliya dadka iibsada muuqaalka. Lacag bixintu waxay ku siinaysaa 2 saacadood oo daawasho ah.</p><a class="buy-btn" href="'+PAYMENT_URL+'">BUY & WATCH — $0.26</a></div>';
  container.appendChild(gate);
 }
+
+async function recordView(){
+ if(viewRecorded) return;
+ viewRecorded=true;
+ try{
+  const response=await fetch(ENGAGEMENT_URL+"/view",{
+   method:"POST",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({video:VIDEO_KEY})
+  });
+  if(!response.ok){
+   viewRecorded=false;
+   console.error("View tracking failed:",response.status);
+   return;
+  }
+  const data=await response.json();
+  console.log("View recorded:",data);
+ }catch(error){
+  viewRecorded=false;
+  console.error("View tracking error:",error);
+ }
+}
+
+function handleBunnyMessage(event){
+ if(!event.origin || !event.origin.includes("mediadelivery.net")) return;
+ let data=event.data;
+ if(typeof data==="string"){
+  try{data=JSON.parse(data)}catch(e){return}
+ }
+ if(!data || typeof data!=="object") return;
+ const eventName=String(data.event||data.type||data.name||"").toLowerCase();
+ if(["play","playing","started","playbackstart","video_play"].includes(eventName)){
+  recordView();
+ }
+}
+
+window.addEventListener("message",handleBunnyMessage);
 
 if(token&&expires){
  const iframe=document.createElement("iframe");
@@ -50,4 +90,4 @@ if(token&&expires){
 </script>
 </body>
 </html>
-<!-- Bunny Library ID corrected: 763894 -->
+<!-- View tracking added: 2026-09-28 -->
