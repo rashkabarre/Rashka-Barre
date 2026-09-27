@@ -390,43 +390,6 @@
        SAME STYLE AS COMING SOON LABEL
        ===================================================== */
 
-    .trailer-overlay {
-      position: absolute;
-      inset: 0;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
-
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.20),
-          rgba(0, 0, 0, 0.72)
-        );
-    }
-
-    .trailer-watch-overlay {
-      padding: 6px 9px;
-
-      border-radius: 5px;
-
-      background: rgba(0, 0, 0, 0.62);
-
-      color: #ffffff;
-
-      font-size: 10px;
-
-      font-weight: 900;
-
-      letter-spacing: 1.5px;
-
-      text-transform: uppercase;
-    }
-
     /* =====================================================
        NEW BADGE
        ===================================================== */
@@ -671,12 +634,6 @@
         letter-spacing: 1.2px;
       }
 
-      .trailer-watch-overlay {
-        padding: 5px 7px;
-        font-size: 8px;
-        letter-spacing: 1.2px;
-      }
-
       .new-badge {
         top: 6px;
         right: 6px;
@@ -735,10 +692,7 @@
         font-size: 7px;
       }
 
-      .trailer-watch-overlay {
-        font-size: 7px;
-      }
-
+      
       .video-description {
         font-size: 9px;
       }
@@ -879,7 +833,7 @@
 
   <!-- PRODUCTS -->
 
-  <script src="products.js?v=20260926-1824"></script>
+  <script src="products.js?v=20260927-0001"></script>
 
 
   <!-- GALLERY SCRIPT -->
@@ -1132,11 +1086,6 @@
                     "coming-soon";
 
 
-                  const isTrailer =
-                    product.id ===
-                    "aarkii-kiyow";
-
-
                   const isNew =
                     !isComingSoon &&
                     newestAvailable ===
@@ -1254,7 +1203,7 @@
 
 
                       <a
-                        href="${isTrailer ? "watch.html" : paymentUrl}"
+                        href="${paymentUrl}"
                         class="thumbnail-link"
                         aria-label="${title}"
                       >
@@ -1282,25 +1231,6 @@
                             loading="lazy"
                           >
 
-
-                          ${
-                            isTrailer
-                              ? `
-                                <div
-                                  class="trailer-overlay"
-                                >
-
-                                  <div
-                                    class="trailer-watch-overlay"
-                                  >
-                                    DAAWO HADDDA
-                                  </div>
-
-                                </div>
-                              `
-                              : ""
-                          }
-
                         </div>
 
                       </a>
@@ -1321,7 +1251,7 @@
                           href="${paymentUrl}"
                           class="buy-button"
                         >
-                          ${isTrailer ? "BUY FULL VIDEO" : "BUY & WATCH"}
+                          BUY & WATCH
                         </a>
 
                       </div>
