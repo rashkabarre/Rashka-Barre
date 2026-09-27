@@ -115,7 +115,7 @@
     <div class="video-wrap" id="videoContainer"></div>
   </div>
 
-  <script src="https://cdn.embed.ly/player-0.1.0.min.js"></script>
+  <script src="https://assets.mediadelivery.net/playerjs/player-0.1.0.min.js"></script>
 
   <script>
     const FREE_LIMIT_SECONDS = 582; // 9 minutes 42 seconds
@@ -191,7 +191,9 @@
 
       // playerjs=true enables Bunny's Player.js postMessage bridge,
       // allowing this page to receive actual video time updates.
-      iframe.src = VIDEO_PLAY_URL + "?playerjs=true";
+      iframe.src =
+        "https://player.mediadelivery.net/embed/761815/2861540b-30a0-4331-9e66-d267627aac29" +
+        "?playerjs=true";
       iframe.title = "Aarkii Kiyow — Trailer";
       iframe.allow =
         "autoplay; encrypted-media; picture-in-picture; fullscreen";
@@ -220,7 +222,10 @@
       player.on("timeupdate", function (data) {
         if (!data) return;
 
-        const seconds = Number(data.seconds);
+        const seconds =
+          typeof data === "object"
+            ? Number(data.seconds)
+            : Number(JSON.parse(data).seconds);
 
         if (Number.isFinite(seconds) && seconds >= FREE_LIMIT_SECONDS) {
           lockPreview();
