@@ -19,13 +19,14 @@ const PRODUCTS = [
     title: "TAXANAHA KIYOW",
     subtitle: "Qeybta 1 | Episode 1",
     thumbnail: "episode-1.jpg",
-    price: "",
+    price: "$0.26",
     description:
       "Kani waa Qeybta 1-aad ee Taxanaha Kiyow oo dhammaystiran.",
     preview: "",
-    paymentUrl: "",
-    publishedAt: "",
-    status: "coming-soon"
+    paymentUrl:
+      "https://rashka-payment.waddanisoamli.workers.dev/buy?product=taxanaha-kiyow-episode-1",
+    publishedAt: "2026-09-27",
+    status: "available"
   },
 
   {
