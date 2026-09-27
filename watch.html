@@ -19,55 +19,26 @@ iframe{width:100%;height:100%;border:0;display:block}
 </head>
 <body>
 <div class="page"><div class="video-wrap" id="videoContainer"></div></div>
-<script src="https://assets.mediadelivery.net/playerjs/player-0.1.0.min.js"></script>
 <script>
 const LIBRARY_ID="761815";
-const TRAILER_ID="2861540b-30a0-4331-9e66-d267627aac29";
 const EPISODE_1_ID="7e638a65-c874-4b96-b1c5-24a9201d8946";
-const FREE_LIMIT_SECONDS=582;
-const PAYMENT_BASE="https://rashka-payment.waddanisoamli.workers.dev/buy";
-const PRODUCTS={
- "aarkii-kiyow":{title:"Aarkii Kiyow — Trailer",price:"$0.25",videoId:TRAILER_ID,preview:true},
- "taxanaha-kiyow-episode-1":{title:"TAXANAHA KIYOW — Qeybta 1",price:"$0.26",videoId:EPISODE_1_ID,preview:false}
-};
+const PAYMENT_URL="https://rashka-payment.waddanisoamli.workers.dev/buy?product=taxanaha-kiyow-episode-1";
 const params=new URLSearchParams(location.search);
-const productId=params.get("product")||"aarkii-kiyow";
-const product=PRODUCTS[productId]||PRODUCTS["aarkii-kiyow"];
 const token=params.get("token"),expires=params.get("expires");
 const container=document.getElementById("videoContainer");
-function paymentUrl(){return productId==="aarkii-kiyow"?PAYMENT_BASE:PAYMENT_BASE+"?product="+encodeURIComponent(productId)}
-function showPurchaseGate(kicker,heading,message){
- const iframe=document.getElementById("videoFrame");
- if(iframe){iframe.style.visibility="hidden";iframe.style.pointerEvents="none"}
- if(document.getElementById("purchaseGate"))return;
- const gate=document.createElement("div");gate.id="purchaseGate";gate.className="gate";
- gate.innerHTML='<div class="gate-card"><p class="gate-kicker">'+kicker+'</p><h1>'+heading+'</h1><p>'+message+'</p><a class="buy-btn" href="'+paymentUrl()+'">BUY FULL VIDEO — '+product.price+'</a></div>';
+function showPurchaseGate(){
+ const gate=document.createElement("div");gate.className="gate";
+ gate.innerHTML='<div class="gate-card"><p class="gate-kicker">FULL EPISODE</p><h1>TAXANAHA KIYOW — Qeybta 1</h1><p>Qeybtan waxaa heli kara oo keliya dadka iibsada muuqaalka. Lacag bixintu waxay ku siinaysaa 2 saacadood oo daawasho ah.</p><a class="buy-btn" href="'+PAYMENT_URL+'">BUY & WATCH — $0.26</a></div>';
  container.appendChild(gate);
 }
-function startPaidVideo(){
+if(token&&expires){
  const iframe=document.createElement("iframe");
- iframe.id="videoFrame";
- iframe.src="https://player.mediadelivery.net/embed/"+LIBRARY_ID+"/"+product.videoId+"?token="+encodeURIComponent(token)+"&expires="+encodeURIComponent(expires);
- iframe.title=product.title;
+ iframe.src="https://player.mediadelivery.net/embed/"+LIBRARY_ID+"/"+EPISODE_1_ID+"?token="+encodeURIComponent(token)+"&expires="+encodeURIComponent(expires);
+ iframe.title="TAXANAHA KIYOW — Qeybta 1";
  iframe.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";
  iframe.allowFullscreen=true;iframe.referrerPolicy="strict-origin-when-cross-origin";
  container.appendChild(iframe);
-}
-function startFreePreview(){
- const iframe=document.createElement("iframe");iframe.id="videoFrame";
- iframe.src="https://player.mediadelivery.net/embed/"+LIBRARY_ID+"/"+TRAILER_ID+"?playerjs=true";
- iframe.title="Aarkii Kiyow — Trailer";iframe.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";
- iframe.allowFullscreen=true;iframe.referrerPolicy="strict-origin-when-cross-origin";container.appendChild(iframe);
- const player=new playerjs.Player(iframe);let locked=false;
- function lockPreview(){if(locked)return;locked=true;player.pause();player.setCurrentTime(FREE_LIMIT_SECONDS);showPurchaseGate("9:42 Free Preview Finished","BUY FULL VIDEO","Waxaad daawatay 9 daqiiqo iyo 42 ilbiriqsi oo bilaash ah. Si aad u sii waddo dokumentariga oo dhammaystiran, iibso muuqaalka.")}
- player.on("ready",function(){player.setLoop(false);const clock=setInterval(function(){if(locked){clearInterval(clock);return}player.getCurrentTime(function(seconds){const current=Number(seconds);if(Number.isFinite(current)&&current>=FREE_LIMIT_SECONDS)lockPreview()})},250)});
- player.on("timeupdate",function(data){if(!data)return;let seconds;if(typeof data==="object")seconds=Number(data.seconds);else{try{seconds=Number(JSON.parse(data).seconds)}catch(e){seconds=NaN}}if(Number.isFinite(seconds)&&seconds>=FREE_LIMIT_SECONDS)lockPreview()});
- player.on("seeked",function(data){if(locked)return;const seconds=Number(data&&data.seconds);if(Number.isFinite(seconds)&&seconds>=FREE_LIMIT_SECONDS)lockPreview()});
- player.on("ended",function(){if(!locked)lockPreview()});
-}
-if(token&&expires)startPaidVideo();
-else if(product.preview)startFreePreview();
-else showPurchaseGate("FULL EPISODE",product.title,"Qeybtan waxaa heli kara oo keliya dadka iibsada muuqaalka. Lacag bixintu waxay ku siinaysaa 2 saacadood oo daawasho ah.");
+}else showPurchaseGate();
 </script>
 </body>
 </html>
