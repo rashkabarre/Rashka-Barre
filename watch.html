@@ -3,11 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta
-    name="referrer"
-    content="strict-origin-when-cross-origin"
-  >
-
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Aarkii Kiyow — Watch</title>
 
   <style>
@@ -28,9 +24,12 @@
     }
 
     .video-wrap {
+      position: relative;
       width: 100%;
       max-width: 1200px;
       aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
     }
 
     iframe {
@@ -40,55 +39,214 @@
       display: block;
     }
 
+    .gate {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.96);
+      padding: 24px;
+      box-sizing: border-box;
+    }
+
+    .gate-card {
+      width: 100%;
+      max-width: 560px;
+    }
+
+    .gate-kicker {
+      margin: 0 0 12px;
+      color: #ff5a67;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .gate h1 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 5vw, 52px);
+      line-height: 1;
+    }
+
+    .gate p {
+      margin: 0 0 24px;
+      color: #b7b7bf;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .buy-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 28px;
+      border-radius: 999px;
+      background: #e63946;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 12px 30px rgba(230, 57, 70, 0.35);
+    }
+
+    .buy-btn:hover {
+      background: #ff5a67;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
     .error {
       text-align: center;
       max-width: 500px;
+      margin: auto;
+      padding: 30px;
     }
   </style>
 </head>
 
 <body>
+  <div class="page">
+    <div class="video-wrap" id="videoContainer"></div>
+  </div>
 
-<div class="page">
-  <div class="video-wrap" id="videoContainer"></div>
-</div>
+  <script src="https://cdn.embed.ly/player-0.1.0.min.js"></script>
 
-<script>
-  const params = new URLSearchParams(window.location.search);
+  <script>
+    const FREE_LIMIT_SECONDS = 582; // 9 minutes 42 seconds
 
-  const token = params.get("token");
-  const expires = params.get("expires");
-
-  const container = document.getElementById("videoContainer");
-
-  if (!token || !expires) {
-    container.innerHTML = `
-      <div class="error">
-        <h1>Invalid viewing link</h1>
-        <p>Please return to your purchase confirmation and try again.</p>
-      </div>
-    `;
-  } else {
-    const iframeUrl =
-      "https://player.mediadelivery.net/embed/" +
+    const VIDEO_PLAY_URL =
+      "https://player.mediadelivery.net/play/" +
       "761815/" +
-      "2861540b-30a0-4331-9e66-d267627aac29" +
-      "?token=" + encodeURIComponent(token) +
-      "&expires=" + encodeURIComponent(expires);
+      "2861540b-30a0-4331-9e66-d267627aac29";
 
-    const iframe = document.createElement("iframe");
+    const PAYMENT_URL =
+      "https://rashka-payment.waddanisoamli.workers.dev/buy";
 
-    iframe.src = iframeUrl;
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
+    const expires = params.get("expires");
 
-    iframe.title = "Aarkii Kiyow";
-    iframe.allow =
-      "autoplay; encrypted-media; picture-in-picture; fullscreen";
-    iframe.allowFullscreen = true;
-    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+    const container = document.getElementById("videoContainer");
 
-    container.appendChild(iframe);
-  }
-</script>
+    function showPurchaseGate() {
+      const iframe = document.getElementById("videoFrame");
 
+      if (iframe) {
+        iframe.style.visibility = "hidden";
+        iframe.style.pointerEvents = "none";
+      }
+
+      if (document.getElementById("purchaseGate")) return;
+
+      const gate = document.createElement("div");
+      gate.id = "purchaseGate";
+      gate.className = "gate";
+
+      gate.innerHTML = `
+        <div class="gate-card">
+          <p class="gate-kicker">9:42 Free Preview Finished</p>
+          <h1>BUY FULL VIDEO</h1>
+          <p>
+            Waxaad daawatay 9 daqiiqo iyo 42 ilbiriqsi oo bilaash ah.
+            Si aad u sii waddo dokumentariga oo dhammaystiran, iibso muuqaalka.
+          </p>
+          <a class="buy-btn" href="${PAYMENT_URL}">
+            BUY FULL VIDEO — $0.25
+          </a>
+        </div>
+      `;
+
+      container.appendChild(gate);
+    }
+
+    function startPaidVideo() {
+      const iframeUrl =
+        "https://player.mediadelivery.net/embed/" +
+        "761815/" +
+        "2861540b-30a0-4331-9e66-d267627aac29" +
+        "?token=" + encodeURIComponent(token) +
+        "&expires=" + encodeURIComponent(expires);
+
+      const iframe = document.createElement("iframe");
+      iframe.id = "videoFrame";
+      iframe.src = iframeUrl;
+      iframe.title = "Aarkii Kiyow";
+      iframe.allow =
+        "autoplay; encrypted-media; picture-in-picture; fullscreen";
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+
+      container.appendChild(iframe);
+    }
+
+    function startFreePreview() {
+      const iframe = document.createElement("iframe");
+      iframe.id = "videoFrame";
+
+      // playerjs=true enables Bunny's Player.js postMessage bridge,
+      // allowing this page to receive actual video time updates.
+      iframe.src = VIDEO_PLAY_URL + "?playerjs=true";
+      iframe.title = "Aarkii Kiyow — Trailer";
+      iframe.allow =
+        "autoplay; encrypted-media; picture-in-picture; fullscreen";
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+
+      container.appendChild(iframe);
+
+      const player = new playerjs.Player(iframe);
+      let locked = false;
+
+      function lockPreview() {
+        if (locked) return;
+        locked = true;
+
+        player.pause();
+        player.setCurrentTime(FREE_LIMIT_SECONDS);
+        showPurchaseGate();
+      }
+
+      player.on("ready", function () {
+        // Do not autoplay. The viewer starts the trailer normally.
+        player.setLoop(false);
+      });
+
+      player.on("timeupdate", function (data) {
+        if (!data) return;
+
+        const seconds = Number(data.seconds);
+
+        if (Number.isFinite(seconds) && seconds >= FREE_LIMIT_SECONDS) {
+          lockPreview();
+        }
+      });
+
+      player.on("seeked", function (data) {
+        if (locked) return;
+
+        const seconds = Number(data && data.seconds);
+
+        if (Number.isFinite(seconds) && seconds >= FREE_LIMIT_SECONDS) {
+          lockPreview();
+        }
+      });
+
+      player.on("ended", function () {
+        if (!locked) lockPreview();
+      });
+    }
+
+    if (token && expires) {
+      startPaidVideo();
+    } else {
+      startFreePreview();
+    }
+  </script>
 </body>
 </html>
