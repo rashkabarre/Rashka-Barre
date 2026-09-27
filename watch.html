@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Rashka Barre — Watch</title>
+<script src="https://assets.mediadelivery.net/playerjs/player-0.1.0.min.js"></script>
 <style>
 body{margin:0;background:#000;color:#fff;font-family:Arial,sans-serif}
 .page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box}
@@ -61,33 +62,43 @@ async function recordView(){
  }
 }
 
-function handleBunnyMessage(event){
- if(!event.origin || !event.origin.includes("mediadelivery.net")) return;
- let data=event.data;
- if(typeof data==="string"){
-  try{data=JSON.parse(data)}catch(e){return}
- }
- if(!data || typeof data!=="object") return;
- const eventName=String(data.event||data.type||data.name||"").toLowerCase();
- if(["play","playing","started","playbackstart","video_play"].includes(eventName)){
-  recordView();
- }
-}
+function setupPlayer(iframe){
+ const player=new playerjs.Player(iframe);
 
-window.addEventListener("message",handleBunnyMessage);
+ player.on("ready",function(){
+  console.log("Bunny Player.js ready");
+ });
+
+ player.on("play",function(){
+  console.log("Bunny Player.js play event");
+  recordView();
+ });
+
+ player.on("playing",function(){
+  console.log("Bunny Player.js playing event");
+  recordView();
+ });
+}
 
 if(token&&expires){
  const iframe=document.createElement("iframe");
+ iframe.id="bunny-stream-embed";
  iframe.src="https://player.mediadelivery.net/embed/"+LIBRARY_ID+"/"+EPISODE_1_ID;
  iframe.title="TAXANAHA KIYOW — Qeybta 1";
  iframe.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";
  iframe.allowFullscreen=true;
  iframe.referrerPolicy="strict-origin-when-cross-origin";
  container.appendChild(iframe);
+
+ if(window.playerjs){
+  setupPlayer(iframe);
+ }else{
+  window.addEventListener("load",function(){setupPlayer(iframe)});
+ }
 }else{
  showPurchaseGate();
 }
 </script>
 </body>
 </html>
-<!-- View tracking added: 2026-09-28 -->
+<!-- Bunny Player.js view tracking: 2026-09-28 -->
