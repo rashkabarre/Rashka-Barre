@@ -23,22 +23,30 @@ iframe{width:100%;height:100%;border:0;display:block}
 const LIBRARY_ID="761815";
 const EPISODE_1_ID="7e638a65-c874-4b96-b1c5-24a9201d8946";
 const PAYMENT_URL="https://rashka-payment.waddanisoamli.workers.dev/buy?product=taxanaha-kiyow-episode-1";
+
 const params=new URLSearchParams(location.search);
-const token=params.get("token"),expires=params.get("expires");
+const token=params.get("token");
+const expires=params.get("expires");
 const container=document.getElementById("videoContainer");
+
 function showPurchaseGate(){
- const gate=document.createElement("div");gate.className="gate";
+ const gate=document.createElement("div");
+ gate.className="gate";
  gate.innerHTML='<div class="gate-card"><p class="gate-kicker">FULL EPISODE</p><h1>TAXANAHA KIYOW — Qeybta 1</h1><p>Qeybtan waxaa heli kara oo keliya dadka iibsada muuqaalka. Lacag bixintu waxay ku siinaysaa 2 saacadood oo daawasho ah.</p><a class="buy-btn" href="'+PAYMENT_URL+'">BUY & WATCH — $0.26</a></div>';
  container.appendChild(gate);
 }
+
 if(token&&expires){
  const iframe=document.createElement("iframe");
- iframe.src="https://player.mediadelivery.net/embed/"+LIBRARY_ID+"/"+EPISODE_1_ID+"?token="+encodeURIComponent(token)+"&expires="+encodeURIComponent(expires);
+ iframe.src="https://player.mediadelivery.net/embed/"+LIBRARY_ID+"/"+EPISODE_1_ID;
  iframe.title="TAXANAHA KIYOW — Qeybta 1";
  iframe.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";
- iframe.allowFullscreen=true;iframe.referrerPolicy="strict-origin-when-cross-origin";
+ iframe.allowFullscreen=true;
+ iframe.referrerPolicy="strict-origin-when-cross-origin";
  container.appendChild(iframe);
-}else showPurchaseGate();
+}else{
+ showPurchaseGate();
+}
 </script>
 </body>
 </html>
