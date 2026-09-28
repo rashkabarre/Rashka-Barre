@@ -391,6 +391,28 @@
        ===================================================== */
 
     /* =====================================================
+       VIDEO DURATION BADGE
+       ===================================================== */
+
+    .duration-badge {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      z-index: 5;
+
+      padding: 5px 7px;
+      border-radius: 4px;
+
+      background: rgba(0, 0, 0, 0.82);
+      color: #ffffff;
+
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      line-height: 1;
+    }
+
+    /* =====================================================
        NEW BADGE
        ===================================================== */
 
@@ -1234,16 +1256,11 @@
                             loading="lazy"
                           >
 
-                          <div
-                            class="coming-soon-overlay"
-                            style="${isEpisodeOne ? "" : "display:none;"}"
-                          >
-                            <div
-                              class="coming-soon-episode"
-                            >
-                              EPISODE 1
-                            </div>
-                          </div>
+                          ${isEpisodeOne ? `
+                            <span class="duration-badge">
+                              00:38:38
+                            </span>
+                          ` : ""}
 
                         </div>
 
