@@ -855,7 +855,7 @@
 
   <!-- PRODUCTS -->
 
-  <script src="products.js?v=20260927-0001"></script>
+  <script src="products.js?v=20260928-0002"></script>
 
 
   <!-- GALLERY SCRIPT -->
@@ -1110,6 +1110,9 @@
                     product.id ===
                     "taxanaha-kiyow-episode-1";
 
+                  const duration =
+                    escapeHtml(product.duration || "");
+
 
                   const isNew =
                     !isComingSoon &&
@@ -1257,9 +1260,7 @@
                           >
 
                           ${isEpisodeOne ? `
-                            <span class="duration-badge">
-                              00:38:38
-                            </span>
+                            <span class="duration-badge">${duration}</span>
                           ` : ""}
 
                         </div>
