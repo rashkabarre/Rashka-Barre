@@ -8,6 +8,7 @@ const PRODUCTS = [
     description:
       "Kani waa Qeybta 1-aad ee Taxanaha Kiyow oo dhammaystiran.",
     preview: "",
+    duration: "00:38:38",
     paymentUrl:
       "https://rashka-payment.waddanisoamli.workers.dev/buy?product=taxanaha-kiyow-episode-1",
     publishedAt: "2026-09-27",
