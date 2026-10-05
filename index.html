@@ -1106,10 +1106,6 @@
                   const isComingSoon =
                     product.status ===
                     "coming-soon";
-                  const isEpisodeOne =
-                    product.id ===
-                    "taxanaha-kiyow-episode-1";
-
                   const duration =
                     escapeHtml(product.duration || "");
 
@@ -1259,7 +1255,7 @@
                             loading="lazy"
                           >
 
-                          ${isEpisodeOne ? `
+                          ${duration ? `
                             <span class="duration-badge">${duration}</span>
                           ` : ""}
 
