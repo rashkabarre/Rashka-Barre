@@ -252,14 +252,14 @@
 
       color: #ffffff;
 
-      font-size: 24px;
-      line-height: 1.1;
+      font-size: 13px;
+      line-height: 1.4;
 
-      font-weight: 900;
+      font-weight: 400;
 
-      letter-spacing: -0.55px;
+      letter-spacing: normal;
 
-      text-transform: uppercase;
+      text-transform: none;
 
       display: -webkit-box;
       -webkit-box-orient: vertical;
@@ -277,14 +277,16 @@
 
       color: var(--muted);
 
-      font-size: 13px;
-      line-height: 1.4;
+      font-size: 24px;
+      line-height: 1.1;
 
-      font-weight: 400;
+      font-weight: 900;
 
-      text-transform: none;
+      letter-spacing: -0.55px;
 
-      min-height: 18px;
+      text-transform: uppercase;
+
+      min-height: 0;
     }
 
     /* =====================================================
@@ -633,13 +635,13 @@
       }
 
       .video-title {
-        font-size: 15px;
-        line-height: 1.12;
+        font-size: 10px;
+        line-height: 1.4;
       }
 
       .video-subtitle {
         margin: 4px 0 8px;
-        font-size: 10px;
+        font-size: 15px;
       }
 
       .thumbnail {
@@ -1140,18 +1142,18 @@
                         class="video-item"
                       >
 
-                        <h2
-                          class="video-title"
-                        >
-                          ${title}
-                        </h2>
-
-
                         <p
                           class="video-subtitle"
                         >
                           ${subtitle}
                         </p>
+
+
+                        <h2
+                          class="video-title"
+                        >
+                          ${title}
+                        </h2>
 
 
                         <div
