@@ -20,42 +20,75 @@ iframe{width:100%;height:100%;border:0;display:block}
 </head>
 <body>
 <div class="page"><div class="video-wrap" id="videoContainer"></div></div>
+
 <script>
-const LIBRARY_ID="763894";
-const EPISODE_1_ID="7e638a65-c874-4b96-b1c5-24a9201d8946";
-const VIDEO_KEY="taxanaha-kiyow-episode-1";
-const PAYMENT_URL="https://rashka-payment.waddanisoamli.workers.dev/buy?product="+VIDEO_KEY;
+const PRODUCTS = {
+  "taxanaha-kiyow-episode-1": {
+    libraryId: "763894",
+    videoId: "7e638a65-c874-4b96-b1c5-24a9201d8946",
+    title: "TAXANAHA KIYOW — Qeybta 1",
+    videoKey: "taxanaha-kiyow-episode-1"
+  },
+
+  "taxanaha-kiyow-episode-2": {
+    libraryId: "770512",
+    videoId: "77c810da-3dd8-4f1f-ba5d-e97089bb6e48",
+    title: "TAXANAHA KIYOW — Qeybta 2",
+    videoKey: "taxanaha-kiyow-episode-2"
+  }
+};
+
 const ENGAGEMENT_URL="https://rashka-engagement.waddanisoamli.workers.dev";
 
 const params=new URLSearchParams(location.search);
 const token=params.get("token");
 const expires=params.get("expires");
+const productKey=params.get("product");
+
+const product=PRODUCTS[productKey];
 const container=document.getElementById("videoContainer");
+
 let viewRecorded=false;
 
 function showPurchaseGate(){
  const gate=document.createElement("div");
  gate.className="gate";
- gate.innerHTML='<div class="gate-card"><p class="gate-kicker">FULL EPISODE</p><h1>TAXANAHA KIYOW — Qeybta 1</h1><p>Qeybtan waxaa heli kara oo keliya dadka iibsada muuqaalka. Lacag bixintu waxay ku siinaysaa 2 saacadood oo daawasho ah.</p><a class="buy-btn" href="'+PAYMENT_URL+'">BUY & WATCH — $0.26</a></div>';
+
+ const title=product
+   ? product.title
+   : "TAXANAHA KIYOW";
+
+ const paymentUrl=product
+   ? "https://rashka-payment.waddanisoamli.workers.dev/buy?product="+encodeURIComponent(product.videoKey)
+   : "https://rashka-payment.waddanisoamli.workers.dev/buy";
+
+ gate.innerHTML='<div class="gate-card"><p class="gate-kicker">FULL EPISODE</p><h1>'+title+'</h1><p>Qeybtan waxaa heli kara oo keliya dadka iibsada muuqaalka. Lacag bixintu waxay ku siinaysaa 2 saacadood oo daawasho ah.</p><a class="buy-btn" href="'+paymentUrl+'">BUY & WATCH — $0.26</a></div>';
+
  container.appendChild(gate);
 }
 
 async function recordView(){
  if(viewRecorded) return;
  viewRecorded=true;
+
  try{
   const response=await fetch(ENGAGEMENT_URL+"/view",{
    method:"POST",
    headers:{"Content-Type":"application/json"},
-   body:JSON.stringify({video:VIDEO_KEY})
+   body:JSON.stringify({
+    video: product ? product.videoKey : productKey
+   })
   });
+
   if(!response.ok){
    viewRecorded=false;
    console.error("View tracking failed:",response.status);
    return;
   }
+
   const data=await response.json();
   console.log("View recorded:",data);
+
  }catch(error){
   viewRecorded=false;
   console.error("View tracking error:",error);
@@ -81,36 +114,56 @@ function setupPlayer(iframe){
 
  player.on("timeupdate",function(timingData){
   try{
-   const data=typeof timingData==="string"?JSON.parse(timingData):timingData;
+   const data=typeof timingData==="string"
+     ? JSON.parse(timingData)
+     : timingData;
+
    if(data && Number(data.seconds)>0){
     console.log("Bunny playback time detected:",data.seconds);
     recordView();
    }
+
   }catch(error){
    console.error("Bunny timeupdate parse error:",error);
   }
  });
 }
 
-if(token&&expires){
+if(token && expires && product){
+
  const iframe=document.createElement("iframe");
+
  iframe.id="bunny-stream-embed";
- iframe.src="https://player.mediadelivery.net/embed/"+LIBRARY_ID+"/"+EPISODE_1_ID;
- iframe.title="TAXANAHA KIYOW — Qeybta 1";
+
+ iframe.src=
+   "https://player.mediadelivery.net/embed/"
+   +product.libraryId
+   +"/"
+   +product.videoId;
+
+ iframe.title=product.title;
+
  iframe.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";
+
  iframe.allowFullscreen=true;
+
  iframe.referrerPolicy="strict-origin-when-cross-origin";
+
  container.appendChild(iframe);
 
  if(window.playerjs){
   setupPlayer(iframe);
  }else{
-  window.addEventListener("load",function(){setupPlayer(iframe)});
+  window.addEventListener("load",function(){
+   setupPlayer(iframe);
+  });
  }
+
 }else{
  showPurchaseGate();
 }
 </script>
 </body>
 </html>
-<!-- Bunny Player.js view tracking + timeupdate fallback: 2026-09-28 -->
+
+<!-- Bunny Player.js view tracking + dynamic episode playback: 2026-10-05 -->
