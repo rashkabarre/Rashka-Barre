@@ -24,6 +24,7 @@ const PRODUCTS = [
     description:
       "Kani waa Qeybta 2-aad ee Taxanaha Kiyow oo dhammaystiran.",
     preview: "",
+    duration: "38:15",
     paymentUrl:
       "https://rashka-payment.waddanisoamli.workers.dev/buy?product=taxanaha-kiyow-episode-2",
     publishedAt: "2026-10-05",
